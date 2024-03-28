@@ -41,7 +41,11 @@ class HomeScreen extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.all(20),
                     child: BannerWidget(),
-                  )
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TitleWidget(title: "En salle"),
+                  ),
                 ])));
   }
 }
