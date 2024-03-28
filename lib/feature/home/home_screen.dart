@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cinetix/feature/home/widget/banner_widget.dart';
 import 'package:cinetix/feature/home/widget/header_widget.dart';
+import 'package:cinetix/feature/home/widget/search_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,30 +22,10 @@ class HomeScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: Column(
-                      children: [
-                        const Header(),
-                        const SizedBox(height: 20),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 60,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.grey.shade300,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: BorderSide.none,
-                              ),
-                              hintText: 'Recherche',
-                              hintStyle: const TextStyle(color: Colors.black),
-                              prefixIcon: const Icon(
-                                Icons.search,
-                                color: Colors.black,
-                                size: 24,
-                              ),
-                            ),
-                          ),
-                        ),
+                      children: const [
+                        Header(),
+                        SizedBox(height: 20),
+                        Search(),
                       ],
                     ),
                   ),
