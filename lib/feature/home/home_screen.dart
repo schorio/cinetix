@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cinetix/feature/home/widget/banner_widget.dart';
 import 'package:cinetix/feature/home/widget/header_widget.dart';
 import 'package:cinetix/feature/home/widget/search_widget.dart';
+import 'package:cinetix/feature/home/widget/title_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,6 +26,8 @@ class HomeScreen extends StatelessWidget {
                         Header(),
                         SizedBox(height: 22.5),
                         Search(),
+                        SizedBox(height: 22.5),
+                        TitleWidget(title: "Category"),
                         SizedBox(height: 22.5),
                         BannerWidget(),
                       ],
