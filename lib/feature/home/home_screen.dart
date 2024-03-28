@@ -4,6 +4,7 @@ import 'package:cinetix/feature/home/widget/header_widget.dart';
 import 'package:cinetix/feature/home/widget/search_widget.dart';
 import 'package:cinetix/feature/home/widget/title_widget.dart';
 import 'package:cinetix/feature/home/widget/category_widget.dart';
+import 'package:cinetix/feature/home/widget/ensalle_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -43,8 +44,12 @@ class HomeScreen extends StatelessWidget {
                     child: BannerWidget(),
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: TitleWidget(title: "En salle"),
+                    padding: EdgeInsets.only(left: 20, right: 20, top: 5),
+                    child: TitleWidget(title: "Films en salle"),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    child: EnSalleWidget(),
                   ),
                 ])));
   }
