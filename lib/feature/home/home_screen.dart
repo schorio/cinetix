@@ -18,21 +18,17 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 24),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    padding: const EdgeInsets.all(22.5),
                     child: Column(
                       children: const [
                         Header(),
-                        SizedBox(height: 20),
+                        SizedBox(height: 22.5),
                         Search(),
+                        SizedBox(height: 22.5),
+                        BannerWidget(),
                       ],
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 24),
-                    child: BannerWidget(),
                   ),
                 ])));
   }
