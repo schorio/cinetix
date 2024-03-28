@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cinetix/feature/home/widget/banner_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -66,6 +67,11 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                  const SizedBox(height: 20),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24),
+                    child: BannerWidget(),
                   ),
                 ])));
   }
