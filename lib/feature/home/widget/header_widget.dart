@@ -12,7 +12,7 @@ class Header extends StatelessWidget {
         Text(
           "Hi, Schorio",
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 35,
           ),
         ),
         Spacer(),
