@@ -3,6 +3,7 @@ import 'package:cinetix/feature/home/widget/banner_widget.dart';
 import 'package:cinetix/feature/home/widget/header_widget.dart';
 import 'package:cinetix/feature/home/widget/search_widget.dart';
 import 'package:cinetix/feature/home/widget/title_widget.dart';
+import 'package:cinetix/feature/home/widget/category_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,19 +21,27 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(22.5),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: const [
                         Header(),
-                        SizedBox(height: 22.5),
+                        SizedBox(height: 20),
                         Search(),
-                        SizedBox(height: 22.5),
-                        TitleWidget(title: "Category"),
-                        SizedBox(height: 22.5),
-                        BannerWidget(),
                       ],
                     ),
                   ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TitleWidget(title: "Category"),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 17, bottom: 5),
+                    child: CategoryWidget(),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(20),
+                    child: BannerWidget(),
+                  )
                 ])));
   }
 }
