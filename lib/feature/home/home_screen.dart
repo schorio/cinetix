@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cinetix/feature/home/widget/banner_widget.dart';
+import 'package:cinetix/feature/home/widget/header_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,28 +22,7 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: Column(
                       children: [
-                        Row(
-                          children: const [
-                            Text(
-                              "Hi, Schorio",
-                              style: TextStyle(
-                                fontSize: 30,
-                              ),
-                            ),
-                            Spacer(),
-                            CircleAvatar(
-                              backgroundImage: AssetImage('assets/profile.jpg'),
-                              radius: 25,
-                              child: Align(
-                                alignment: Alignment.topRight,
-                                child: CircleAvatar(
-                                  backgroundColor: Color(0xFF7c44c2),
-                                  radius: 7.0,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        const Header(),
                         const SizedBox(height: 20),
                         SizedBox(
                           width: MediaQuery.of(context).size.width,
