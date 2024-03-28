@@ -22,7 +22,7 @@ class TitleWidget extends StatelessWidget {
           title,
           style: Theme.of(context)
               .textTheme
-              .headline4
+              .headline5
               ?.copyWith(color: Colors.black),
         ),
         InkWell(
