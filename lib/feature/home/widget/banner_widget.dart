@@ -37,21 +37,24 @@ class _BannerWidgetState extends State<BannerWidget> {
               },
             ),
             itemBuilder: (context, index, _) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  image: DecorationImage(
-                    image: AssetImage(
-                      banners[index],
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    image: DecorationImage(
+                      image: AssetImage(
+                        banners[index],
+                      ),
+                      fit: BoxFit.cover,
                     ),
-                    fit: BoxFit.cover,
                   ),
                 ),
               );
             },
           ),
           Positioned(
-            left: 16,
+            left: 35,
             bottom: 16,
             child: Row(
               children: List.generate(

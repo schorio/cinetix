@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                     child: CategoryWidget(),
                   ),
                   const Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.symmetric(vertical: 20),
                     child: BannerWidget(),
                   ),
                   const Padding(
