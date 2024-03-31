@@ -12,10 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "CinéTix",
       themeMode: ThemeMode.light,
+      theme: ThemeData(fontFamily: 'Montserrat_3'),
       initialRoute: AppRouteName.home,
       onGenerateRoute: AppRoute.generate,
     );
