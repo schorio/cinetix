@@ -20,10 +20,8 @@ class TitleWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context)
-              .textTheme
-              .headline5
-              ?.copyWith(color: Colors.black, fontSize: 30),
+          style: Theme.of(context).textTheme.headline5?.copyWith(
+              color: Colors.black, fontSize: 30, fontFamily: 'Montserrat_2'),
         ),
         InkWell(
           onTap: onSufixClick,
@@ -32,7 +30,7 @@ class TitleWidget extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .bodyMedium
-                ?.copyWith(color: Colors.black),
+                ?.copyWith(color: Colors.black, fontFamily: 'Montserrat_2'),
           ),
         )
       ],
