@@ -5,14 +5,55 @@ import 'package:cinetix/feature/home/widget/search_widget.dart';
 import 'package:cinetix/feature/home/widget/title_widget.dart';
 import 'package:cinetix/feature/home/widget/category_widget.dart';
 import 'package:cinetix/feature/home/widget/ensalle_widget.dart';
+import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final VideoPlayerController videoPlayerController =
+      VideoPlayerController.asset("assets/background/7.mp4");
+
+  ChewieController? chewieController;
+
+  // init State
+  @override
+  void initState() {
+    chewieController = ChewieController(
+      videoPlayerController: videoPlayerController,
+      aspectRatio: 9.2 / 20,
+      autoPlay: true,
+      looping: true,
+      autoInitialize: true,
+      showControls: false,
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    videoPlayerController.dispose();
+    chewieController!.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
+        body: Stack(
+      fit: StackFit.expand,
+      children: [
+        Expanded(
+            child: Chewie(
+          controller: chewieController!,
+        )),
+        SingleChildScrollView(
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).padding.top,
               bottom: MediaQuery.of(context).padding.bottom,
@@ -51,6 +92,8 @@ class HomeScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 20),
                     child: EnSalleWidget(),
                   ),
-                ])));
+                ]))
+      ],
+    ));
   }
 }
