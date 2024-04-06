@@ -20,20 +20,29 @@ class _HomeScreenState extends State<HomeScreen> {
   final VideoPlayerController videoPlayerController =
       VideoPlayerController.asset("assets/background/7.mp4");
 
-  ChewieController? chewieController;
+  late ChewieController chewieController;
+  late double aspectRatio;
 
-  // init State
   @override
   void initState() {
+    super.initState();
+    aspectRatio = 0.0;
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    aspectRatio =
+        MediaQuery.of(context).size.width / MediaQuery.of(context).size.height;
+
     chewieController = ChewieController(
       videoPlayerController: videoPlayerController,
-      aspectRatio: 9.2 / 20,
+      aspectRatio: aspectRatio,
       autoPlay: true,
       looping: true,
       autoInitialize: true,
       showControls: false,
     );
-    super.initState();
   }
 
   @override
