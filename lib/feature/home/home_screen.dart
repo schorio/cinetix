@@ -46,54 +46,55 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
-      fit: StackFit.expand,
-      children: [
-        Expanded(
-            child: Chewie(
-          controller: chewieController!,
-        )),
-        SingleChildScrollView(
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).padding.top,
-              bottom: MediaQuery.of(context).padding.bottom,
-            ),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      children: const [
-                        Header(),
-                        SizedBox(height: 20),
-                        Search(),
-                      ],
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: TitleWidget(title: "Category"),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 12, bottom: 5),
-                    child: CategoryWidget(),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    child: BannerWidget(),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20, top: 5),
-                    child: TitleWidget(title: "Films en salle"),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    child: EnSalleWidget(),
-                  ),
-                ]))
-      ],
-    ));
+          fit: StackFit.expand,
+          children: [
+            Expanded(
+                child: Chewie(
+              controller: chewieController!,
+            )),
+            SingleChildScrollView(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).padding.top,
+                  bottom: MediaQuery.of(context).padding.bottom,
+                ),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          children: const [
+                            Header(),
+                            SizedBox(height: 20),
+                            Search(),
+                          ],
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: TitleWidget(title: "Category"),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 12, bottom: 5),
+                        child: CategoryWidget(),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20),
+                        child: BannerWidget(),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 5),
+                        child: TitleWidget(title: "Films en salle"),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20),
+                        child: EnSalleWidget(),
+                      ),
+                    ]))
+          ],
+        ));
   }
 }
