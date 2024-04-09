@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void dispose() {
     videoPlayerController.dispose();
-    chewieController!.dispose();
+    chewieController.dispose();
     super.dispose();
   }
 
@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Expanded(
                 child: Chewie(
-              controller: chewieController!,
+              controller: chewieController,
             )),
             SingleChildScrollView(
                 padding: EdgeInsets.only(
