@@ -2,16 +2,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
 
-class EnSalleWidget extends StatefulWidget {
-  const EnSalleWidget({required this.listFilms, super.key});
+class SliderFilmsWidget extends StatefulWidget {
+  const SliderFilmsWidget({required this.listFilms, super.key});
 
   final List<Film> listFilms;
 
   @override
-  State<EnSalleWidget> createState() => _EnSalleWidgetState();
+  State<SliderFilmsWidget> createState() => _SliderFilmsWidgetState();
 }
 
-class _EnSalleWidgetState extends State<EnSalleWidget> {
+class _SliderFilmsWidgetState extends State<SliderFilmsWidget> {
   int centerIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _EnSalleWidgetState extends State<EnSalleWidget> {
           },
         ),
         itemBuilder: (context, index, _) {
-          return _EnProjectionItem(
+          return _FilmsItem(
             film: widget.listFilms[index],
             isCenter: index == centerIndex,
           );
@@ -43,8 +43,8 @@ class _EnSalleWidgetState extends State<EnSalleWidget> {
   }
 }
 
-class _EnProjectionItem extends StatefulWidget {
-  const _EnProjectionItem({
+class _FilmsItem extends StatefulWidget {
+  const _FilmsItem({
     required this.film,
     this.isCenter = false,
   });
@@ -53,10 +53,10 @@ class _EnProjectionItem extends StatefulWidget {
   final bool isCenter;
 
   @override
-  State<_EnProjectionItem> createState() => __EnProjectionItemState();
+  State<_FilmsItem> createState() => __FilmsItemState();
 }
 
-class __EnProjectionItemState extends State<_EnProjectionItem> {
+class __FilmsItemState extends State<_FilmsItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

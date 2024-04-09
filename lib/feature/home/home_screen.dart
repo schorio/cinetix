@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: EnSalleWidget(listFilms: enProjection),
+                        child: SliderFilmsWidget(listFilms: enProjection),
                       ),
                     ]))
           ],
