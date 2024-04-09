@@ -122,13 +122,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         margin: EdgeInsets.only(
                             top: MediaQuery.of(context).size.height * 0.01),
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.4,
+                        height: MediaQuery.of(context).size.height * 0.52,
                         child: TabBarView(
                             physics: const NeverScrollableScrollPhysics(),
                             controller: tabController,
-                            children: const [
-                              Text("      Pas de commentaire"),
-                              Text("      Pas de commentaire")
+                            children: [
+                              SliderFilmsWidget(listFilms: enProjection),
+                              const Text("Pas de commentaire")
                             ]),
                       ),
                       const Padding(
