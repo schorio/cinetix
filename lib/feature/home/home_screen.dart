@@ -17,15 +17,17 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   final VideoPlayerController videoPlayerController =
       VideoPlayerController.asset("assets/background/7.mp4");
 
   late ChewieController chewieController;
   late double aspectRatio;
+  late final TabController tabController;
 
   @override
   void initState() {
+    tabController = TabController(length: 2, vsync: this);
     super.initState();
     aspectRatio = 0.0;
   }
@@ -99,9 +101,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                         child: TitleWidget(title: "Films en salle"),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: SliderFilmsWidget(listFilms: enProjection),
+                      TabBar(
+                        overlayColor:
+                            MaterialStateProperty.all(Colors.transparent),
+                        labelPadding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.05,
+                            right: MediaQuery.of(context).size.width * 0.05),
+                        controller: tabController,
+                        labelColor: Colors.white,
+                        unselectedLabelColor: Colors.black,
+                        isScrollable: true,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        indicatorColor: Colors.white,
+                        tabs: const [
+                          Tab(text: "Complet"),
+                          Tab(text: "Avant-première"),
+                        ],
                       ),
                       const Padding(
                         padding: EdgeInsets.only(left: 20, right: 20, top: 10),
