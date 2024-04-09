@@ -118,6 +118,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           Tab(text: "Avant-première"),
                         ],
                       ),
+                      Container(
+                        margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.01),
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        child: TabBarView(
+                            physics: const NeverScrollableScrollPhysics(),
+                            controller: tabController,
+                            children: const [
+                              Text("      Pas de commentaire"),
+                              Text("      Pas de commentaire")
+                            ]),
+                      ),
                       const Padding(
                         padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                         child: TitleWidget(title: "Prochainement"),
