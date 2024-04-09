@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
 
 class EnSalleWidget extends StatefulWidget {
-  const EnSalleWidget({super.key});
+  const EnSalleWidget({required this.listFilms, super.key});
+
+  final List<Film> listFilms;
 
   @override
   State<EnSalleWidget> createState() => _EnSalleWidgetState();
@@ -17,7 +19,7 @@ class _EnSalleWidgetState extends State<EnSalleWidget> {
       width: MediaQuery.of(context).size.width,
       height: 400,
       child: CarouselSlider.builder(
-        itemCount: enProjection.length,
+        itemCount: widget.listFilms.length,
         options: CarouselOptions(
           height: 400,
           enlargeCenterPage: true,
@@ -32,7 +34,7 @@ class _EnSalleWidgetState extends State<EnSalleWidget> {
         ),
         itemBuilder: (context, index, _) {
           return _EnProjectionItem(
-            film: enProjection[index],
+            film: widget.listFilms[index],
             isCenter: index == centerIndex,
           );
         },

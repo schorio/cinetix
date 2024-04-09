@@ -5,6 +5,7 @@ import 'package:cinetix/feature/home/widget/search_widget.dart';
 import 'package:cinetix/feature/home/widget/title_widget.dart';
 import 'package:cinetix/feature/home/widget/category_widget.dart';
 import 'package:cinetix/feature/home/widget/ensalle_widget.dart';
+import 'package:cinetix/core/model/film_model.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 
@@ -98,9 +99,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: EdgeInsets.only(left: 20, right: 20, top: 5),
                         child: TitleWidget(title: "Films en salle"),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        child: EnSalleWidget(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: EnSalleWidget(listFilms: enProjection),
                       ),
                     ]))
           ],
