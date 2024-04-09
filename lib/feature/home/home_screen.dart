@@ -96,12 +96,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: BannerWidget(),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 5),
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                         child: TitleWidget(title: "Films en salle"),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: SliderFilmsWidget(listFilms: enProjection),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                        child: TitleWidget(title: "Prochainement"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: SliderFilmsWidget(listFilms: prochainement),
                       ),
                     ]))
           ],
