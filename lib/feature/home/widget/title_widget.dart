@@ -6,11 +6,13 @@ class TitleWidget extends StatelessWidget {
     required this.title,
     this.sufixText = "voir plus",
     this.onSufixClick,
+    this.voirPlus = true,
   });
 
   final String title;
   final String sufixText;
   final void Function()? onSufixClick;
+  final bool voirPlus;
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +25,17 @@ class TitleWidget extends StatelessWidget {
           style: Theme.of(context).textTheme.headline5?.copyWith(
               color: Colors.black, fontSize: 30, fontFamily: 'Montserrat_2'),
         ),
-        InkWell(
-          onTap: onSufixClick,
-          child: Text(
-            sufixText,
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(color: Colors.black, fontFamily: 'Montserrat_2'),
-          ),
-        )
+        if (voirPlus)
+          InkWell(
+            onTap: onSufixClick,
+            child: Text(
+              sufixText,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(color: Colors.black, fontFamily: 'Montserrat_2'),
+            ),
+          )
       ],
     );
   }
