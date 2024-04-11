@@ -92,4 +92,14 @@ List<Film> enProjection = [
         "Four years after Isla Nublar was destroyed, dinosaurs now live—and hunt—alongside humans all over the world. This fragile balance will reshape the future and determine, once and for all, whether human beings are to remain the apex predators on a planet they now share with history's most fearsome creatures.",
     isPlaying: true,
   ),
+  Film(
+    title: "Lives",
+    assetImage: "assets/film/lives.jpeg",
+    type: "Action",
+    duration: "2h 29m",
+    rating: "8.0/10",
+    synopsis:
+        "Four years after Isla Nublar was destroyed, dinosaurs now live—and hunt—alongside humans all over the world. This fragile balance will reshape the future and determine, once and for all, whether human beings are to remain the apex predators on a planet they now share with history's most fearsome creatures.",
+    isPlaying: true,
+  ),
 ];
