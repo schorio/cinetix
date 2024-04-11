@@ -131,7 +131,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   listFilms: enProjection,
                                   sHeight: 300,
                                   sViewPortFraction: 0.56),
-                              const Text("Pas de commentaire")
+                              SliderFilmsWidget(
+                                  listFilms: avantPremiere,
+                                  sHeight: 300,
+                                  sViewPortFraction: 0.56),
                             ]),
                       ),
                       const Padding(
