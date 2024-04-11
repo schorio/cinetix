@@ -4,7 +4,7 @@ import 'package:cinetix/feature/home/widget/header_widget.dart';
 import 'package:cinetix/feature/home/widget/search_widget.dart';
 import 'package:cinetix/feature/home/widget/title_widget.dart';
 import 'package:cinetix/feature/home/widget/category_widget.dart';
-import 'package:cinetix/feature/home/widget/ensalle_widget.dart';
+import 'package:cinetix/feature/home/widget/sliderFilms_widget.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         margin: EdgeInsets.only(
                             top: MediaQuery.of(context).size.height * 0.01),
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.52,
+                        height: MediaQuery.of(context).size.height * 0.4,
                         child: TabBarView(
                             physics: const NeverScrollableScrollPhysics(),
                             controller: tabController,
@@ -135,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             ]),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 15),
                         child: TitleWidget(title: "Prochainement"),
                       ),
                       Padding(
