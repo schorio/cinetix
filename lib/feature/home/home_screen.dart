@@ -127,7 +127,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             physics: const NeverScrollableScrollPhysics(),
                             controller: tabController,
                             children: [
-                              SliderFilmsWidget(listFilms: enProjection),
+                              SliderFilmsWidget(
+                                  listFilms: enProjection,
+                                  sHeight: 300,
+                                  sViewPortFraction: 0.56),
                               const Text("Pas de commentaire")
                             ]),
                       ),
@@ -137,7 +140,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: SliderFilmsWidget(listFilms: prochainement),
+                        child: SliderFilmsWidget(
+                            listFilms: prochainement,
+                            sHeight: 400,
+                            sViewPortFraction: 0.7),
                       ),
                     ]))
           ],
