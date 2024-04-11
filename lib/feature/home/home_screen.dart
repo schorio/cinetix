@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             ]),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 15),
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                         child: TitleWidget(title: "Prochainement"),
                       ),
                       Padding(
