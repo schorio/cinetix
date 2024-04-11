@@ -6,8 +6,7 @@ import 'package:cinetix/feature/home/widget/title_widget.dart';
 import 'package:cinetix/feature/home/widget/category_widget.dart';
 import 'package:cinetix/feature/home/widget/sliderFilms_widget.dart';
 import 'package:cinetix/core/model/film_model.dart';
-import 'package:video_player/video_player.dart';
-import 'package:chewie/chewie.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,41 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  final VideoPlayerController videoPlayerController =
-      VideoPlayerController.asset("assets/background/7.mp4");
-
-  late ChewieController chewieController;
-  late double aspectRatio;
   late final TabController tabController;
 
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
     super.initState();
-    aspectRatio = 0.0;
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    aspectRatio =
-        MediaQuery.of(context).size.width / MediaQuery.of(context).size.height;
-
-    chewieController = ChewieController(
-      videoPlayerController: videoPlayerController,
-      aspectRatio: aspectRatio,
-      autoPlay: true,
-      looping: true,
-      autoInitialize: true,
-      showControls: false,
-    );
-  }
-
-  @override
-  void dispose() {
-    videoPlayerController.dispose();
-    chewieController.dispose();
-    super.dispose();
   }
 
   @override
@@ -62,10 +32,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         body: Stack(
           fit: StackFit.expand,
           children: [
-            Expanded(
-                child: Chewie(
-              controller: chewieController,
-            )),
+            const BlurHash(
+              hash: "LaQvwRay_3WB~qt7M{ofD%RjRjay",
+              imageFit: BoxFit.cover,
+            ),
             SingleChildScrollView(
                 padding: EdgeInsets.only(
                   top: MediaQuery.of(context).padding.top,
