@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
 
 class SliderFilmsWidget extends StatefulWidget {
-  const SliderFilmsWidget({required this.listFilms, super.key});
+  const SliderFilmsWidget(
+      {required this.listFilms,
+      required this.sHeight,
+      required this.sViewPortFraction,
+      super.key});
 
   final List<Film> listFilms;
+  final double sHeight;
+  final double sViewPortFraction;
 
   @override
   State<SliderFilmsWidget> createState() => _SliderFilmsWidgetState();
@@ -17,15 +23,15 @@ class _SliderFilmsWidgetState extends State<SliderFilmsWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      height: 400,
+      height: widget.sHeight,
       child: CarouselSlider.builder(
         itemCount: widget.listFilms.length,
         options: CarouselOptions(
-          height: 400,
+          height: widget.sHeight,
           enlargeCenterPage: true,
           enlargeStrategy: CenterPageEnlargeStrategy.height,
           initialPage: centerIndex,
-          viewportFraction: 0.7,
+          viewportFraction: widget.sViewPortFraction,
           onPageChanged: (index, reason) {
             setState(() {
               centerIndex = index;
