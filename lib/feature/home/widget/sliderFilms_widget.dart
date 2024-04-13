@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
+import 'package:cinetix/core/route/app_route_name.dart';
 
 class SliderFilmsWidget extends StatefulWidget {
   const SliderFilmsWidget(
@@ -66,7 +67,12 @@ class __FilmsItemState extends State<_FilmsItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          AppRouteName.detailsFilm,
+        );
+      },
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
