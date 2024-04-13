@@ -68,10 +68,8 @@ class __FilmsItemState extends State<_FilmsItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          AppRouteName.detailsFilm,
-        );
+        Navigator.pushNamed(context, AppRouteName.detailsFilm,
+            arguments: widget.film);
       },
       child: Column(
         mainAxisSize: MainAxisSize.min,
