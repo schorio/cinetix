@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cinetix/core/design/app_color.dart';
 
 class TitleWidget extends StatelessWidget {
   const TitleWidget({
@@ -22,18 +23,17 @@ class TitleWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.headline5?.copyWith(
-              color: Colors.black, fontSize: 30, fontFamily: 'Montserrat_2'),
+          style: const TextStyle(
+              color: MesCouleurs.primaire,
+              fontSize: 30,
+              fontFamily: 'Montserrat_1'),
         ),
         if (voirPlus)
           InkWell(
             onTap: onSufixClick,
             child: Text(
               sufixText,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium
-                  ?.copyWith(color: Colors.black, fontFamily: 'Montserrat_2'),
+              style: const TextStyle(color: MesCouleurs.noir),
             ),
           )
       ],

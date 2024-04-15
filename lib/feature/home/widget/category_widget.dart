@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cinetix/core/design/app_color.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({super.key});
@@ -28,12 +29,15 @@ class CategoryWidget extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.only(left: 10),
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(15),
-              ),
+                  border: Border.all(color: MesCouleurs.secondaire, width: 4),
+                  borderRadius: BorderRadius.circular(15),
+                  color: MesCouleurs.secondaire),
               child: Text(
                 category[index],
-                style: Theme.of(context).textTheme.labelLarge,
+                style: const TextStyle(
+                  color: MesCouleurs.noir,
+                  fontFamily: 'MontSerrat_3',
+                ),
               ),
             );
           },

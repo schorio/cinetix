@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cinetix/core/design/app_color.dart';
 
 class Search extends StatelessWidget {
   const Search({
@@ -16,10 +17,11 @@ class Search extends StatelessWidget {
           borderSide: BorderSide.none,
         ),
         hintText: 'Recherche',
-        hintStyle: const TextStyle(color: Colors.black),
+        hintStyle: const TextStyle(
+            color: MesCouleurs.noir, fontSize: 15, fontFamily: 'Montserrat_3'),
         prefixIcon: const Icon(
           Icons.search,
-          color: Colors.black,
+          color: MesCouleurs.primaire,
           size: 24,
         ),
       ),

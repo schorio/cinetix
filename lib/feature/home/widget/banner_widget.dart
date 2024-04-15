@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:cinetix/core/design/app_color.dart';
 
 class BannerWidget extends StatefulWidget {
   const BannerWidget({super.key});
@@ -67,8 +68,8 @@ class _BannerWidgetState extends State<BannerWidget> {
                     margin: const EdgeInsets.only(right: 4),
                     decoration: BoxDecoration(
                       color: showedIndex == index
-                          ? Theme.of(context).primaryColor
-                          : Colors.grey[300],
+                          ? MesCouleurs.primaire
+                          : MesCouleurs.blanc,
                       borderRadius: BorderRadius.circular(50),
                     ),
                   );

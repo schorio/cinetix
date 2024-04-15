@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
+import 'package:cinetix/core/design/app_color.dart';
 
 class SliderFilmsWidget extends StatefulWidget {
   const SliderFilmsWidget(
@@ -96,10 +97,7 @@ class __FilmsItemState extends State<_FilmsItem> {
           const SizedBox(height: 16),
           Text(
             widget.film.title,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(color: Colors.black, fontSize: 16),
+            style: const TextStyle(color: MesCouleurs.noir, fontSize: 15),
             maxLines: 1,
           ),
         ],

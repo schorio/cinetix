@@ -1,3 +1,4 @@
+import 'package:cinetix/core/design/app_color.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -10,10 +11,18 @@ class Header extends StatelessWidget {
     return Row(
       children: const [
         Text(
-          "Hi, Schorio",
+          "Ciné",
           style: TextStyle(
-            fontSize: 35,
-          ),
+              color: MesCouleurs.noir,
+              fontSize: 40,
+              fontFamily: 'Montserrat_1'),
+        ),
+        Text(
+          "Tix",
+          style: TextStyle(
+              color: MesCouleurs.primaire,
+              fontSize: 40,
+              fontFamily: 'Montserrat_1'),
         ),
         Spacer(),
         CircleAvatar(
@@ -22,7 +31,7 @@ class Header extends StatelessWidget {
           child: Align(
             alignment: Alignment.topRight,
             child: CircleAvatar(
-              backgroundColor: Color(0xFF7c44c2),
+              backgroundColor: MesCouleurs.primaire,
               radius: 7.0,
             ),
           ),

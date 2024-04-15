@@ -6,6 +6,7 @@ import 'package:cinetix/feature/home/widget/title_widget.dart';
 import 'package:cinetix/feature/home/widget/category_widget.dart';
 import 'package:cinetix/feature/home/widget/sliderFilms_widget.dart';
 import 'package:cinetix/core/model/film_model.dart';
+import 'package:cinetix/core/design/app_color.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -81,11 +82,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             left: MediaQuery.of(context).size.width * 0.05,
                             right: MediaQuery.of(context).size.width * 0.05),
                         controller: tabController,
-                        labelColor: Colors.white,
-                        unselectedLabelColor: Colors.black,
+                        labelColor: MesCouleurs.noir,
+                        labelStyle: const TextStyle(fontFamily: 'Montserrat_2'),
+                        unselectedLabelStyle:
+                            const TextStyle(fontFamily: 'Montserrat_3'),
+                        unselectedLabelColor: MesCouleurs.noir,
                         isScrollable: true,
                         indicatorSize: TabBarIndicatorSize.label,
-                        indicatorColor: Colors.white,
+                        indicatorColor: MesCouleurs.primaire,
                         tabs: const [
                           Tab(text: "Complet"),
                           Tab(text: "Avant-première"),
