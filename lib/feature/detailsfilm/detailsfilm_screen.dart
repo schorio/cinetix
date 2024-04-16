@@ -1,4 +1,5 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
@@ -55,31 +56,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              film.title,
-                              style: const TextStyle(
-                                  fontSize: 25,
-                                  color: MesCouleurs.noir,
-                                  fontFamily: 'MontSerrat_2'),
-                            ),
-                            const SizedBox(height: 3),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.local_fire_department_outlined,
-                                  color: MesCouleurs.secondaire,
-                                  size: 15,
-                                ),
-                                const SizedBox(width: 5),
-                                const Text(
-                                  'Marvel Studio',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: MesCouleurs.noir,
-                                  ),
-                                ),
-                              ],
-                            ),
+                            TitleWidget(film: film),
                             const SizedBox(height: 10),
                             FadeInUp(
                               delay: const Duration(milliseconds: 300),
