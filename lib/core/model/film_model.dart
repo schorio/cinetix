@@ -1,7 +1,7 @@
 class Film {
   final String title;
   final String assetImage;
-  final String type;
+  final List<String> genre;
   final String duration;
   final int rating;
   final String synopsis;
@@ -10,7 +10,7 @@ class Film {
   Film({
     required this.title,
     required this.assetImage,
-    required this.type,
+    required this.genre,
     required this.duration,
     required this.rating,
     required this.synopsis,
@@ -22,7 +22,7 @@ List<Film> prochainement = [
   Film(
     title: "Shang-Chi",
     assetImage: "assets/film/shang-chi.jpeg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "1h 27m",
     rating: 3,
     synopsis:
@@ -32,7 +32,7 @@ List<Film> prochainement = [
   Film(
     title: "Dune",
     assetImage: "assets/film/dune.jpg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "1h 59m",
     rating: 3,
     synopsis:
@@ -42,7 +42,7 @@ List<Film> prochainement = [
   Film(
     title: "Aladin 2",
     assetImage: "assets/film/aladdin_2.jpg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "2h 29m",
     rating: 3,
     synopsis:
@@ -52,7 +52,7 @@ List<Film> prochainement = [
   Film(
     title: "Greta",
     assetImage: "assets/film/greta.jpg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "2h 29m",
     rating: 3,
     synopsis:
@@ -65,7 +65,7 @@ List<Film> enProjection = [
   Film(
     title: "Minions: The Rise of Gru",
     assetImage: "assets/film/minion.jpeg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "1h 27m",
     rating: 3,
     synopsis:
@@ -75,7 +75,7 @@ List<Film> enProjection = [
   Film(
     title: "Thor: Love and Thunder",
     assetImage: "assets/film/thor.jpeg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "1h 59m",
     rating: 3,
     synopsis:
@@ -85,7 +85,7 @@ List<Film> enProjection = [
   Film(
     title: "Jurassic World Dominion",
     assetImage: "assets/film/jurassic.jpeg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "2h 29m",
     rating: 3,
     synopsis:
@@ -95,7 +95,7 @@ List<Film> enProjection = [
   Film(
     title: "Lives",
     assetImage: "assets/film/lives.jpeg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "2h 29m",
     rating: 3,
     synopsis:
@@ -108,7 +108,7 @@ List<Film> avantPremiere = [
   Film(
     title: "Aladdin",
     assetImage: "assets/film/aladdin.jpg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "1h 27m",
     rating: 3,
     synopsis:
@@ -118,7 +118,7 @@ List<Film> avantPremiere = [
   Film(
     title: "Detective",
     assetImage: "assets/film/detective.jpeg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "1h 59m",
     rating: 3,
     synopsis:
@@ -128,7 +128,7 @@ List<Film> avantPremiere = [
   Film(
     title: "Narcos",
     assetImage: "assets/film/narcos.jpeg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "2h 29m",
     rating: 3,
     synopsis:
@@ -138,7 +138,7 @@ List<Film> avantPremiere = [
   Film(
     title: "SUper Pets",
     assetImage: "assets/film/super-pets.jpeg",
-    type: "Action",
+    genre: ["Action", "Drame", "Comedie"],
     duration: "2h 29m",
     rating: 3,
     synopsis:
