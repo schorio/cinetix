@@ -34,8 +34,8 @@ class _DetailsFilmState extends State<DetailsFilm> {
             )),
           ),
           DraggableScrollableSheet(
-            initialChildSize: 0.4,
-            minChildSize: 0.4,
+            initialChildSize: 0.42,
+            minChildSize: 0.42,
             maxChildSize: 0.97,
             expand: true,
             snap: true,
