@@ -1,5 +1,7 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/genre_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/synopsis_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
@@ -59,7 +61,11 @@ class _DetailsFilmState extends State<DetailsFilm> {
                           children: [
                             TitleWidget(film: film),
                             const SizedBox(height: 10),
-                            EvaluationWidget(film: film)
+                            EvaluationWidget(film: film),
+                            const SizedBox(height: 20),
+                            GenreWidget(film: film),
+                            const SizedBox(height: 20),
+                            SynopsisWidget(film: film)
                           ],
                         ),
                       ),
