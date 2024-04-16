@@ -24,9 +24,14 @@ class _DetailsFilmState extends State<DetailsFilm> {
       backgroundColor: MesCouleurs.blanc,
       body: Stack(
         children: [
-          const BlurHash(
-            hash: "LaQvwRay_3WB~qt7M{ofD%RjRjay",
-            imageFit: BoxFit.cover,
+          Container(
+            height: 600,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage(film.assetImage),
+              fit: BoxFit.cover,
+            )),
           ),
           DraggableScrollableSheet(
             initialChildSize: 0.4,
@@ -37,7 +42,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
             builder: (BuildContext context, ScrollController scrollController) {
               return DecoratedBox(
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: MesCouleurs.blanc,
                   boxShadow: [
                     BoxShadow(
                       color: MesCouleurs.primaire,
