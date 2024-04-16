@@ -66,10 +66,10 @@ class _DetailsFilmState extends State<DetailsFilm> {
                                     children: List.generate(5, (index) {
                                       return Icon(
                                         size: 25,
-                                        index < 4
+                                        index < film.rating
                                             ? Icons.star
                                             : Icons.star_border,
-                                        color: index < 4
+                                        color: index < film.rating
                                             ? MesCouleurs.primaire
                                             : MesCouleurs.noir,
                                       );
@@ -78,9 +78,9 @@ class _DetailsFilmState extends State<DetailsFilm> {
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  const Text(
-                                    "(4.0)",
-                                    style: TextStyle(
+                                  Text(
+                                    "(${film.rating}.0)",
+                                    style: const TextStyle(
                                         fontSize: 10, color: MesCouleurs.noir),
                                   ),
                                 ],
