@@ -80,6 +80,35 @@ class _DetailsFilmState extends State<DetailsFilm> {
                                 ),
                               ],
                             ),
+                            const SizedBox(height: 10),
+                            FadeInUp(
+                              delay: const Duration(milliseconds: 300),
+                              child: Row(
+                                children: [
+                                  Wrap(
+                                    children: List.generate(5, (index) {
+                                      return Icon(
+                                        size: 25,
+                                        index < 4
+                                            ? Icons.star
+                                            : Icons.star_border,
+                                        color: index < 4
+                                            ? MesCouleurs.primaire
+                                            : MesCouleurs.noir,
+                                      );
+                                    }),
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  const Text(
+                                    "(4.0)",
+                                    style: TextStyle(
+                                        fontSize: 10, color: MesCouleurs.noir),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),
