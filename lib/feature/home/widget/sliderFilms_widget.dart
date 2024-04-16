@@ -78,20 +78,25 @@ class __FilmsItemState extends State<_FilmsItem> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Expanded(
-            child: Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 15,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                image: DecorationImage(
-                  image: AssetImage(
-                    widget.film.assetImage,
-                  ),
-                  fit: BoxFit.cover,
+            child: Hero(
+              tag: widget.film.assetImage,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 15,
                 ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      widget.film.assetImage,
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                alignment: Alignment.bottomCenter,
               ),
-              alignment: Alignment.bottomCenter,
             ),
           ),
           const SizedBox(height: 16),
