@@ -17,21 +17,23 @@ class TitleWidget extends StatelessWidget {
       children: [
         Text(
           film.title,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: const TextStyle(
-              fontSize: 25,
-              color: MesCouleurs.noir,
+              fontSize: 30,
+              color: MesCouleurs.primaire,
               fontFamily: 'MontSerrat_2'),
         ),
         const SizedBox(height: 3),
         Row(
-          children: [
+          children: const [
             Icon(
               Icons.local_fire_department_outlined,
-              color: MesCouleurs.secondaire,
+              color: MesCouleurs.primaire,
               size: 15,
             ),
-            const SizedBox(width: 5),
-            const Text(
+            SizedBox(width: 5),
+            Text(
               'Marvel Studio',
               style: TextStyle(
                 fontSize: 12,
