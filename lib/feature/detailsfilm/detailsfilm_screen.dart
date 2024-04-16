@@ -1,4 +1,5 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
@@ -58,34 +59,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
                           children: [
                             TitleWidget(film: film),
                             const SizedBox(height: 10),
-                            FadeInUp(
-                              delay: const Duration(milliseconds: 300),
-                              child: Row(
-                                children: [
-                                  Wrap(
-                                    children: List.generate(5, (index) {
-                                      return Icon(
-                                        size: 25,
-                                        index < film.rating
-                                            ? Icons.star
-                                            : Icons.star_border,
-                                        color: index < film.rating
-                                            ? MesCouleurs.primaire
-                                            : MesCouleurs.noir,
-                                      );
-                                    }),
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "(${film.rating}.0)",
-                                    style: const TextStyle(
-                                        fontSize: 10, color: MesCouleurs.noir),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            EvaluationWidget(film: film)
                           ],
                         ),
                       ),
