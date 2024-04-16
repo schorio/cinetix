@@ -1,6 +1,7 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/genre_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/indicator_scroll_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/synopsis_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(22),
+                  padding: const EdgeInsets.only(left: 22, right: 22),
                   child: FadeInUp(
                     delay: const Duration(milliseconds: 200),
                     child: SingleChildScrollView(
@@ -58,6 +59,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          const IndicatorScroll(),
                           TitleWidget(film: film),
                           const SizedBox(height: 10),
                           EvaluationWidget(film: film),
