@@ -46,44 +46,41 @@ class _DetailsFilmState extends State<DetailsFilm> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.all(22),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FadeInUp(
                         delay: const Duration(milliseconds: 200),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                film.title,
-                                style: const TextStyle(
-                                    fontSize: 22,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              film.title,
+                              style: const TextStyle(
+                                  fontSize: 25,
+                                  color: MesCouleurs.noir,
+                                  fontFamily: 'MontSerrat_2'),
+                            ),
+                            const SizedBox(height: 3),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.local_fire_department_outlined,
+                                  color: MesCouleurs.secondaire,
+                                  size: 15,
+                                ),
+                                const SizedBox(width: 5),
+                                const Text(
+                                  'Marvel Studio',
+                                  style: TextStyle(
+                                    fontSize: 12,
                                     color: MesCouleurs.noir,
-                                    fontFamily: 'MontSerrat_2'),
-                              ),
-                              const SizedBox(height: 5),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.local_fire_department_outlined,
-                                    color: MesCouleurs.secondaire,
-                                    size: 15,
                                   ),
-                                  const SizedBox(width: 5),
-                                  const Text(
-                                    'Marvel Studio',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: MesCouleurs.noir,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     ],
