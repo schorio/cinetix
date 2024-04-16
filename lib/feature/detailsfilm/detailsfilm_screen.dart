@@ -51,8 +51,8 @@ class _DetailsFilmState extends State<DetailsFilm> {
                     ),
                   ],
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
                   ),
                 ),
                 child: Padding(
