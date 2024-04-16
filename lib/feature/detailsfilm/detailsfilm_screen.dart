@@ -51,25 +51,23 @@ class _DetailsFilmState extends State<DetailsFilm> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(22),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      FadeInUp(
-                        delay: const Duration(milliseconds: 200),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            TitleWidget(film: film),
-                            const SizedBox(height: 10),
-                            EvaluationWidget(film: film),
-                            const SizedBox(height: 20),
-                            GenreWidget(film: film),
-                            const SizedBox(height: 20),
-                            SynopsisWidget(film: film)
-                          ],
-                        ),
+                  child: FadeInUp(
+                    delay: const Duration(milliseconds: 200),
+                    child: SingleChildScrollView(
+                      controller: scrollController,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TitleWidget(film: film),
+                          const SizedBox(height: 10),
+                          EvaluationWidget(film: film),
+                          const SizedBox(height: 20),
+                          GenreWidget(film: film),
+                          const SizedBox(height: 20),
+                          SynopsisWidget(film: film)
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               );
