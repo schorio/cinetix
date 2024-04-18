@@ -47,7 +47,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
             : MesCouleurs.noir
         : MesCouleurs.noir;
     return Scaffold(
-      backgroundColor: MesCouleurs.noir,
+      backgroundColor: couleurDominant.withOpacity(0.5),
       body: Stack(
         children: [
           Padding(
@@ -59,11 +59,19 @@ class _DetailsFilmState extends State<DetailsFilm> {
                 height: 600,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(30)),
-                    image: DecorationImage(
-                      image: AssetImage(film.assetImage),
-                      fit: BoxFit.cover,
-                    )),
+                  borderRadius: const BorderRadius.all(Radius.circular(30)),
+                  image: DecorationImage(
+                    image: AssetImage(film.assetImage),
+                    fit: BoxFit.cover,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: couleurDominant,
+                      blurRadius: 5,
+                      spreadRadius: 1,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
