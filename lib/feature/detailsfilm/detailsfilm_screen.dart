@@ -50,17 +50,21 @@ class _DetailsFilmState extends State<DetailsFilm> {
       backgroundColor: MesCouleurs.noir,
       body: Stack(
         children: [
-          Hero(
-            tag: film.assetImage,
-            child: Container(
-              height: 600,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(30)),
-                  image: DecorationImage(
-                    image: AssetImage(film.assetImage),
-                    fit: BoxFit.cover,
-                  )),
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 40, left: 30, right: 30, bottom: 300),
+            child: Hero(
+              tag: film.assetImage,
+              child: Container(
+                height: 600,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                    image: DecorationImage(
+                      image: AssetImage(film.assetImage),
+                      fit: BoxFit.cover,
+                    )),
+              ),
             ),
           ),
           FadeInUp(
