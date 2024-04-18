@@ -13,10 +13,10 @@ class _BannerWidgetState extends State<BannerWidget> {
   int showedIndex = 0;
 
   final banners = [
-    "assets/banner/banner_1.jpeg",
-    "assets/banner/banner_2.jpeg",
-    "assets/banner/banner_3.jpeg",
-    "assets/banner/banner_4.jpeg",
+    "assets/banner/1.jpg",
+    "assets/banner/2.jpg",
+    "assets/banner/3.jpeg",
+    "assets/banner/4.jpg",
   ];
 
   @override
