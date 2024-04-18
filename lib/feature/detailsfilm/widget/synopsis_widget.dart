@@ -7,9 +7,11 @@ class SynopsisWidget extends StatelessWidget {
   const SynopsisWidget({
     Key? key,
     required this.film,
+    required this.couleur,
   }) : super(key: key);
 
   final Film film;
+  final Color couleur;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +20,10 @@ class SynopsisWidget extends StatelessWidget {
       children: [
         FadeInUp(
           delay: const Duration(milliseconds: 800),
-          child: const Text(
+          child: Text(
             "Synopsis",
             style: TextStyle(
-                fontSize: 18,
-                color: MesCouleurs.primaire,
-                fontFamily: 'MontSerrat_2'),
+                fontSize: 18, color: couleur, fontFamily: 'MontSerrat_2'),
           ),
         ),
         const SizedBox(height: 5),

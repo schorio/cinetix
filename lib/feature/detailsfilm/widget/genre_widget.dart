@@ -6,9 +6,13 @@ class GenreWidget extends StatelessWidget {
   const GenreWidget({
     Key? key,
     required this.film,
+    required this.couleur_1,
+    required this.couleur_2,
   }) : super(key: key);
 
   final Film film;
+  final Color couleur_1;
+  final Color couleur_2;
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +29,14 @@ class GenreWidget extends StatelessWidget {
               margin: const EdgeInsets.only(right: 10),
               decoration: BoxDecoration(
                   border: Border.all(
-                    color: MesCouleurs.secondaire,
+                    color: couleur_2,
                   ),
                   borderRadius: BorderRadius.circular(15),
-                  color: MesCouleurs.secondaire),
+                  color: couleur_2),
               child: Text(
                 film.genre[index],
-                style: const TextStyle(
-                    color: MesCouleurs.primaire,
-                    fontFamily: 'MontSerrat_3',
-                    fontSize: 12),
+                style: TextStyle(
+                    color: couleur_1, fontFamily: 'MontSerrat_3', fontSize: 12),
               ),
             );
           },

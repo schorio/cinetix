@@ -7,9 +7,11 @@ class EvaluationWidget extends StatelessWidget {
   const EvaluationWidget({
     Key? key,
     required this.film,
+    required this.couleur,
   }) : super(key: key);
 
   final Film film;
+  final Color couleur;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,7 @@ class EvaluationWidget extends StatelessWidget {
               return Icon(
                 size: 25,
                 index < film.rating ? Icons.star : Icons.star_border,
-                color: index < film.rating
-                    ? MesCouleurs.primaire
-                    : MesCouleurs.noir,
+                color: index < film.rating ? couleur : MesCouleurs.noir,
               );
             }),
           ),

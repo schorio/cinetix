@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 class DetailsFilm extends StatefulWidget {
   const DetailsFilm({super.key});
@@ -17,9 +18,34 @@ class DetailsFilm extends StatefulWidget {
 }
 
 class _DetailsFilmState extends State<DetailsFilm> {
+  PaletteGenerator? paletteGenerator;
+  late Film film;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Récupération du film à partir des arguments de la route
+    film = ModalRoute.of(context)!.settings.arguments as Film;
+    generateColors();
+  }
+
+  void generateColors() async {
+    paletteGenerator = await PaletteGenerator.fromImageProvider(
+      AssetImage(film.assetImage),
+      size: const Size(100, 100),
+      region: const Rect.fromLTRB(0, 0, 50, 50),
+    );
+
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    final film = ModalRoute.of(context)?.settings.arguments as Film;
+    Color couleurDominant = paletteGenerator != null
+        ? paletteGenerator!.darkVibrantColor != null
+            ? paletteGenerator!.darkVibrantColor!.color
+            : MesCouleurs.noir
+        : MesCouleurs.noir;
     return Scaffold(
       backgroundColor: MesCouleurs.noir,
       body: Stack(
@@ -40,24 +66,24 @@ class _DetailsFilmState extends State<DetailsFilm> {
           FadeInUp(
             delay: const Duration(milliseconds: 300),
             child: DraggableScrollableSheet(
-              initialChildSize: 0.42,
-              minChildSize: 0.42,
+              initialChildSize: 0.32,
+              minChildSize: 0.32,
               maxChildSize: 0.97,
               expand: true,
               snap: true,
               builder:
                   (BuildContext context, ScrollController scrollController) {
                 return DecoratedBox(
-                  decoration: const BoxDecoration(
-                    color: MesCouleurs.blanc,
+                  decoration: BoxDecoration(
+                    color: MesCouleurs.secondaire.withOpacity(0.9),
                     boxShadow: [
                       BoxShadow(
-                        color: MesCouleurs.primaire,
+                        color: couleurDominant,
                         blurRadius: 3,
                         spreadRadius: 3,
                       ),
                     ],
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(40),
                       topRight: Radius.circular(40),
                     ),
@@ -71,14 +97,20 @@ class _DetailsFilmState extends State<DetailsFilm> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const IndicatorScroll(),
-                            TitleWidget(film: film),
+                            IndicatorScroll(couleur: couleurDominant),
+                            TitleWidget(film: film, couleur: couleurDominant),
                             const SizedBox(height: 10),
-                            EvaluationWidget(film: film),
+                            EvaluationWidget(
+                                film: film, couleur: couleurDominant),
                             const SizedBox(height: 20),
-                            GenreWidget(film: film),
+                            GenreWidget(
+                              film: film,
+                              couleur_1: couleurDominant,
+                              couleur_2:
+                                  MesCouleurs.secondaire.withOpacity(0.3),
+                            ),
                             const SizedBox(height: 20),
-                            SynopsisWidget(film: film)
+                            SynopsisWidget(film: film, couleur: couleurDominant)
                           ],
                         ),
                       ),
