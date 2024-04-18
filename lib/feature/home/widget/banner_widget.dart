@@ -47,35 +47,34 @@ class _BannerWidgetState extends State<BannerWidget> {
                       image: AssetImage(
                         banners[index],
                       ),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 15, top: 180),
+                    child: Row(
+                      children: List.generate(
+                        banners.length,
+                        (index) {
+                          return AnimatedContainer(
+                            duration: const Duration(milliseconds: 300),
+                            width: showedIndex == index ? 24 : 10,
+                            height: 10,
+                            margin: const EdgeInsets.only(right: 4),
+                            decoration: BoxDecoration(
+                              color: showedIndex == index
+                                  ? MesCouleurs.primaire
+                                  : MesCouleurs.blanc,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
               );
             },
-          ),
-          Positioned(
-            left: 35,
-            bottom: 16,
-            child: Row(
-              children: List.generate(
-                banners.length,
-                (index) {
-                  return AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    width: showedIndex == index ? 24 : 10,
-                    height: 10,
-                    margin: const EdgeInsets.only(right: 4),
-                    decoration: BoxDecoration(
-                      color: showedIndex == index
-                          ? MesCouleurs.primaire
-                          : MesCouleurs.blanc,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                  );
-                },
-              ),
-            ),
           ),
         ],
       ),
