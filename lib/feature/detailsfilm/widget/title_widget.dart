@@ -14,13 +14,16 @@ class TitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String title = film.title;
+    if (title.length > 10) {
+      title =
+          '${title.substring(0, 15)} ...'; // Limiter à 10 caractères et ajouter des points de suspension
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          film.title,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+          title,
           style: TextStyle(
               fontSize: 30, color: couleur, fontFamily: 'MontSerrat_2'),
         ),
