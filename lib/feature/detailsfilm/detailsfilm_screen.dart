@@ -1,3 +1,4 @@
+import 'dart:ui' as ui;
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/genre_widget.dart';
@@ -50,9 +51,23 @@ class _DetailsFilmState extends State<DetailsFilm> {
       backgroundColor: couleurDominant.withOpacity(0.5),
       body: Stack(
         children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(film.assetImage),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          BackdropFilter(
+            filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+              color: couleurDominant.withOpacity(0.5),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.only(
-                top: 40, left: 30, right: 30, bottom: 300),
+                top: 55, left: 30, right: 30, bottom: 305),
             child: Hero(
               tag: film.assetImage,
               child: Container(
