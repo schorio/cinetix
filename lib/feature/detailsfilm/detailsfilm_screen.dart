@@ -19,6 +19,7 @@ class DetailsFilm extends StatefulWidget {
 }
 
 class _DetailsFilmState extends State<DetailsFilm> {
+  PageController pochetteController = PageController(initialPage: 0);
   PaletteGenerator? paletteGenerator;
   late Film film;
 
@@ -47,6 +48,9 @@ class _DetailsFilmState extends State<DetailsFilm> {
             ? paletteGenerator!.darkVibrantColor!.color
             : MesCouleurs.noir
         : MesCouleurs.noir;
+
+    final listPochette = [film.assetImage, film.assetImage];
+
     return Scaffold(
       backgroundColor: couleurDominant.withOpacity(0.5),
       body: Stack(
@@ -65,30 +69,36 @@ class _DetailsFilmState extends State<DetailsFilm> {
               color: couleurDominant.withOpacity(0.5),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-                top: 55, left: 30, right: 30, bottom: 305),
-            child: Hero(
-              tag: film.assetImage,
-              child: Container(
-                height: 600,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(30)),
-                  image: DecorationImage(
-                    image: AssetImage(film.assetImage),
-                    fit: BoxFit.cover,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: couleurDominant,
-                      blurRadius: 5,
-                      spreadRadius: 1,
+          PageView.builder(
+            controller: pochetteController,
+            itemCount: listPochette.length,
+            itemBuilder: (context, index) {
+              return Hero(
+                tag: film.assetImage,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 55, left: 30, right: 30, bottom: 305),
+                  child: Container(
+                    height: 600,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      image: DecorationImage(
+                        image: AssetImage(film.assetImage),
+                        fit: BoxFit.cover,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: couleurDominant,
+                          blurRadius: 5,
+                          spreadRadius: 1,
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
           FadeInUp(
             delay: const Duration(milliseconds: 300),
