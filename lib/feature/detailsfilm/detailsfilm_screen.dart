@@ -154,33 +154,47 @@ class _DetailsFilmState extends State<DetailsFilm> {
                       topRight: Radius.circular(40),
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 22, right: 22),
-                    child: FadeInUp(
-                      delay: const Duration(milliseconds: 400),
-                      child: SingleChildScrollView(
-                        controller: scrollController,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            IndicatorScroll(couleur: couleurDominant),
-                            TitleWidget(film: film, couleur: couleurDominant),
-                            const SizedBox(height: 10),
-                            EvaluationWidget(
-                                film: film, couleur: couleurDominant),
-                            const SizedBox(height: 20),
-                            GenreWidget(
-                              film: film,
-                              couleur_1: couleurDominant,
-                              couleur_2:
-                                  MesCouleurs.secondaire.withOpacity(0.3),
-                            ),
-                            const SizedBox(height: 20),
-                            SynopsisWidget(film: film, couleur: couleurDominant)
-                          ],
+                  child: Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15, left: 320),
+                        child: Icon(
+                          Icons.play_circle,
+                          color: couleurDominant,
+                          size: 50,
                         ),
                       ),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 22, right: 22),
+                        child: FadeInUp(
+                          delay: const Duration(milliseconds: 400),
+                          child: SingleChildScrollView(
+                            controller: scrollController,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                IndicatorScroll(couleur: couleurDominant),
+                                TitleWidget(
+                                    film: film, couleur: couleurDominant),
+                                const SizedBox(height: 10),
+                                EvaluationWidget(
+                                    film: film, couleur: couleurDominant),
+                                const SizedBox(height: 20),
+                                GenreWidget(
+                                  film: film,
+                                  couleur_1: couleurDominant,
+                                  couleur_2:
+                                      MesCouleurs.secondaire.withOpacity(0.3),
+                                ),
+                                const SizedBox(height: 20),
+                                SynopsisWidget(
+                                    film: film, couleur: couleurDominant)
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },
