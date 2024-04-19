@@ -22,6 +22,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
   PageController pochetteController = PageController(initialPage: 0);
   PaletteGenerator? paletteGenerator;
   late Film film;
+  int selected = 0;
 
   @override
   void didChangeDependencies() {
@@ -72,6 +73,11 @@ class _DetailsFilmState extends State<DetailsFilm> {
           PageView.builder(
             controller: pochetteController,
             itemCount: listPochette.length,
+            onPageChanged: (value) {
+              setState(() {
+                selected = value;
+              });
+            },
             itemBuilder: (context, index) {
               return Hero(
                 tag: film.assetImage,
@@ -99,6 +105,29 @@ class _DetailsFilmState extends State<DetailsFilm> {
                 ),
               );
             },
+          ),
+          Positioned(
+            bottom: 283.0,
+            left: 0.0,
+            right: 0.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                listPochette.length,
+                (index) => AnimatedContainer(
+                  duration: const Duration(milliseconds: 400),
+                  height: 8.0,
+                  width: selected == index ? 20.0 : 8.0,
+                  margin: const EdgeInsets.only(right: 4.0),
+                  decoration: BoxDecoration(
+                    color: selected == index
+                        ? couleurDominant
+                        : MesCouleurs.secondaire.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
+            ),
           ),
           FadeInUp(
             delay: const Duration(milliseconds: 300),
