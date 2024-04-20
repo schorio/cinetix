@@ -15,7 +15,7 @@ class IndicatorScroll extends StatelessWidget {
         children: <Widget>[
           Container(
             width: 100,
-            margin: const EdgeInsets.only(bottom: 15, top: 10),
+            margin: const EdgeInsets.only(bottom: 5, top: 10),
             height: 5,
             decoration: BoxDecoration(
               color: couleur,
