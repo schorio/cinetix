@@ -3,6 +3,8 @@ import 'package:cinetix/feature/detailsfilm/widget/background_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/genre_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/indicator_scroll_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/indicatorpochette_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/pochetteslider_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/synopsis_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +57,10 @@ class _DetailsFilmState extends State<DetailsFilm> {
       backgroundColor: couleurDominant.withOpacity(0.5),
       body: Stack(
         children: [
-          BackgroundWidget(film: film, couleurDominant: couleurDominant),
+          BackgroundWidget(
+            film: film,
+            couleurDominant: couleurDominant,
+          ),
           PageView.builder(
             controller: pochetteController,
             itemCount: listPochette.length,
@@ -65,55 +70,18 @@ class _DetailsFilmState extends State<DetailsFilm> {
               });
             },
             itemBuilder: (context, index) {
-              return Hero(
-                tag: film.assetImage,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 55, left: 30, right: 30, bottom: 305),
-                  child: Container(
-                    height: 600,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(30)),
-                      image: DecorationImage(
-                        image: AssetImage(listPochette[selected]),
-                        fit: BoxFit.cover,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: couleurDominant,
-                          blurRadius: 5,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              return PochetteSliderWidget(
+                film: film,
+                listPochette: listPochette,
+                selected: selected,
+                couleurDominant: couleurDominant,
               );
             },
           ),
-          Positioned(
-            bottom: 283.0,
-            left: 0.0,
-            right: 0.0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                listPochette.length,
-                (index) => AnimatedContainer(
-                  duration: const Duration(milliseconds: 400),
-                  height: 8.0,
-                  width: selected == index ? 20.0 : 8.0,
-                  margin: const EdgeInsets.only(right: 4.0),
-                  decoration: BoxDecoration(
-                    color: selected == index
-                        ? couleurDominant
-                        : MesCouleurs.secondaire.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-              ),
-            ),
+          IndicatorPochetteWidget(
+            listPochette: listPochette,
+            selected: selected,
+            couleurDominant: couleurDominant,
           ),
           FadeInUp(
             delay: const Duration(milliseconds: 300),
@@ -151,13 +119,16 @@ class _DetailsFilmState extends State<DetailsFilm> {
                           children: [
                             IndicatorScroll(couleur: couleurDominant),
                             TitleWidget(
-                                film: film,
-                                couleur: couleurDominant,
-                                controller: pochetteController,
-                                selected: selected),
+                              film: film,
+                              couleur: couleurDominant,
+                              controller: pochetteController,
+                              selected: selected,
+                            ),
                             const SizedBox(height: 10),
                             EvaluationWidget(
-                                film: film, couleur: couleurDominant),
+                              film: film,
+                              couleur: couleurDominant,
+                            ),
                             const SizedBox(height: 20),
                             GenreWidget(
                               film: film,
@@ -166,7 +137,10 @@ class _DetailsFilmState extends State<DetailsFilm> {
                                   MesCouleurs.secondaire.withOpacity(0.3),
                             ),
                             const SizedBox(height: 20),
-                            SynopsisWidget(film: film, couleur: couleurDominant)
+                            SynopsisWidget(
+                              film: film,
+                              couleur: couleurDominant,
+                            )
                           ],
                         ),
                       ),
