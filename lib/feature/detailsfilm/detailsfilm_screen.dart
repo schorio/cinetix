@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:palette_generator/palette_generator.dart';
+import 'package:video_player/video_player.dart';
 
 class DetailsFilm extends StatefulWidget {
   const DetailsFilm({super.key});
@@ -24,6 +25,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
   PaletteGenerator? paletteGenerator;
   late Film film;
   int selected = 0;
+  VideoPlayerController? _trailerController;
 
   @override
   void didChangeDependencies() {
@@ -31,6 +33,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
     // Récupération du film à partir des arguments de la route
     film = ModalRoute.of(context)!.settings.arguments as Film;
     generateColors();
+    trailerVideo();
   }
 
   void generateColors() async {
@@ -43,6 +46,20 @@ class _DetailsFilmState extends State<DetailsFilm> {
     setState(() {});
   }
 
+  void trailerVideo() {
+    _trailerController = VideoPlayerController.asset(film.trailer)
+      ..initialize().then((_) {
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    _trailerController?.dispose();
+    pochetteController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Color couleurDominant = paletteGenerator != null
@@ -51,7 +68,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
             : MesCouleurs.noir
         : MesCouleurs.noir;
 
-    final listPochette = [film.assetImage, 'assets/film/aladdin.jpg'];
+    final listPochette = [film.assetImage, film.trailer];
 
     return Scaffold(
       backgroundColor: couleurDominant.withOpacity(0.5),
@@ -68,14 +85,66 @@ class _DetailsFilmState extends State<DetailsFilm> {
               setState(() {
                 selected = value;
               });
+              if (selected == 1 &&
+                  _trailerController != null &&
+                  _trailerController!.value.isInitialized) {
+                _trailerController!.play();
+              } else {
+                _trailerController?.pause();
+              }
             },
             itemBuilder: (context, index) {
-              return PochetteSliderWidget(
-                film: film,
-                listPochette: listPochette,
-                selected: selected,
-                couleurDominant: couleurDominant,
-              );
+              if (listPochette[index] == film.trailer) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    top: 200,
+                    left: 30,
+                    right: 30,
+                    bottom: 450,
+                  ),
+                  child: _trailerController != null &&
+                          _trailerController!.value.isInitialized
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: AspectRatio(
+                            aspectRatio: _trailerController!.value.aspectRatio,
+                            child: VideoPlayer(_trailerController!),
+                          ),
+                        )
+                      : const Center(child: CircularProgressIndicator()),
+                );
+              } else {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    top: 55,
+                    left: 30,
+                    right: 30,
+                    bottom: 305,
+                  ),
+                  child: Hero(
+                    tag: film.assetImage,
+                    child: Container(
+                      height: 600,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(30)),
+                        image: DecorationImage(
+                          image: AssetImage(listPochette[index]),
+                          fit: BoxFit.cover,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            blurRadius: 5,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }
             },
           ),
           IndicatorPochetteWidget(
