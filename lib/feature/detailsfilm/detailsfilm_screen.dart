@@ -7,6 +7,7 @@ import 'package:cinetix/feature/detailsfilm/widget/indicatorpochette_widget.dart
 import 'package:cinetix/feature/detailsfilm/widget/pochetteslider_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/synopsis_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/trailer_viewer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:animate_do/animate_do.dart';
@@ -95,24 +96,8 @@ class _DetailsFilmState extends State<DetailsFilm> {
             },
             itemBuilder: (context, index) {
               if (listPochette[index] == film.trailer) {
-                return Padding(
-                  padding: const EdgeInsets.only(
-                    top: 200,
-                    left: 30,
-                    right: 30,
-                    bottom: 450,
-                  ),
-                  child: _trailerController != null &&
-                          _trailerController!.value.isInitialized
-                      ? ClipRRect(
-                          borderRadius: BorderRadius.circular(30),
-                          child: AspectRatio(
-                            aspectRatio: _trailerController!.value.aspectRatio,
-                            child: VideoPlayer(_trailerController!),
-                          ),
-                        )
-                      : const Center(child: CircularProgressIndicator()),
-                );
+                return TrailerViewerWidget(
+                    trailerController: _trailerController);
               } else {
                 return Padding(
                   padding: const EdgeInsets.only(
