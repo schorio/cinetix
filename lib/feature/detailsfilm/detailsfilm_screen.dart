@@ -35,7 +35,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
     // Récupération du film à partir des arguments de la route
     film = ModalRoute.of(context)!.settings.arguments as Film;
     generateColors();
-    trailerVideo();
+    film.trailer.isEmpty ? '' : trailerVideo();
   }
 
   void generateColors() async {
@@ -80,14 +80,12 @@ class _DetailsFilmState extends State<DetailsFilm> {
           ),
           PageView.builder(
             controller: pochetteController,
-            itemCount: 2,
+            itemCount: film.trailer.isEmpty ? 1 : 2,
             onPageChanged: (value) {
               setState(() {
                 selected = value;
               });
-              if (selected == 1 &&
-                  _trailerController != null &&
-                  _trailerController!.value.isInitialized) {
+              if (selected == 1 && film.trailer.isNotEmpty) {
                 _trailerController!.play();
               } else {
                 _trailerController?.pause();
@@ -104,7 +102,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
             },
           ),
           IndicatorPochetteWidget(
-            nbSlider: 2,
+            nbSlider: film.trailer.isEmpty ? 1 : 2,
             selected: selected,
             couleurDominant: couleurDominant,
           ),
