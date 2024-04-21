@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 class IndicatorPochetteWidget extends StatelessWidget {
   const IndicatorPochetteWidget({
     Key? key,
-    required this.listPochette,
+    required this.nbSlider,
     required this.selected,
     required this.couleurDominant,
   }) : super(key: key);
 
-  final List<String> listPochette;
+  final int nbSlider;
   final int selected;
   final Color couleurDominant;
 
@@ -22,7 +22,7 @@ class IndicatorPochetteWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(
-          listPochette.length,
+          nbSlider,
           (index) => AnimatedContainer(
             duration: const Duration(milliseconds: 400),
             height: 8.0,

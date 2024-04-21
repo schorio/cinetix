@@ -70,8 +70,6 @@ class _DetailsFilmState extends State<DetailsFilm> {
             : MesCouleurs.noir
         : MesCouleurs.noir;
 
-    final listPochette = [film.assetImage, film.trailer];
-
     return Scaffold(
       backgroundColor: couleurDominant.withOpacity(0.5),
       body: Stack(
@@ -82,7 +80,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
           ),
           PageView.builder(
             controller: pochetteController,
-            itemCount: listPochette.length,
+            itemCount: 2,
             onPageChanged: (value) {
               setState(() {
                 selected = value;
@@ -96,7 +94,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
               }
             },
             itemBuilder: (context, index) {
-              if (listPochette[index] == film.trailer) {
+              if (index == 1) {
                 return TrailerViewerWidget(
                   trailerController: _trailerController,
                 );
@@ -106,7 +104,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
             },
           ),
           IndicatorPochetteWidget(
-            listPochette: listPochette,
+            nbSlider: 2,
             selected: selected,
             couleurDominant: couleurDominant,
           ),
