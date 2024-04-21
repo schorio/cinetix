@@ -82,7 +82,7 @@ List<Film> enProjection = [
       synopsis:
           "After his retirement is interrupted by Gorr the God Butcher, a galactic killer who seeks the extinction of the gods, Thor enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who now inexplicably wields Mjolnir as the Mighty Thor. Together they embark upon a harrowing cosmic adventure to uncover the mystery of the God Butcher's vengeance and stop him before it's too late.",
       isPlaying: true,
-      trailer: "assets/trailer/trailer.mp4"),
+      trailer: ""),
   Film(
       title: "Jurassic World Dominion",
       assetImage: "assets/film/jurassic.jpeg",
