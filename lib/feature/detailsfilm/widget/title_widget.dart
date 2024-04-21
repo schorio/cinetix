@@ -58,20 +58,21 @@ class TitleWidget extends StatelessWidget {
             ],
           ),
         ),
-        InkWell(
-          onTap: () {
-            controller.animateToPage(
-              selected + 1,
-              duration: const Duration(milliseconds: 400),
-              curve: Curves.easeIn,
-            );
-          },
-          child: Icon(
-            Icons.play_circle,
-            color: couleur,
-            size: 55,
+        if (film.trailer.isNotEmpty)
+          InkWell(
+            onTap: () {
+              controller.animateToPage(
+                selected + 1,
+                duration: const Duration(milliseconds: 400),
+                curve: Curves.easeIn,
+              );
+            },
+            child: Icon(
+              Icons.play_circle,
+              color: couleur,
+              size: 55,
+            ),
           ),
-        ),
       ],
     );
   }
