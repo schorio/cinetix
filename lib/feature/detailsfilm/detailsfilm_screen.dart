@@ -4,6 +4,7 @@ import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/genre_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/indicator_scroll_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/indicatorpochette_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/pochette_viewer_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/pochetteslider_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/synopsis_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
@@ -97,38 +98,10 @@ class _DetailsFilmState extends State<DetailsFilm> {
             itemBuilder: (context, index) {
               if (listPochette[index] == film.trailer) {
                 return TrailerViewerWidget(
-                    trailerController: _trailerController);
-              } else {
-                return Padding(
-                  padding: const EdgeInsets.only(
-                    top: 55,
-                    left: 30,
-                    right: 30,
-                    bottom: 305,
-                  ),
-                  child: Hero(
-                    tag: film.assetImage,
-                    child: Container(
-                      height: 600,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(30)),
-                        image: DecorationImage(
-                          image: AssetImage(listPochette[index]),
-                          fit: BoxFit.cover,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            blurRadius: 5,
-                            spreadRadius: 1,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  trailerController: _trailerController,
                 );
+              } else {
+                return PochetteViewerWidget(film: film);
               }
             },
           ),
