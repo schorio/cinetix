@@ -5,7 +5,6 @@ import 'package:cinetix/feature/detailsfilm/widget/genre_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/indicator_scroll_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/indicatorpochette_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/pochette_viewer_widget.dart';
-import 'package:cinetix/feature/detailsfilm/widget/pochetteslider_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/synopsis_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/trailer_viewer_widget.dart';
