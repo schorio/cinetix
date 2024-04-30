@@ -64,15 +64,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 12, bottom: 5),
+                        padding: EdgeInsets.only(top: 12),
                         child: CategoryWidget(),
                       ),
                       const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20),
+                        padding: EdgeInsets.symmetric(vertical: 10),
                         child: BannerWidget(),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 20),
                         child: TitleWidget(title: "Films en salle"),
                       ),
                       TabBar(

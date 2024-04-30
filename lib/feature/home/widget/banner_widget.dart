@@ -39,7 +39,8 @@ class _BannerWidgetState extends State<BannerWidget> {
             ),
             itemBuilder: (context, index, _) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
@@ -51,7 +52,7 @@ class _BannerWidgetState extends State<BannerWidget> {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 15, top: 180),
+                    padding: const EdgeInsets.only(left: 15, top: 150),
                     child: Row(
                       children: List.generate(
                         banners.length,
