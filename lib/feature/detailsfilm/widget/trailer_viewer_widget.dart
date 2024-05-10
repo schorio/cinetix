@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 
 class TrailerViewerWidget extends StatelessWidget {
   const TrailerViewerWidget({
     Key? key,
-    required VideoPlayerController? trailerController,
-  })  : _trailerController = trailerController,
+    required ChewieController? chewieController,
+  })  : _chewieController = chewieController,
         super(key: key);
 
-  final VideoPlayerController? _trailerController;
+  final ChewieController? _chewieController;
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +17,18 @@ class TrailerViewerWidget extends StatelessWidget {
         top: 200,
         left: 30,
         right: 30,
-        bottom: 450,
+        bottom: 459,
       ),
-      child:
-          _trailerController != null && _trailerController!.value.isInitialized
-              ? ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: AspectRatio(
-                    aspectRatio: _trailerController!.value.aspectRatio,
-                    child: VideoPlayer(_trailerController!),
-                  ),
-                )
-              : const Center(child: CircularProgressIndicator()),
+      child: _chewieController != null
+          ? ClipRRect(
+              borderRadius: BorderRadius.circular(30),
+              child: Chewie(
+                controller: _chewieController!,
+              ),
+            )
+          : const Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 }

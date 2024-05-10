@@ -13,6 +13,7 @@ import 'package:cinetix/core/model/film_model.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 
 class DetailsFilm extends StatefulWidget {
   const DetailsFilm({super.key});
@@ -27,6 +28,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
   late Film film;
   int selected = 0;
   VideoPlayerController? _trailerController;
+  ChewieController? chewieController;
 
   @override
   void didChangeDependencies() {
@@ -50,6 +52,11 @@ class _DetailsFilmState extends State<DetailsFilm> {
   void trailerVideo() {
     _trailerController = VideoPlayerController.asset(film.trailer)
       ..initialize().then((_) {
+        chewieController = ChewieController(
+          videoPlayerController: _trailerController!,
+          autoPlay: false,
+          looping: true,
+        );
         setState(() {});
       });
   }
@@ -93,7 +100,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
             itemBuilder: (context, index) {
               if (index == 1) {
                 return TrailerViewerWidget(
-                  trailerController: _trailerController,
+                  chewieController: chewieController,
                 );
               } else {
                 return PochetteViewerWidget(film: film);
