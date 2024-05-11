@@ -1,5 +1,6 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/feature/detailsfilm/widget/background_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/duration_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/genre_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/indicator_scroll_widget.dart';
@@ -157,6 +158,11 @@ class _DetailsFilmState extends State<DetailsFilm> {
                             EvaluationWidget(
                               film: film,
                               couleur: couleurDominant,
+                            ),
+                            const SizedBox(height: 15),
+                            DurationWidget(
+                              couleurDominant: couleurDominant,
+                              film: film,
                             ),
                             const SizedBox(height: 20),
                             GenreWidget(
