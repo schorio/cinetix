@@ -7,16 +7,19 @@ class Film {
   final String synopsis;
   final bool isPlaying;
   final String trailer;
+  final List<String> actor;
 
-  Film(
-      {required this.title,
-      required this.assetImage,
-      required this.genre,
-      required this.duration,
-      required this.rating,
-      required this.synopsis,
-      required this.isPlaying,
-      required this.trailer});
+  Film({
+    required this.title,
+    required this.assetImage,
+    required this.genre,
+    required this.duration,
+    required this.rating,
+    required this.synopsis,
+    required this.isPlaying,
+    required this.trailer,
+    required this.actor,
+  });
 }
 
 List<Film> prochainement = [
@@ -24,6 +27,13 @@ List<Film> prochainement = [
       title: "Shang-Chi",
       assetImage: "assets/film/shang-chi.jpeg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "1h 27m",
       rating: 3,
       synopsis:
@@ -34,6 +44,13 @@ List<Film> prochainement = [
       title: "Dune",
       assetImage: "assets/film/dune.jpg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "1h 59m",
       rating: 3,
       synopsis:
@@ -44,6 +61,13 @@ List<Film> prochainement = [
       title: "Aladin 2",
       assetImage: "assets/film/aladdin_2.jpg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "2h 29m",
       rating: 3,
       synopsis:
@@ -54,6 +78,13 @@ List<Film> prochainement = [
       title: "Greta",
       assetImage: "assets/film/greta.jpg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "2h 29m",
       rating: 3,
       synopsis:
@@ -67,6 +98,13 @@ List<Film> enProjection = [
       title: "Minions: The Rise of Gru",
       assetImage: "assets/film/minion.jpeg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "1h 27m",
       rating: 3,
       synopsis:
@@ -77,6 +115,13 @@ List<Film> enProjection = [
       title: "Thor: Love and Thunder",
       assetImage: "assets/film/thor.jpeg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "1h 59m",
       rating: 3,
       synopsis:
@@ -87,6 +132,13 @@ List<Film> enProjection = [
       title: "Jurassic World Dominion",
       assetImage: "assets/film/jurassic.jpeg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "2h 29m",
       rating: 3,
       synopsis:
@@ -97,6 +149,13 @@ List<Film> enProjection = [
       title: "Lives",
       assetImage: "assets/film/lives.jpeg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "2h 29m",
       rating: 3,
       synopsis:
@@ -110,6 +169,13 @@ List<Film> avantPremiere = [
       title: "Aladdin",
       assetImage: "assets/film/aladdin.jpg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "1h 27m",
       rating: 3,
       synopsis:
@@ -120,6 +186,13 @@ List<Film> avantPremiere = [
       title: "Detective",
       assetImage: "assets/film/detective.jpeg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "1h 59m",
       rating: 3,
       synopsis:
@@ -130,6 +203,13 @@ List<Film> avantPremiere = [
       title: "Narcos",
       assetImage: "assets/film/narcos.jpeg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "2h 29m",
       rating: 3,
       synopsis:
@@ -140,6 +220,13 @@ List<Film> avantPremiere = [
       title: "SUper Pets",
       assetImage: "assets/film/super-pets.jpeg",
       genre: ["Action", "Drame", "Comedie"],
+      actor: [
+        "Jason Statham",
+        "Zendaya",
+        "Tom Holland",
+        "Jason Momoa",
+        "John Cena"
+      ],
       duration: "2h 29m",
       rating: 3,
       synopsis:
