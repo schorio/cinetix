@@ -33,7 +33,7 @@ class ActorWidget extends StatelessWidget {
                 margin: const EdgeInsets.only(right: 10),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: MesCouleurs.secondaire.withOpacity(0.3),
+                    color: couleurDominant.withOpacity(0.2),
                   ),
                   borderRadius: BorderRadius.circular(15),
                   color: MesCouleurs.secondaire.withOpacity(0.3),
