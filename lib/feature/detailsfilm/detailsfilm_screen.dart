@@ -1,4 +1,5 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/feature/detailsfilm/widget/actor_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/background_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/duration_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
@@ -171,6 +172,9 @@ class _DetailsFilmState extends State<DetailsFilm> {
                               couleur_2:
                                   MesCouleurs.secondaire.withOpacity(0.3),
                             ),
+                            const SizedBox(height: 20),
+                            ActorWidget(
+                                couleurDominant: couleurDominant, film: film),
                             const SizedBox(height: 20),
                             SynopsisWidget(
                               film: film,
