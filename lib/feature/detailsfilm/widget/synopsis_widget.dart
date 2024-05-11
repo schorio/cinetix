@@ -23,7 +23,10 @@ class SynopsisWidget extends StatelessWidget {
           child: Text(
             "Synopsis",
             style: TextStyle(
-                fontSize: 18, color: couleur, fontFamily: 'MontSerrat_2'),
+              fontSize: 20,
+              color: couleur,
+              fontFamily: 'MontSerrat_1',
+            ),
           ),
         ),
         const SizedBox(height: 5),
