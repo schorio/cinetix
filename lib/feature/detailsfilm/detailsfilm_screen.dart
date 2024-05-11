@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/feature/detailsfilm/widget/actor_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/background_widget.dart';
@@ -10,6 +11,7 @@ import 'package:cinetix/feature/detailsfilm/widget/pochette_viewer_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/synopsis_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/trailer_viewer_widget.dart';
+import 'package:cinetix/feature/home/widget/coms_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:animate_do/animate_do.dart';
@@ -179,6 +181,11 @@ class _DetailsFilmState extends State<DetailsFilm> {
                             SynopsisWidget(
                               film: film,
                               couleur: couleurDominant,
+                            ),
+                            const SizedBox(height: 20),
+                            ComsWidget(
+                              film: film,
+                              couleurDominant: couleurDominant,
                             )
                           ],
                         ),
