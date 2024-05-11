@@ -22,7 +22,7 @@ class ActorWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 20, color: couleurDominant, fontFamily: 'MontSerrat_1'),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 10),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(

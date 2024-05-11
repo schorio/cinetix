@@ -29,7 +29,7 @@ class SynopsisWidget extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 10),
         FadeInUp(
           delay: const Duration(milliseconds: 900),
           child: Text(
