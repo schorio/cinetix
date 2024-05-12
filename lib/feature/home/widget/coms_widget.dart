@@ -25,6 +25,7 @@ class _ComsWidgetState extends State<ComsWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Bloc du titre
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
@@ -36,7 +37,11 @@ class _ComsWidgetState extends State<ComsWidget> {
             ),
           ),
         ),
+
+        // Espacement
         const SizedBox(height: 12),
+
+        // Bloc qui affiche les commentaires
         CarouselSlider.builder(
           itemCount: widget.film.commentaires.length,
           options: CarouselOptions(
@@ -112,6 +117,50 @@ class _ComsWidgetState extends State<ComsWidget> {
               ),
             );
           },
+        ),
+
+        // Espacement
+        const SizedBox(height: 12),
+
+        // Bloc pour effectuer des commentaires
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Container(
+            height: 50,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: widget.couleurDominant.withOpacity(0.2),
+              ),
+              borderRadius: BorderRadius.circular(25),
+              color: MesCouleurs.secondaire.withOpacity(0.3),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    style: const TextStyle(fontSize: 12),
+                    decoration: InputDecoration(
+                      isDense: true,
+                      hintText: 'Commenter',
+                      hintStyle: TextStyle(
+                        color: widget.couleurDominant,
+                        fontFamily: 'MontSerrat_3',
+                        fontSize: 12,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(color: widget.couleurDominant, Icons.send_rounded),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );
