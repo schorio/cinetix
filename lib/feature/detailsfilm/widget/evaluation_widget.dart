@@ -17,25 +17,28 @@ class EvaluationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return FadeInUp(
       delay: const Duration(milliseconds: 300),
-      child: Row(
-        children: [
-          Wrap(
-            children: List.generate(5, (index) {
-              return Icon(
-                size: 25,
-                index < film.rating ? Icons.star : Icons.star_border,
-                color: index < film.rating ? couleur : MesCouleurs.noir,
-              );
-            }),
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          Text(
-            "(${film.rating}.0)",
-            style: const TextStyle(fontSize: 10, color: MesCouleurs.noir),
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          children: [
+            Wrap(
+              children: List.generate(5, (index) {
+                return Icon(
+                  size: 25,
+                  index < film.rating ? Icons.star : Icons.star_border,
+                  color: index < film.rating ? couleur : MesCouleurs.noir,
+                );
+              }),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Text(
+              "(${film.rating}.0)",
+              style: const TextStyle(fontSize: 10, color: MesCouleurs.noir),
+            ),
+          ],
+        ),
       ),
     );
   }

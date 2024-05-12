@@ -18,28 +18,33 @@ class GenreWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(
-          film.genre.length,
-          (index) {
-            return Container(
-              padding: const EdgeInsets.all(10),
-              margin: const EdgeInsets.only(right: 10),
-              decoration: BoxDecoration(
-                  border: Border.all(
-                    color: couleur_2,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                  color: couleur_2),
-              child: Text(
-                film.genre[index],
-                style: TextStyle(
-                    color: couleur_1, fontFamily: 'MontSerrat_3', fontSize: 12),
-              ),
-            );
-          },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: List.generate(
+            film.genre.length,
+            (index) {
+              return Container(
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.only(right: 10),
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      color: couleur_2,
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                    color: couleur_2),
+                child: Text(
+                  film.genre[index],
+                  style: TextStyle(
+                      color: couleur_1,
+                      fontFamily: 'MontSerrat_3',
+                      fontSize: 12),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

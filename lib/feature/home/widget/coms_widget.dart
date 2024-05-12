@@ -25,12 +25,15 @@ class _ComsWidgetState extends State<ComsWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Commentaires",
-          style: TextStyle(
-            fontSize: 20,
-            color: widget.couleurDominant,
-            fontFamily: 'MontSerrat_1',
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Text(
+            "Commentaires",
+            style: TextStyle(
+              fontSize: 20,
+              color: widget.couleurDominant,
+              fontFamily: 'MontSerrat_1',
+            ),
           ),
         ),
         const SizedBox(height: 12),
@@ -50,7 +53,7 @@ class _ComsWidgetState extends State<ComsWidget> {
           itemBuilder: (context, index, _) {
             return Container(
               padding: const EdgeInsets.all(20),
-              margin: const EdgeInsets.symmetric(horizontal: 8),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
                 border: Border.all(
                   color: widget.couleurDominant.withOpacity(0.2),

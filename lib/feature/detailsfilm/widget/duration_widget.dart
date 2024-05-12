@@ -14,22 +14,25 @@ class DurationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          Icons.timelapse_outlined,
-          color: couleurDominant,
-          size: 20,
-        ),
-        const SizedBox(width: 5),
-        Text(
-          film.duration,
-          style: const TextStyle(
-            fontSize: 13,
-            color: MesCouleurs.noir,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          Icon(
+            Icons.timelapse_outlined,
+            color: couleurDominant,
+            size: 20,
           ),
-        ),
-      ],
+          const SizedBox(width: 5),
+          Text(
+            film.duration,
+            style: const TextStyle(
+              fontSize: 13,
+              color: MesCouleurs.noir,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

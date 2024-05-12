@@ -15,32 +15,35 @@ class SynopsisWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        FadeInUp(
-          delay: const Duration(milliseconds: 800),
-          child: Text(
-            "Synopsis",
-            style: TextStyle(
-              fontSize: 20,
-              color: couleur,
-              fontFamily: 'MontSerrat_1',
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          FadeInUp(
+            delay: const Duration(milliseconds: 800),
+            child: Text(
+              "Synopsis",
+              style: TextStyle(
+                fontSize: 20,
+                color: couleur,
+                fontFamily: 'MontSerrat_1',
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 10),
-        FadeInUp(
-          delay: const Duration(milliseconds: 900),
-          child: Text(
-            film.synopsis,
-            style: const TextStyle(
-                fontSize: 12,
-                color: MesCouleurs.noir,
-                fontFamily: 'MontSerrat_3'),
+          const SizedBox(height: 10),
+          FadeInUp(
+            delay: const Duration(milliseconds: 900),
+            child: Text(
+              film.synopsis,
+              style: const TextStyle(
+                  fontSize: 12,
+                  color: MesCouleurs.noir,
+                  fontFamily: 'MontSerrat_3'),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

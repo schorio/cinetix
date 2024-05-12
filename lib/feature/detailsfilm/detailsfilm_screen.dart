@@ -141,54 +141,50 @@ class _DetailsFilmState extends State<DetailsFilm> {
                       topRight: Radius.circular(40),
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 22, right: 20),
-                    child: FadeInUp(
-                      delay: const Duration(milliseconds: 400),
-                      child: SingleChildScrollView(
-                        controller: scrollController,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            IndicatorScroll(couleur: couleurDominant),
-                            TitleWidget(
-                              film: film,
-                              couleur: couleurDominant,
-                              controller: pochetteController,
-                              selected: selected,
-                            ),
-                            const SizedBox(height: 10),
-                            EvaluationWidget(
-                              film: film,
-                              couleur: couleurDominant,
-                            ),
-                            const SizedBox(height: 15),
-                            DurationWidget(
-                              couleurDominant: couleurDominant,
-                              film: film,
-                            ),
-                            const SizedBox(height: 20),
-                            GenreWidget(
-                              film: film,
-                              couleur_1: couleurDominant,
-                              couleur_2:
-                                  MesCouleurs.secondaire.withOpacity(0.3),
-                            ),
-                            const SizedBox(height: 20),
-                            ActorWidget(
-                                couleurDominant: couleurDominant, film: film),
-                            const SizedBox(height: 20),
-                            SynopsisWidget(
-                              film: film,
-                              couleur: couleurDominant,
-                            ),
-                            const SizedBox(height: 20),
-                            ComsWidget(
-                              film: film,
-                              couleurDominant: couleurDominant,
-                            )
-                          ],
-                        ),
+                  child: FadeInUp(
+                    delay: const Duration(milliseconds: 400),
+                    child: SingleChildScrollView(
+                      controller: scrollController,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          IndicatorScroll(couleur: couleurDominant),
+                          TitleWidget(
+                            film: film,
+                            couleur: couleurDominant,
+                            controller: pochetteController,
+                            selected: selected,
+                          ),
+                          const SizedBox(height: 10),
+                          EvaluationWidget(
+                            film: film,
+                            couleur: couleurDominant,
+                          ),
+                          const SizedBox(height: 15),
+                          DurationWidget(
+                            couleurDominant: couleurDominant,
+                            film: film,
+                          ),
+                          const SizedBox(height: 20),
+                          GenreWidget(
+                            film: film,
+                            couleur_1: couleurDominant,
+                            couleur_2: MesCouleurs.secondaire.withOpacity(0.3),
+                          ),
+                          const SizedBox(height: 20),
+                          ActorWidget(
+                              couleurDominant: couleurDominant, film: film),
+                          const SizedBox(height: 20),
+                          SynopsisWidget(
+                            film: film,
+                            couleur: couleurDominant,
+                          ),
+                          const SizedBox(height: 20),
+                          ComsWidget(
+                            film: film,
+                            couleurDominant: couleurDominant,
+                          )
+                        ],
                       ),
                     ),
                   ),

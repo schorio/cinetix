@@ -17,10 +17,15 @@ class ActorWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Acteurs",
-          style: TextStyle(
-              fontSize: 20, color: couleurDominant, fontFamily: 'MontSerrat_1'),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Text(
+            "Acteurs",
+            style: TextStyle(
+                fontSize: 20,
+                color: couleurDominant,
+                fontFamily: 'MontSerrat_1'),
+          ),
         ),
         const SizedBox(height: 10),
         SingleChildScrollView(
@@ -30,7 +35,7 @@ class ActorWidget extends StatelessWidget {
             children: List.generate(film.actor.length, (index) {
               return Container(
                 padding: const EdgeInsets.all(10),
-                margin: const EdgeInsets.only(right: 10),
+                margin: const EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: couleurDominant.withOpacity(0.2),
