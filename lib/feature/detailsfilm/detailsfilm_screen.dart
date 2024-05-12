@@ -188,7 +188,8 @@ class _DetailsFilmState extends State<DetailsFilm> {
                           ComsWidget(
                             film: film,
                             couleurDominant: couleurDominant,
-                          )
+                          ),
+                          const SizedBox(height: 20),
                         ],
                       ),
                     ),
