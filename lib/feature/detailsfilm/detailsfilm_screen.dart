@@ -102,6 +102,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
               if (selected == 1 && film.trailer.isNotEmpty) {
                 _trailerController!.play();
               } else {
+                _trailerController?.initialize();
                 _trailerController?.pause();
               }
             },
