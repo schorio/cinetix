@@ -23,7 +23,7 @@ class BouttonReserverWidget extends StatelessWidget {
           Navigator.pushNamed(
             context,
             AppRouteName.reserverFilm,
-            arguments: film,
+            arguments: couleurDominant,
           );
         },
         child: Container(
