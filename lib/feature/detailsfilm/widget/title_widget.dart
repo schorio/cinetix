@@ -63,14 +63,16 @@ class TitleWidget extends StatelessWidget {
           if (film.trailer.isNotEmpty)
             InkWell(
               onTap: () {
+                int control;
+                selected == 0 ? control = selected + 1 : control = selected - 1;
                 controller.animateToPage(
-                  selected + 1,
+                  control,
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.easeIn,
                 );
               },
               child: Icon(
-                Icons.play_circle,
+                selected == 0 ? Icons.play_circle : Icons.stop_circle,
                 color: couleur,
                 size: 55,
               ),
