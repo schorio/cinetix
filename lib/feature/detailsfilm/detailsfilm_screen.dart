@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/date_model.dart';
+import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/feature/detailsfilm/widget/actor_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/background_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/boutton_reserver_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/date_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/duration_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
@@ -189,7 +191,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
                             film: film,
                             couleurDominant: couleurDominant,
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 67),
                         ],
                       ),
                     ),
@@ -197,6 +199,10 @@ class _DetailsFilmState extends State<DetailsFilm> {
                 );
               },
             ),
+          ),
+          BouttonReserverWidget(
+            film: film,
+            couleurDominant: couleurDominant,
           ),
         ],
       ),
