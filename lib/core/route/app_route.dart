@@ -1,3 +1,4 @@
+import 'package:cinetix/feature/reserverfilm/reserverfilm_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/feature/home/home_screen.dart';
@@ -8,7 +9,7 @@ class AppRoute {
     switch (settings.name) {
       case AppRouteName.home:
         return MaterialPageRoute(
-          builder: (_) => HomeScreen(),
+          builder: (_) => const HomeScreen(),
           settings: settings,
         );
 
@@ -18,6 +19,20 @@ class AppRoute {
           pageBuilder: (_, __, ___) => const DetailsFilm(),
           transitionDuration: const Duration(milliseconds: 550),
           reverseTransitionDuration: const Duration(milliseconds: 550),
+          transitionsBuilder: (_, animation, __, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        );
+
+      case AppRouteName.reserverFilm:
+        return PageRouteBuilder(
+          settings: settings,
+          pageBuilder: (_, __, ___) => const ReserverFilm(),
+          transitionDuration: const Duration(milliseconds: 200),
+          reverseTransitionDuration: const Duration(milliseconds: 200),
           transitionsBuilder: (_, animation, __, child) {
             return FadeTransition(
               opacity: animation,
