@@ -14,31 +14,31 @@ class Place {
 }
 
 final section1 = List.generate(
-  16,
+  20,
   (index) => Place(
-    isHidden: [0, 1, 4].contains(index),
+    isHidden: [0, 1, 5].contains(index),
     isOccupied: [].contains(index),
   ),
 );
 
 final section2 = List.generate(
-  16,
+  20,
   (index) => Place(
-    isHidden: [].contains(index),
+    isHidden: [3, 4, 9].contains(index),
     isOccupied: [12, 13].contains(index),
   ),
 );
 
 final section3 = List.generate(
-  16,
+  25,
   (index) => Place(
-    isHidden: [2, 3, 7].contains(index),
+    isHidden: [].contains(index),
     isOccupied: [13, 14, 15].contains(index),
   ),
 );
 
 final section4 = List.generate(
-  20,
+  25,
   (index) => Place(
     isHidden: [].contains(index),
     isOccupied: [1, 2, 3].contains(index),
@@ -46,7 +46,7 @@ final section4 = List.generate(
 );
 
 final section5 = List.generate(
-  20,
+  25,
   (index) => Place(
     isHidden: [].contains(index),
     isOccupied: [].contains(index),
@@ -54,7 +54,7 @@ final section5 = List.generate(
 );
 
 final section6 = List.generate(
-  20,
+  25,
   (index) => Place(
     isHidden: [].contains(index),
     isOccupied: [14].contains(index),
