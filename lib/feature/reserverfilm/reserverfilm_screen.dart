@@ -3,6 +3,7 @@ import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/model/place_model.dart';
 import 'package:cinetix/feature/detailsfilm/widget/boutton_reserver_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/place_widget.dart';
+import 'package:cinetix/feature/reserverfilm/widget/screen_widget.dart';
 import 'package:flutter/material.dart';
 
 class ReserverFilm extends StatefulWidget {
@@ -31,9 +32,19 @@ class _ReserverFilmState extends State<ReserverFilm> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
-        alignment: Alignment.bottomCenter,
         children: [
-          const PlaceWidget(),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 50,
+              bottom: 20,
+            ),
+            child: Column(
+              children: [
+                ScreenWidget(couleurDominant: couleurDominant),
+                PlaceWidget(couleurDominant: couleurDominant),
+              ],
+            ),
+          ),
           Positioned(
             bottom: 10,
             left: 117,
