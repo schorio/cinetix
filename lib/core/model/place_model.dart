@@ -32,32 +32,16 @@ final section2 = List.generate(
 final section3 = List.generate(
   25,
   (index) => Place(
-    isHidden: [].contains(index),
-    isOccupied: [13, 14, 15].contains(index),
+    isHidden: [20].contains(index),
+    isOccupied: [].contains(index),
   ),
 );
 
 final section4 = List.generate(
   25,
   (index) => Place(
-    isHidden: [].contains(index),
-    isOccupied: [1, 2, 3].contains(index),
-  ),
-);
-
-final section5 = List.generate(
-  25,
-  (index) => Place(
-    isHidden: [].contains(index),
+    isHidden: [24].contains(index),
     isOccupied: [].contains(index),
-  ),
-);
-
-final section6 = List.generate(
-  25,
-  (index) => Place(
-    isHidden: [].contains(index),
-    isOccupied: [14].contains(index),
   ),
 );
 
@@ -66,8 +50,6 @@ final seats = [
   section2,
   section3,
   section4,
-  section5,
-  section6,
 ];
 
 // ------------------------------- Les types des places ------------------------------- //
