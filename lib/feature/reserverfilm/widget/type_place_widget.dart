@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 class TypePlaceWidget extends StatelessWidget {
   const TypePlaceWidget({
     Key? key,
+    required this.couleurDominant,
   }) : super(key: key);
+
+  final Color couleurDominant;
 
   @override
   Widget build(BuildContext context) {
+    listeTypePlaces[2].couleur = couleurDominant;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: listeTypePlaces

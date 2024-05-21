@@ -56,7 +56,7 @@ final seats = [
 
 class PlaceType {
   final String type;
-  final Color couleur;
+  Color couleur;
 
   PlaceType({
     required this.type,

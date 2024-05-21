@@ -44,7 +44,7 @@ class _ReserverFilmState extends State<ReserverFilm> {
                 ScreenWidget(couleurDominant: couleurDominant),
                 PlaceWidget(couleurDominant: couleurDominant),
                 const SizedBox(height: 20),
-                const TypePlaceWidget()
+                TypePlaceWidget(couleurDominant: couleurDominant),
               ],
             ),
           ),
