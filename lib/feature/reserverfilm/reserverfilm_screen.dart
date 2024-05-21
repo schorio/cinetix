@@ -1,7 +1,9 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/core/model/date_model.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/model/place_model.dart';
 import 'package:cinetix/feature/detailsfilm/widget/boutton_reserver_widget.dart';
+import 'package:cinetix/feature/reserverfilm/widget/date_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/place_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/screen_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/type_place_widget.dart';
@@ -30,6 +32,7 @@ class _ReserverFilmState extends State<ReserverFilm> {
 
   @override
   Widget build(BuildContext context) {
+    final selectedDate = ValueNotifier<DateTime>(DateTime.now());
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -45,6 +48,11 @@ class _ReserverFilmState extends State<ReserverFilm> {
                 PlaceWidget(couleurDominant: couleurDominant),
                 const SizedBox(height: 20),
                 TypePlaceWidget(couleurDominant: couleurDominant),
+                const SizedBox(height: 30),
+                DateWidget(
+                  couleurDominant: couleurDominant,
+                  selectedDate: selectedDate,
+                ),
               ],
             ),
           ),
