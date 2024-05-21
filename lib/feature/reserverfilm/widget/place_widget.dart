@@ -16,24 +16,22 @@ class PlaceWidget extends StatefulWidget {
 class _PlaceWidgetState extends State<PlaceWidget> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                for (int i = 0; i < 2; i++) twoSection(i, 20),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                for (int i = 2; i < 4; i++) twoSection(i, 25),
-              ],
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              for (int i = 0; i < 2; i++) twoSection(i, 20),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              for (int i = 2; i < 4; i++) twoSection(i, 25),
+            ],
+          ),
+        ],
       ),
     );
   }
