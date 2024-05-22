@@ -1,9 +1,4 @@
 import 'package:cinetix/core/design/app_color.dart';
-import 'package:cinetix/core/model/date_model.dart';
-import 'package:cinetix/core/model/film_model.dart';
-import 'package:cinetix/core/model/place_model.dart';
-import 'package:cinetix/core/model/time_model.dart';
-import 'package:cinetix/feature/detailsfilm/widget/boutton_reserver_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/button_back_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/date_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/place_widget.dart';

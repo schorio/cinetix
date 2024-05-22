@@ -1,4 +1,3 @@
-import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/place_model.dart';
 import 'package:flutter/material.dart';
 

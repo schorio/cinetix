@@ -1,7 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cinetix/core/design/app_color.dart';
-import 'package:cinetix/core/model/date_model.dart';
-import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/feature/detailsfilm/widget/actor_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/background_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/boutton_reserver_widget.dart';
