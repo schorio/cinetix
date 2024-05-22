@@ -22,7 +22,7 @@ class _PlaceWidgetState extends State<PlaceWidget> {
         children: [
           Row(
             children: [
-              for (int i = 0; i < 2; i++) twoSection(i, 20),
+              for (int i = 0; i < 2; i++) twoSection(i, 25),
             ],
           ),
           const SizedBox(height: 20),

@@ -14,7 +14,7 @@ class Place {
 }
 
 final section1 = List.generate(
-  20,
+  25,
   (index) => Place(
     isHidden: [0, 1, 5].contains(index),
     isOccupied: [].contains(index),
@@ -22,7 +22,7 @@ final section1 = List.generate(
 );
 
 final section2 = List.generate(
-  20,
+  25,
   (index) => Place(
     isHidden: [3, 4, 9].contains(index),
     isOccupied: [12, 13].contains(index),
