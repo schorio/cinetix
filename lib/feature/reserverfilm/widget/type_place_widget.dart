@@ -21,8 +21,8 @@ class TypePlaceWidget extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(
-                    height: 15,
-                    width: 15,
+                    height: 12,
+                    width: 12,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
@@ -33,7 +33,10 @@ class TypePlaceWidget extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 5),
-                    child: Text(index.type),
+                    child: Text(
+                      index.type,
+                      style: const TextStyle(fontSize: 12),
+                    ),
                   )
                 ],
               ),

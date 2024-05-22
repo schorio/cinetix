@@ -11,15 +11,15 @@ class ScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            height: 175,
+            height: 110,
             transform: Matrix4.identity()
-              ..setEntry(3, 2, 0.002)
-              ..rotateX(.8),
+              ..setEntry(3, 2, 0.005)
+              ..rotateX(.6),
             transformAlignment: Alignment.topCenter,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(
@@ -29,10 +29,11 @@ class ScreenWidget extends StatelessWidget {
                 color: couleurDominant,
                 width: 5,
               ),
+              color: couleurDominant.withOpacity(0.5),
             ),
           ),
           Positioned(
-            bottom: 35,
+            bottom: 10,
             height: 40,
             width: 230,
             child: CustomPaint(
