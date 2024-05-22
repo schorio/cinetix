@@ -4,10 +4,12 @@ import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/model/place_model.dart';
 import 'package:cinetix/core/model/time_model.dart';
 import 'package:cinetix/feature/detailsfilm/widget/boutton_reserver_widget.dart';
+import 'package:cinetix/feature/reserverfilm/widget/button_back_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/date_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/place_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/screen_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/time_widget.dart';
+import 'package:cinetix/feature/reserverfilm/widget/title_page_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/type_place_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -40,6 +42,7 @@ class _ReserverFilmState extends State<ReserverFilm> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
+          ButtonBackWidget(couleurDominant: couleurDominant),
           Padding(
             padding: const EdgeInsets.only(
               top: 50,
@@ -47,7 +50,10 @@ class _ReserverFilmState extends State<ReserverFilm> {
             ),
             child: Column(
               children: [
+                TitlePageWidget(couleurDominant: couleurDominant),
+                const SizedBox(height: 25),
                 ScreenWidget(couleurDominant: couleurDominant),
+                const SizedBox(height: 0),
                 PlaceWidget(couleurDominant: couleurDominant),
                 const SizedBox(height: 20),
                 TypePlaceWidget(couleurDominant: couleurDominant),
