@@ -16,48 +16,11 @@ class EnSalle extends StatefulWidget {
 
 class _EnSalleState extends State<EnSalle> with TickerProviderStateMixin {
   late final TabController tabController;
-  late final PageController _movieCardPageController;
-  late final PageController _movieTitlePageController;
-
-  double _movieCardPage = 0.0;
-  int _movieCardIndex = 0;
-  // ignore: unused_field
-  double _movieTitlePage = 0.0;
-
-  _movieCardPagePercentListener() {
-    setState(() {
-      _movieCardPage = _movieCardPageController.page!;
-      _movieCardIndex = _movieCardPageController.page!.round();
-    });
-  }
-
-  _movieTitlePagePercentListener() {
-    setState(() {
-      _movieTitlePage = _movieTitlePageController.page!;
-    });
-  }
 
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
-    _movieCardPageController = PageController(viewportFraction: 0.77)
-      ..addListener(_movieCardPagePercentListener);
-
-    _movieTitlePageController = PageController()
-      ..addListener(_movieTitlePagePercentListener);
     super.initState();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _movieCardPageController
-      ..removeListener(_movieCardPagePercentListener)
-      ..dispose();
-    _movieTitlePageController
-      ..removeListener(_movieTitlePagePercentListener)
-      ..dispose();
-    super.dispose();
   }
 
   @override
@@ -84,20 +47,8 @@ class _EnSalleState extends State<EnSalle> with TickerProviderStateMixin {
                     physics: const NeverScrollableScrollPhysics(),
                     controller: tabController,
                     children: [
-                      Column(
-                        children: [
-                          CardSliderWidget(
-                            movieCardPageController: _movieCardPageController,
-                            movieCardPage: _movieCardPage,
-                            movieCardIndex: _movieCardIndex,
-                            movieTitlePageController: _movieTitlePageController,
-                          ),
-                          TitleSliderWidget(
-                            movieTitlePageController: _movieTitlePageController,
-                          ),
-                        ],
-                      ),
-                      Container()
+                      CardSliderWidget(listFilm: enProjection),
+                      CardSliderWidget(listFilm: avantPremiere),
                     ],
                   ),
                 )
