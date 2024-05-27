@@ -6,14 +6,17 @@ class CardSliderWidget extends StatelessWidget {
   const CardSliderWidget({
     Key? key,
     required PageController movieCardPageController,
+    required PageController movieTitlePageController,
     required double movieCardPage,
     required int movieCardIndex,
   })  : _movieCardPageController = movieCardPageController,
+        _movieTitlePageController = movieTitlePageController,
         _movieCardPage = movieCardPage,
         _movieCardIndex = movieCardIndex,
         super(key: key);
 
   final PageController _movieCardPageController;
+  final PageController _movieTitlePageController;
   final double _movieCardPage;
   final int _movieCardIndex;
 
@@ -27,7 +30,13 @@ class CardSliderWidget extends StatelessWidget {
           controller: _movieCardPageController,
           clipBehavior: Clip.none,
           itemCount: enProjection.length,
-          onPageChanged: (page) {},
+          onPageChanged: (page) {
+            _movieTitlePageController.animateToPage(
+              page,
+              duration: const Duration(milliseconds: 500),
+              curve: const Interval(0.25, 1, curve: Curves.decelerate),
+            );
+          },
           itemBuilder: (_, index) {
             final movie = enProjection[index];
             final progress = (_movieCardPage - index);
