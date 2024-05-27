@@ -1,8 +1,8 @@
 import 'package:cinetix/core/route/app_route_name.dart';
+import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/feature/home/widget/banner_widget.dart';
 import 'package:cinetix/feature/home/widget/header_widget.dart';
-import 'package:cinetix/feature/home/widget/search_widget.dart';
 import 'package:cinetix/feature/home/widget/title_widget.dart';
 import 'package:cinetix/feature/home/widget/category_widget.dart';
 import 'package:cinetix/feature/home/widget/sliderFilms_widget.dart';
@@ -47,16 +47,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          children: const [
-                            Header(),
-                            SizedBox(height: 20),
-                            Search(),
-                          ],
-                        ),
+                      const Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Header(),
                       ),
+                      const SearchBar(),
+                      const SizedBox(height: 20),
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         child: TitleWidget(
