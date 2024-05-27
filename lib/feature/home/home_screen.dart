@@ -1,3 +1,4 @@
+import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/feature/home/widget/banner_widget.dart';
 import 'package:cinetix/feature/home/widget/header_widget.dart';
@@ -73,7 +74,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: TitleWidget(title: "Films en salle"),
+                        child: TitleWidget(
+                          title: "Films en salle",
+                          route: AppRouteName.enSalle,
+                        ),
                       ),
                       TabBar(
                         overlayColor:
