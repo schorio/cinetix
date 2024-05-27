@@ -1,5 +1,6 @@
 import 'dart:ui' as ui;
 import 'package:cinetix/core/model/film_model.dart';
+import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:flutter/material.dart';
 
 class CardSliderWidget extends StatefulWidget {
@@ -108,7 +109,7 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
             );
           },
           itemBuilder: (_, index) {
-            final movie = widget.listFilm[index];
+            final film = widget.listFilm[index];
             final progress = (_movieCardPage - index);
             final scale = ui.lerpDouble(1, .8, progress.abs())!;
             final isCurrentPage = index == _movieCardIndex;
@@ -124,9 +125,12 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
               ),
               scale: isScrolling && isFirstPage ? 1 - progress : scale,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, AppRouteName.detailsFilm,
+                      arguments: film);
+                },
                 child: Hero(
-                  tag: movie.assetImage,
+                  tag: film.assetImage,
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
@@ -147,7 +151,7 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
                         ),
                       ],
                       image: DecorationImage(
-                        image: AssetImage(movie.assetImage),
+                        image: AssetImage(film.assetImage),
                         fit: BoxFit.cover,
                       ),
                     ),
