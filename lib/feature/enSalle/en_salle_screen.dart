@@ -1,6 +1,7 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:cinetix/core/widget/title_page.dart';
+import 'package:cinetix/feature/enSalle/widget/title_tabbar_widget.dart';
 import 'package:flutter/material.dart';
 
 class EnSalle extends StatefulWidget {
@@ -31,10 +32,12 @@ class _EnSalleState extends State<EnSalle> with TickerProviderStateMixin {
               top: MediaQuery.of(context).padding.top + 25,
             ),
             child: Column(
-              children: const [
-                TitlePage(title: "Les films en salle"),
-                SizedBox(height: 25),
-                SearchBar(),
+              children: [
+                const TitlePage(title: "Les films en salle"),
+                const SizedBox(height: 25),
+                const SearchBar(),
+                const SizedBox(height: 20),
+                TitleTabBar(tabController: tabController),
               ],
             ),
           ),
