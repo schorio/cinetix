@@ -1,3 +1,4 @@
+import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/design/app_color.dart';
 
@@ -6,13 +7,13 @@ class TitleWidget extends StatelessWidget {
     super.key,
     required this.title,
     this.sufixText = "voir plus",
-    this.onSufixClick,
+    this.route = "/",
     this.voirPlus = true,
   });
 
   final String title;
   final String sufixText;
-  final void Function()? onSufixClick;
+  final String route;
   final bool voirPlus;
 
   @override
@@ -30,7 +31,9 @@ class TitleWidget extends StatelessWidget {
         ),
         if (voirPlus)
           InkWell(
-            onTap: onSufixClick,
+            onTap: () {
+              Navigator.pushNamed(context, route);
+            },
             child: Text(
               sufixText,
               style: const TextStyle(color: MesCouleurs.noir),
