@@ -1,11 +1,9 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/widget/title_page.dart';
-import 'package:cinetix/feature/reserverfilm/widget/button_back_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/date_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/place_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/screen_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/time_widget.dart';
-import 'package:cinetix/feature/reserverfilm/widget/title_page_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/type_place_widget.dart';
 import 'package:flutter/material.dart';
 

@@ -1,7 +1,6 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:cinetix/core/widget/title_page.dart';
-import 'package:cinetix/feature/enSalle/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
 class EnSalle extends StatefulWidget {
@@ -11,7 +10,15 @@ class EnSalle extends StatefulWidget {
   State<EnSalle> createState() => _EnSalleState();
 }
 
-class _EnSalleState extends State<EnSalle> {
+class _EnSalleState extends State<EnSalle> with TickerProviderStateMixin {
+  late final TabController tabController;
+
+  @override
+  void initState() {
+    tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +34,7 @@ class _EnSalleState extends State<EnSalle> {
               children: const [
                 TitlePage(title: "Les films en salle"),
                 SizedBox(height: 25),
-                SearchBar()
+                SearchBar(),
               ],
             ),
           ),
