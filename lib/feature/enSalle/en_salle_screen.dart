@@ -1,4 +1,5 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/feature/enSalle/widget/header_widget.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,8 @@ class _EnSalleState extends State<EnSalle> {
             child: Column(
               children: const [
                 TitlePage(title: "Les films en salle"),
+                SizedBox(height: 25),
+                SearchBar()
               ],
             ),
           ),
