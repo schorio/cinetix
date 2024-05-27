@@ -1,4 +1,5 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/feature/enSalle/widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -20,12 +21,10 @@ class _EnSalleState extends State<EnSalle> {
           Padding(
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).padding.top + 25,
-              left: 20,
-              right: 20,
             ),
             child: Column(
               children: const [
-                HeaderWidget(),
+                TitlePage(title: "Les films en salle"),
               ],
             ),
           ),
