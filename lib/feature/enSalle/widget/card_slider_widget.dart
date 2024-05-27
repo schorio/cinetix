@@ -2,26 +2,96 @@ import 'dart:ui' as ui;
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:flutter/material.dart';
 
-class CardSliderWidget extends StatelessWidget {
+class CardSliderWidget extends StatefulWidget {
   const CardSliderWidget({
-    Key? key,
-    required PageController movieCardPageController,
-    required PageController movieTitlePageController,
-    required double movieCardPage,
-    required int movieCardIndex,
-  })  : _movieCardPageController = movieCardPageController,
-        _movieTitlePageController = movieTitlePageController,
-        _movieCardPage = movieCardPage,
-        _movieCardIndex = movieCardIndex,
-        super(key: key);
+    super.key,
+    required this.listFilm,
+  });
 
-  final PageController _movieCardPageController;
-  final PageController _movieTitlePageController;
-  final double _movieCardPage;
-  final int _movieCardIndex;
+  final List<Film> listFilm;
+
+  @override
+  State<CardSliderWidget> createState() => _CardSliderWidgetState();
+}
+
+class _CardSliderWidgetState extends State<CardSliderWidget> {
+  late final PageController _movieCardPageController;
+  late final PageController _movieTitlePageController;
+
+  double _movieCardPage = 0.0;
+  int _movieCardIndex = 0;
+  // ignore: unused_field
+  double _movieTitlePage = 0.0;
+
+  _movieCardPagePercentListener() {
+    setState(() {
+      _movieCardPage = _movieCardPageController.page!;
+      _movieCardIndex = _movieCardPageController.page!.round();
+    });
+  }
+
+  _movieTitlePagePercentListener() {
+    setState(() {
+      _movieTitlePage = _movieTitlePageController.page!;
+    });
+  }
+
+  @override
+  void initState() {
+    _movieCardPageController = PageController(viewportFraction: 0.77)
+      ..addListener(_movieCardPagePercentListener);
+
+    _movieTitlePageController = PageController()
+      ..addListener(_movieTitlePagePercentListener);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _movieCardPageController
+      ..removeListener(_movieCardPagePercentListener)
+      ..dispose();
+    _movieTitlePageController
+      ..removeListener(_movieTitlePagePercentListener)
+      ..dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    return Column(
+      children: [
+        pochette(context),
+        title(),
+      ],
+    );
+  }
+
+  Expanded title() {
+    return Expanded(
+      child: PageView.builder(
+        controller: _movieTitlePageController,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: enProjection.length,
+        itemBuilder: (_, index) {
+          final movie = enProjection[index];
+          return Hero(
+            tag: movie.title,
+            child: Center(
+              child: Text(
+                movie.title,
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  SizedBox pochette(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.6,
       child: Padding(
@@ -29,7 +99,7 @@ class CardSliderWidget extends StatelessWidget {
         child: PageView.builder(
           controller: _movieCardPageController,
           clipBehavior: Clip.none,
-          itemCount: enProjection.length,
+          itemCount: widget.listFilm.length,
           onPageChanged: (page) {
             _movieTitlePageController.animateToPage(
               page,
@@ -38,7 +108,7 @@ class CardSliderWidget extends StatelessWidget {
             );
           },
           itemBuilder: (_, index) {
-            final movie = enProjection[index];
+            final movie = widget.listFilm[index];
             final progress = (_movieCardPage - index);
             final scale = ui.lerpDouble(1, .8, progress.abs())!;
             final isCurrentPage = index == _movieCardIndex;
