@@ -1,4 +1,5 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/feature/reserverfilm/widget/button_back_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/date_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/place_widget.dart';
@@ -37,15 +38,16 @@ class _ReserverFilmState extends State<ReserverFilm> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          ButtonBackWidget(couleurDominant: couleurDominant),
           Padding(
-            padding: const EdgeInsets.only(
-              top: 50,
-              bottom: 20,
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).padding.top + 25,
             ),
             child: Column(
               children: [
-                TitlePageWidget(couleurDominant: couleurDominant),
+                TitlePage(
+                  title: "Réservation",
+                  color: couleurDominant,
+                ),
                 const SizedBox(height: 25),
                 ScreenWidget(couleurDominant: couleurDominant),
                 const SizedBox(height: 0),
