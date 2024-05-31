@@ -170,8 +170,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
                           const SizedBox(height: 20),
                           GenreWidget(
                             film: film,
-                            couleur_1: couleurDominant,
-                            couleur_2: MesCouleurs.secondaire.withOpacity(0.3),
+                            couleur: couleurDominant,
                           ),
                           const SizedBox(height: 20),
                           DateWidget(

@@ -105,8 +105,7 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
                 const SizedBox(height: 10),
                 GenreWidget(
                   film: movie,
-                  couleur_1: widget.color,
-                  couleur_2: MesCouleurs.secondaire.withOpacity(0.3),
+                  couleur: widget.color,
                 ),
               ],
             ),
