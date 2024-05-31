@@ -25,8 +25,11 @@ class TitleWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style:
-              TextStyle(color: color, fontSize: 30, fontFamily: 'Montserrat_1'),
+          style: TextStyle(
+            color: color,
+            fontSize: 27,
+            fontFamily: 'Montserrat_1',
+          ),
         ),
         if (voirPlus)
           InkWell(
@@ -35,7 +38,9 @@ class TitleWidget extends StatelessWidget {
             },
             child: Text(
               sufixText,
-              style: const TextStyle(color: MesCouleurs.noir),
+              style: TextStyle(
+                color: MesCouleurs.noir.withOpacity(0.4),
+              ),
             ),
           )
       ],
