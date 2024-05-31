@@ -32,8 +32,8 @@ class AppRoute {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, __, ___) => const ReserverFilm(),
-          transitionDuration: const Duration(milliseconds: 200),
-          reverseTransitionDuration: const Duration(milliseconds: 200),
+          transitionDuration: const Duration(milliseconds: 550),
+          reverseTransitionDuration: const Duration(milliseconds: 550),
           transitionsBuilder: (_, animation, __, child) {
             return FadeTransition(
               opacity: animation,
@@ -46,8 +46,8 @@ class AppRoute {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, __, ___) => const EnSalle(),
-          transitionDuration: const Duration(milliseconds: 200),
-          reverseTransitionDuration: const Duration(milliseconds: 200),
+          transitionDuration: const Duration(milliseconds: 550),
+          reverseTransitionDuration: const Duration(milliseconds: 550),
           transitionsBuilder: (_, animation, __, child) {
             return FadeTransition(
               opacity: animation,
