@@ -9,6 +9,7 @@ import 'package:cinetix/feature/home/widget/sliderFilms_widget.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,15 +21,34 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late final TabController tabController;
+  PaletteGenerator? paletteGenerator;
+  final String dominant = "assets/banner/1.jpg";
 
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
+    generateColors(dominant);
     super.initState();
+  }
+
+  void generateColors(String image) async {
+    paletteGenerator = await PaletteGenerator.fromImageProvider(
+      AssetImage(image),
+      size: const Size(200, 200),
+      region: const Rect.fromLTRB(0, 0, 50, 50),
+    );
+
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    Color couleurDominant = paletteGenerator != null
+        ? paletteGenerator!.vibrantColor != null
+            ? paletteGenerator!.vibrantColor!.color
+            : MesCouleurs.primaire
+        : MesCouleurs.primaire;
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Stack(
@@ -47,32 +67,36 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.all(20),
-                        child: Header(),
+                      Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Header(color: couleurDominant),
                       ),
-                      const SearchBar(),
+                      SearchBar(color: couleurDominant),
                       const SizedBox(height: 20),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TitleWidget(
                           title: "Category",
                           voirPlus: false,
+                          color: couleurDominant,
                         ),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(top: 12),
                         child: CategoryWidget(),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 10),
-                        child: BannerWidget(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: BannerWidget(
+                          generateColors: generateColors,
+                        ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TitleWidget(
                           title: "Films en salle",
                           route: AppRouteName.enSalle,
+                          color: couleurDominant,
                         ),
                       ),
                       TabBar(
@@ -89,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         unselectedLabelColor: MesCouleurs.noir,
                         isScrollable: true,
                         indicatorSize: TabBarIndicatorSize.label,
-                        indicatorColor: MesCouleurs.primaire,
+                        indicatorColor: couleurDominant,
                         tabs: const [
                           Tab(text: "Complet"),
                           Tab(text: "Avant-première"),
@@ -114,9 +138,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   sViewPortFraction: 0.56),
                             ]),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                        child: TitleWidget(title: "Prochainement"),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(left: 20, right: 20, top: 10),
+                        child: TitleWidget(
+                          title: "Prochainement",
+                          color: couleurDominant,
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),

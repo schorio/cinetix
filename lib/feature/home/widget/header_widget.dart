@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 class Header extends StatelessWidget {
   const Header({
     Key? key,
+    required this.color,
   }) : super(key: key);
+
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: const [
-        Text(
+      children: [
+        const Text(
           "Ciné",
           style: TextStyle(
               color: MesCouleurs.noir,
@@ -19,19 +22,17 @@ class Header extends StatelessWidget {
         ),
         Text(
           "Tix",
-          style: TextStyle(
-              color: MesCouleurs.primaire,
-              fontSize: 40,
-              fontFamily: 'Montserrat_1'),
+          style:
+              TextStyle(color: color, fontSize: 40, fontFamily: 'Montserrat_1'),
         ),
-        Spacer(),
+        const Spacer(),
         CircleAvatar(
-          backgroundImage: AssetImage('assets/profile.jpg'),
+          backgroundImage: const AssetImage('assets/profile.jpg'),
           radius: 25,
           child: Align(
             alignment: Alignment.topRight,
             child: CircleAvatar(
-              backgroundColor: MesCouleurs.primaire,
+              backgroundColor: color,
               radius: 7.0,
             ),
           ),

@@ -1,4 +1,3 @@
-import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/design/app_color.dart';
 
@@ -9,12 +8,14 @@ class TitleWidget extends StatelessWidget {
     this.sufixText = "voir plus",
     this.route = "/",
     this.voirPlus = true,
+    required this.color,
   });
 
   final String title;
   final String sufixText;
   final String route;
   final bool voirPlus;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +25,8 @@ class TitleWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-              color: MesCouleurs.primaire,
-              fontSize: 30,
-              fontFamily: 'Montserrat_1'),
+          style:
+              TextStyle(color: color, fontSize: 30, fontFamily: 'Montserrat_1'),
         ),
         if (voirPlus)
           InkWell(

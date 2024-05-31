@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:cinetix/core/design/app_color.dart';
 
 class BannerWidget extends StatefulWidget {
-  const BannerWidget({super.key});
+  const BannerWidget({
+    super.key,
+    required this.generateColors,
+  });
+
+  final Function(String) generateColors;
 
   @override
   State<BannerWidget> createState() => _BannerWidgetState();
@@ -34,6 +39,7 @@ class _BannerWidgetState extends State<BannerWidget> {
               onPageChanged: (index, reason) {
                 setState(() {
                   showedIndex = index;
+                  widget.generateColors(banners[index]);
                 });
               },
             ),
