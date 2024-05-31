@@ -7,9 +7,13 @@ class CardSliderWidget extends StatefulWidget {
   const CardSliderWidget({
     super.key,
     required this.listFilm,
+    required this.color,
+    required this.generateColors,
   });
 
   final List<Film> listFilm;
+  final Color color;
+  final Function(int) generateColors;
 
   @override
   State<CardSliderWidget> createState() => _CardSliderWidgetState();
@@ -81,9 +85,7 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
             child: Center(
               child: Text(
                 movie.title,
-                style: const TextStyle(
-                  fontSize: 18,
-                ),
+                style: TextStyle(fontSize: 18, color: widget.color),
               ),
             ),
           );
@@ -107,6 +109,9 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
               duration: const Duration(milliseconds: 500),
               curve: const Interval(0.25, 1, curve: Curves.decelerate),
             );
+            setState(() {
+              widget.generateColors(page);
+            });
           },
           itemBuilder: (_, index) {
             final film = widget.listFilm[index];
@@ -126,8 +131,11 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
               scale: isScrolling && isFirstPage ? 1 - progress : scale,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, AppRouteName.detailsFilm,
-                      arguments: film);
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteName.detailsFilm,
+                    arguments: film,
+                  );
                 },
                 child: Hero(
                   tag: film.assetImage,

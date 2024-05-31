@@ -5,9 +5,11 @@ class TitleTabBar extends StatelessWidget {
   const TitleTabBar({
     Key? key,
     required this.tabController,
+    required this.color,
   }) : super(key: key);
 
   final TabController tabController;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class TitleTabBar extends StatelessWidget {
       unselectedLabelColor: MesCouleurs.noir,
       isScrollable: true,
       indicatorSize: TabBarIndicatorSize.label,
-      indicatorColor: MesCouleurs.primaire,
+      indicatorColor: color,
       tabs: const [
         Tab(text: "Complet"),
         Tab(text: "Avant-première"),
