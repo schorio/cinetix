@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
+import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/title_movie_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -91,7 +92,12 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
                 TitleMovieWidget(
                   film: movie,
                   couleur: widget.color,
-                )
+                ),
+                const SizedBox(height: 10),
+                EvaluationWidget(
+                  film: movie,
+                  couleur: widget.color,
+                ),
               ],
             ),
           );
