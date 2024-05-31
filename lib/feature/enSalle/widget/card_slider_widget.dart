@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
+import 'package:cinetix/feature/detailsfilm/widget/title_movie_widget.dart';
 import 'package:flutter/material.dart';
 
 class CardSliderWidget extends StatefulWidget {
@@ -69,6 +70,7 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
     return Column(
       children: [
         pochette(context, widget.indexTab),
+        const SizedBox(height: 20),
         title(),
       ],
     );
@@ -82,13 +84,15 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
         itemCount: enProjection.length,
         itemBuilder: (_, index) {
           final movie = enProjection[index];
-          return Hero(
-            tag: movie.title,
-            child: Center(
-              child: Text(
-                movie.title,
-                style: TextStyle(fontSize: 18, color: widget.color),
-              ),
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              children: [
+                TitleMovieWidget(
+                  film: movie,
+                  couleur: widget.color,
+                )
+              ],
             ),
           );
         },
