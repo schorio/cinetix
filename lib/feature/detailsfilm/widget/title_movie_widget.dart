@@ -2,18 +2,18 @@ import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:flutter/material.dart';
 
-class TitleWidget extends StatelessWidget {
-  const TitleWidget({
+class TitleMovieWidget extends StatelessWidget {
+  const TitleMovieWidget({
     Key? key,
     required this.film,
     required this.couleur,
-    required this.controller,
-    required this.selected,
+    this.controller,
+    this.selected = 0,
   }) : super(key: key);
 
   final Film film;
   final Color couleur;
-  final PageController controller;
+  final PageController? controller;
   final int selected;
 
   @override
@@ -60,12 +60,12 @@ class TitleWidget extends StatelessWidget {
               ],
             ),
           ),
-          if (film.trailer.isNotEmpty)
+          if (controller != null && film.trailer.isNotEmpty)
             InkWell(
               onTap: () {
                 int control;
                 selected == 0 ? control = selected + 1 : control = selected - 1;
-                controller.animateToPage(
+                controller?.animateToPage(
                   control,
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.easeIn,

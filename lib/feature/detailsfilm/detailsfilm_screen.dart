@@ -10,7 +10,7 @@ import 'package:cinetix/feature/detailsfilm/widget/indicator_scroll_widget.dart'
 import 'package:cinetix/feature/detailsfilm/widget/indicatorpochette_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/pochette_viewer_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/synopsis_widget.dart';
-import 'package:cinetix/feature/detailsfilm/widget/title_widget.dart';
+import 'package:cinetix/feature/detailsfilm/widget/title_movie_widget.dart';
 import 'package:cinetix/feature/detailsfilm/widget/trailer_viewer_widget.dart';
 import 'package:cinetix/feature/home/widget/coms_widget.dart';
 import 'package:flutter/material.dart';
@@ -151,7 +151,7 @@ class _DetailsFilmState extends State<DetailsFilm> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           IndicatorScroll(couleur: couleurDominant),
-                          TitleWidget(
+                          TitleMovieWidget(
                             film: film,
                             couleur: couleurDominant,
                             controller: pochetteController,
