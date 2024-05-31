@@ -73,7 +73,7 @@ class _EnSalleState extends State<EnSalle> with TickerProviderStateMixin {
                   title: "Les films en salle",
                   color: couleurDominant,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 TitleTabBar(
                   tabController: tabController,
                   color: couleurDominant,

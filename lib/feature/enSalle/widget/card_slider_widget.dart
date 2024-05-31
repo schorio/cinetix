@@ -119,7 +119,7 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.6,
       child: Padding(
-        padding: const EdgeInsets.only(top: 40),
+        padding: const EdgeInsets.only(top: 30),
         child: PageView.builder(
           controller: _movieCardPageController,
           clipBehavior: Clip.none,
