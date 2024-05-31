@@ -8,12 +8,14 @@ class CardSliderWidget extends StatefulWidget {
     super.key,
     required this.listFilm,
     required this.color,
+    required this.indexTab,
     required this.generateColors,
   });
 
   final List<Film> listFilm;
   final Color color;
-  final Function(int) generateColors;
+  final int indexTab;
+  final Function(int, int) generateColors;
 
   @override
   State<CardSliderWidget> createState() => _CardSliderWidgetState();
@@ -66,7 +68,7 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        pochette(context),
+        pochette(context, widget.indexTab),
         title(),
       ],
     );
@@ -94,7 +96,7 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
     );
   }
 
-  SizedBox pochette(BuildContext context) {
+  SizedBox pochette(BuildContext context, int indexTab) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.6,
       child: Padding(
@@ -110,7 +112,7 @@ class _CardSliderWidgetState extends State<CardSliderWidget> {
               curve: const Interval(0.25, 1, curve: Curves.decelerate),
             );
             setState(() {
-              widget.generateColors(page);
+              widget.generateColors(page, indexTab);
             });
           },
           itemBuilder: (_, index) {

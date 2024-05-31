@@ -17,22 +17,36 @@ class _EnSalleState extends State<EnSalle> with TickerProviderStateMixin {
   late final TabController tabController;
   PaletteGenerator? paletteGenerator;
   int selected = 0;
+  int indexTab = 0;
 
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
-    generateColors(selected);
+    tabController.addListener(_handleTabSelection);
+    generateColors(selected, indexTab);
     super.initState();
   }
 
-  void generateColors(int index) async {
+  void generateColors(int index, int indexTab) async {
+    final listTab = [
+      enProjection[index],
+      avantPremiere[index],
+    ];
+
     paletteGenerator = await PaletteGenerator.fromImageProvider(
-      AssetImage(enProjection[index].assetImage),
+      AssetImage(listTab[indexTab].assetImage),
       size: const Size(100, 100),
       region: const Rect.fromLTRB(0, 0, 50, 50),
     );
 
     setState(() {});
+  }
+
+  void _handleTabSelection() {
+    setState(() {
+      indexTab = tabController.index;
+      generateColors(selected, indexTab);
+    });
   }
 
   @override
@@ -72,11 +86,13 @@ class _EnSalleState extends State<EnSalle> with TickerProviderStateMixin {
                       CardSliderWidget(
                         listFilm: enProjection,
                         color: couleurDominant,
+                        indexTab: indexTab,
                         generateColors: generateColors,
                       ),
                       CardSliderWidget(
                         listFilm: avantPremiere,
                         color: couleurDominant,
+                        indexTab: indexTab,
                         generateColors: generateColors,
                       ),
                     ],
