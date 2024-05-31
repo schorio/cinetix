@@ -89,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: BannerWidget(
                           generateColors: generateColors,
+                          color: couleurDominant,
                         ),
                       ),
                       Padding(

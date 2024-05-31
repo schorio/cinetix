@@ -6,9 +6,11 @@ class BannerWidget extends StatefulWidget {
   const BannerWidget({
     super.key,
     required this.generateColors,
+    required this.color,
   });
 
   final Function(String) generateColors;
+  final Color color;
 
   @override
   State<BannerWidget> createState() => _BannerWidgetState();
@@ -70,7 +72,7 @@ class _BannerWidgetState extends State<BannerWidget> {
                             margin: const EdgeInsets.only(right: 4),
                             decoration: BoxDecoration(
                               color: showedIndex == index
-                                  ? MesCouleurs.primaire
+                                  ? widget.color
                                   : MesCouleurs.blanc,
                               borderRadius: BorderRadius.circular(50),
                             ),
