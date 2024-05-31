@@ -1,9 +1,7 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
-import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/feature/enSalle/widget/card_slider_widget.dart';
-import 'package:cinetix/feature/enSalle/widget/title_slider_widget.dart';
 import 'package:cinetix/feature/enSalle/widget/title_tabbar_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -38,8 +36,6 @@ class _EnSalleState extends State<EnSalle> with TickerProviderStateMixin {
             child: Column(
               children: [
                 const TitlePage(title: "Les films en salle"),
-                const SizedBox(height: 25),
-                const SearchBar(),
                 const SizedBox(height: 20),
                 TitleTabBar(tabController: tabController),
                 Expanded(
