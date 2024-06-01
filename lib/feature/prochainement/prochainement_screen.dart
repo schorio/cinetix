@@ -1,3 +1,4 @@
+import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:cinetix/core/widget/title_page.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,8 @@ class _ProchainementScreenState extends State<ProchainementScreen> {
         child: Column(
           children: const [
             TitlePage(title: "Prochainement"),
+            SizedBox(height: 20),
+            SearchBar(),
           ],
         ),
       ),
