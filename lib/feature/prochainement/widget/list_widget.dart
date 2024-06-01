@@ -1,5 +1,6 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
+import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/feature/prochainement/widget/bloc_details_widget.dart';
 import 'package:cinetix/feature/prochainement/widget/pochette_widget.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,18 @@ class ListWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         itemCount: prochainement.length,
         itemBuilder: (context, index) {
-          return filmItem(context, index);
+          return InkWell(
+            onTap: () {
+              Film film = prochainement[index];
+
+              Navigator.pushNamed(
+                context,
+                AppRouteName.detailsFilm,
+                arguments: film,
+              );
+            },
+            child: filmItem(context, index),
+          );
         },
         separatorBuilder: (context, index) {
           return Divider(

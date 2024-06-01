@@ -11,15 +11,18 @@ class PochetteWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.28,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        image: DecorationImage(
-          image: AssetImage(
-            prochainement[index].assetImage,
+    return Hero(
+      tag: prochainement[index].assetImage,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.28,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            image: AssetImage(
+              prochainement[index].assetImage,
+            ),
+            fit: BoxFit.cover,
           ),
-          fit: BoxFit.cover,
         ),
       ),
     );
