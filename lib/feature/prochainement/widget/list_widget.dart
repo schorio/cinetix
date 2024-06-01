@@ -1,5 +1,6 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
+import 'package:cinetix/feature/prochainement/widget/pochette_widget.dart';
 import 'package:flutter/material.dart';
 
 class ListWidget extends StatelessWidget {
@@ -14,16 +15,7 @@ class ListWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         itemCount: prochainement.length,
         itemBuilder: (context, index) {
-          return SizedBox(
-            height: MediaQuery.of(context).size.height * 0.2,
-            width: MediaQuery.of(context).size.width,
-            child: Center(
-              child: Text(
-                prochainement[index].title,
-                style: const TextStyle(fontSize: 20),
-              ),
-            ),
-          );
+          return filmItem(context, index);
         },
         separatorBuilder: (context, index) {
           return Divider(
@@ -33,5 +25,17 @@ class ListWidget extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Container filmItem(BuildContext context, int index) {
+    return Container(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        height: MediaQuery.of(context).size.height * 0.17,
+        width: MediaQuery.of(context).size.width,
+        child: Row(
+          children: [
+            PochetteWidget(index: index),
+          ],
+        ));
   }
 }
