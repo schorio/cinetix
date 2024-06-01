@@ -1,5 +1,6 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
+import 'package:cinetix/feature/prochainement/widget/bloc_details_widget.dart';
 import 'package:cinetix/feature/prochainement/widget/pochette_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,8 @@ class ListWidget extends StatelessWidget {
         child: Row(
           children: [
             PochetteWidget(index: index),
+            const SizedBox(width: 10),
+            BlocDetailsWidget(index: index)
           ],
         ));
   }
