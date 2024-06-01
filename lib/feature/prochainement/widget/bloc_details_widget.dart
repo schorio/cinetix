@@ -27,8 +27,31 @@ class BlocDetailsWidget extends StatelessWidget {
           industryFilm(),
           const SizedBox(height: 5),
           evaluationFilm(),
+          const SizedBox(height: 5),
+          voteFilm(),
         ],
       ),
+    );
+  }
+
+  Row voteFilm() {
+    return Row(
+      children: const [
+        Text(
+          "10",
+          style: TextStyle(
+              color: MesCouleurs.primaire,
+              fontSize: 15,
+              fontFamily: 'MontSerrat_2'),
+        ),
+        SizedBox(width: 2),
+        Text(
+          "vote(s)",
+          style: TextStyle(
+            fontSize: 10,
+          ),
+        )
+      ],
     );
   }
 
