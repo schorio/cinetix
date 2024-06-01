@@ -22,32 +22,70 @@ class BlocDetailsWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 22,
-              fontFamily: 'MontSerrat_2',
-            ),
-          ),
+          titleFilm(title),
           const SizedBox(height: 3),
-          Row(
-            children: const [
-              Icon(
-                Icons.local_fire_department_outlined,
-                color: MesCouleurs.primaire,
-                size: 12,
-              ),
-              SizedBox(width: 5),
-              Text(
-                'Marvel Studio',
-                style: TextStyle(
-                  fontSize: 10,
-                  color: MesCouleurs.noir,
-                ),
-              ),
-            ],
-          ),
+          industryFilm(),
+          const SizedBox(height: 5),
+          evaluationFilm(),
         ],
+      ),
+    );
+  }
+
+  Row evaluationFilm() {
+    return Row(
+      children: [
+        Wrap(
+          children: List.generate(5, (int num) {
+            return Icon(
+              size: 15,
+              num < prochainement[index].rating
+                  ? Icons.star
+                  : Icons.star_border,
+              color: num < prochainement[index].rating
+                  ? MesCouleurs.primaire
+                  : MesCouleurs.noir,
+            );
+          }),
+        ),
+        const SizedBox(width: 3),
+        Text(
+          "(${prochainement[index].rating}.0)",
+          style: const TextStyle(
+            fontSize: 8,
+            color: MesCouleurs.noir,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row industryFilm() {
+    return Row(
+      children: const [
+        Icon(
+          Icons.local_fire_department_outlined,
+          color: MesCouleurs.primaire,
+          size: 12,
+        ),
+        SizedBox(width: 5),
+        Text(
+          'Marvel Studio',
+          style: TextStyle(
+            fontSize: 10,
+            color: MesCouleurs.noir,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Text titleFilm(String title) {
+    return Text(
+      title,
+      style: const TextStyle(
+        fontSize: 22,
+        fontFamily: 'MontSerrat_2',
       ),
     );
   }
