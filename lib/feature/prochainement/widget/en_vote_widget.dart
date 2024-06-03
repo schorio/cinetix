@@ -1,14 +1,17 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
-import 'package:cinetix/feature/prochainement/widget/vote_details_widget.dart';
 import 'package:cinetix/feature/prochainement/widget/pochette_widget.dart';
+import 'package:cinetix/feature/prochainement/widget/vote_details_widget.dart';
 import 'package:flutter/material.dart';
 
 class EnVoteWidget extends StatefulWidget {
   const EnVoteWidget({
+    required this.resultat,
     Key? key,
   }) : super(key: key);
+
+  final List<Film> resultat;
 
   @override
   State<EnVoteWidget> createState() => _EnVoteWidgetState();
@@ -23,11 +26,11 @@ class _EnVoteWidgetState extends State<EnVoteWidget> {
         children: [
           ListView.separated(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            itemCount: prochainement.length,
+            itemCount: widget.resultat.length,
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  Film film = prochainement[index];
+                  Film film = widget.resultat[index];
 
                   Navigator.pushNamed(
                     context,
@@ -35,7 +38,7 @@ class _EnVoteWidgetState extends State<EnVoteWidget> {
                     arguments: film,
                   );
                 },
-                child: filmItem(context, index),
+                child: filmItem(context, widget.resultat[index]),
               );
             },
             separatorBuilder: (context, index) {
@@ -71,49 +74,50 @@ class _EnVoteWidgetState extends State<EnVoteWidget> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
   }
 
-  Container filmItem(BuildContext context, int index) {
+  Container filmItem(BuildContext context, Film film) {
     return Container(
-        padding: const EdgeInsets.symmetric(vertical: 5),
-        height: MediaQuery.of(context).size.height * 0.17,
-        width: MediaQuery.of(context).size.width,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                PochetteWidget(
-                  film: prochainement[index],
-                  width: MediaQuery.of(context).size.width * 0.28,
-                  height: MediaQuery.of(context).size.height * 0.17,
-                ),
-                const SizedBox(width: 10),
-                VoteDetailsWidget(index: index),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: InkWell(
-                onTap: () {
-                  setState(() {
-                    condition = !condition;
-                  });
-                },
-                child: Icon(
-                  condition == true
-                      ? Icons.how_to_vote_rounded
-                      : Icons.check_circle_rounded,
-                  size: 30,
-                  color: MesCouleurs.noir,
-                ),
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      height: MediaQuery.of(context).size.height * 0.17,
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              PochetteWidget(
+                film: film,
+                width: MediaQuery.of(context).size.width * 0.28,
+                height: MediaQuery.of(context).size.height * 0.17,
               ),
-            )
-          ],
-        ));
+              const SizedBox(width: 10),
+              VoteDetailsWidget(film: film),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  condition = !condition;
+                });
+              },
+              child: Icon(
+                condition == true
+                    ? Icons.how_to_vote_rounded
+                    : Icons.check_circle_rounded,
+                size: 30,
+                color: MesCouleurs.noir,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

@@ -71,7 +71,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         padding: const EdgeInsets.all(20),
                         child: Header(color: couleurDominant),
                       ),
-                      SearchBar(color: couleurDominant),
+                      SearchBar(
+                        color: couleurDominant,
+                        onChanged: (none) {},
+                      ),
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),

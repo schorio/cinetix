@@ -1,4 +1,5 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/core/widget/title_tab_bar.dart';
@@ -17,9 +18,41 @@ class ProchainementScreen extends StatefulWidget {
 class _ProchainementScreenState extends State<ProchainementScreen>
     with TickerProviderStateMixin {
   late final TabController tabController;
+  List<Film> filmTrouverTab_1 = [];
+  List<Film> filmTrouverTab_2 = [];
+
+  void searchFilter(String entrer) {
+    List<Film> resultat_1 = [];
+    List<Film> resultat_2 = [];
+
+    if (entrer.isEmpty) {
+      resultat_1 = prochainement;
+      resultat_2 = enProjection;
+    } else {
+      resultat_1 = prochainement
+          .where(
+            (element) => element.title.toLowerCase().contains(
+                  entrer.toLowerCase(),
+                ),
+          )
+          .toList();
+
+      resultat_2 = enProjection
+          .where(
+            (element) => element.title.toLowerCase().contains(
+                  entrer.toLowerCase(),
+                ),
+          )
+          .toList();
+    }
+    filmTrouverTab_1 = resultat_1;
+    filmTrouverTab_2 = resultat_2;
+  }
 
   @override
   void initState() {
+    filmTrouverTab_1 = prochainement;
+    filmTrouverTab_2 = enProjection;
     tabController = TabController(
       length: 2,
       vsync: this,
@@ -46,7 +79,7 @@ class _ProchainementScreenState extends State<ProchainementScreen>
               children: [
                 const TitlePage(title: "Prochainement"),
                 const SizedBox(height: 20),
-                const SearchBar(),
+                SearchBar(onChanged: searchFilter),
                 const SizedBox(height: 5),
                 TitleTabBar(
                   tabController: tabController,
@@ -61,9 +94,9 @@ class _ProchainementScreenState extends State<ProchainementScreen>
                   child: TabBarView(
                     controller: tabController,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: const [
-                      ProchGridWidget(),
-                      EnVoteWidget(),
+                    children: [
+                      ProchGridWidget(resultat: filmTrouverTab_1),
+                      EnVoteWidget(resultat: filmTrouverTab_2),
                     ],
                   ),
                 ),

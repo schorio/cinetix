@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 
 class ListFilmWidget extends StatefulWidget {
   const ListFilmWidget({
+    required this.resultat,
     Key? key,
   }) : super(key: key);
+
+  final List<Film> resultat;
 
   @override
   State<ListFilmWidget> createState() => _ListFilmWidgetState();
@@ -23,9 +26,9 @@ class _ListFilmWidgetState extends State<ListFilmWidget> {
           left: 20,
           right: 20,
         ),
-        itemCount: prochainement.length,
+        itemCount: widget.resultat.length,
         itemBuilder: (context, index) {
-          Film film = enProjection[index];
+          Film film = widget.resultat[index];
           return filmItem(context, film);
         },
         separatorBuilder: (context, index) {

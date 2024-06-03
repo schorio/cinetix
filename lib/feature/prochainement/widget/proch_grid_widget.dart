@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 
 class ProchGridWidget extends StatelessWidget {
   const ProchGridWidget({
+    required this.resultat,
     Key? key,
   }) : super(key: key);
+
+  final List<Film> resultat;
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +18,14 @@ class ProchGridWidget extends StatelessWidget {
         spacing: 20,
         alignment: WrapAlignment.center,
         children: [
-          for (int index = 0; index < prochainement.length; index++) ...[
+          for (int index = 0; index < resultat.length; index++) ...[
             Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: Column(
                 children: [
                   InkWell(
                     onTap: () {
-                      Film film = prochainement[index];
+                      Film film = resultat[index];
                       Navigator.pushNamed(
                         context,
                         AppRouteName.detailsFilm,
@@ -32,12 +35,12 @@ class ProchGridWidget extends StatelessWidget {
                     child: PochetteWidget(
                       width: MediaQuery.of(context).size.width * 0.42,
                       height: 240,
-                      film: prochainement[index],
+                      film: resultat[index],
                     ),
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    prochainement[index].title,
+                    resultat[index].title,
                     style: const TextStyle(
                       fontFamily: 'MontSerrat_2',
                       fontSize: 12,

@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 class VoteDetailsWidget extends StatelessWidget {
   const VoteDetailsWidget({
     Key? key,
-    required this.index,
+    required this.film,
   }) : super(key: key);
 
-  final int index;
+  final Film film;
 
   @override
   Widget build(BuildContext context) {
-    String title = prochainement[index].title;
+    String title = film.title;
     if (title.length > 10) {
       title =
           '${title.substring(0, 12)} ...'; // Limiter à 10 caractères et ajouter des points de suspension
@@ -62,18 +62,15 @@ class VoteDetailsWidget extends StatelessWidget {
           children: List.generate(5, (int num) {
             return Icon(
               size: 15,
-              num < prochainement[index].rating
-                  ? Icons.star
-                  : Icons.star_border,
-              color: num < prochainement[index].rating
-                  ? MesCouleurs.primaire
-                  : MesCouleurs.noir,
+              num < film.rating ? Icons.star : Icons.star_border,
+              color:
+                  num < film.rating ? MesCouleurs.primaire : MesCouleurs.noir,
             );
           }),
         ),
         const SizedBox(width: 3),
         Text(
-          "(${prochainement[index].rating}.0)",
+          "(${film.rating}.0)",
           style: const TextStyle(
             fontSize: 8,
             color: MesCouleurs.noir,

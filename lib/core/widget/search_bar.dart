@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/design/app_color.dart';
 
-class SearchBar extends StatelessWidget {
+class SearchBar extends StatefulWidget {
   const SearchBar({
     Key? key,
+    required this.onChanged,
     this.color = MesCouleurs.primaire,
   }) : super(key: key);
 
   final Color color;
+  final Function(String) onChanged;
 
+  @override
+  State<SearchBar> createState() => _SearchBarState();
+}
+
+class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
+        onChanged: (value) => widget.onChanged(value),
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.grey.shade300,
@@ -28,7 +36,7 @@ class SearchBar extends StatelessWidget {
               fontFamily: 'Montserrat_3'),
           prefixIcon: Icon(
             Icons.search,
-            color: color,
+            color: widget.color,
             size: 24,
           ),
         ),
