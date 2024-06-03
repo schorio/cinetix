@@ -5,16 +5,16 @@ import 'package:cinetix/feature/prochainement/widget/vote_details_widget.dart';
 import 'package:cinetix/feature/prochainement/widget/pochette_widget.dart';
 import 'package:flutter/material.dart';
 
-class ListWidget extends StatefulWidget {
-  const ListWidget({
+class EnVoteWidget extends StatefulWidget {
+  const EnVoteWidget({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<ListWidget> createState() => _ListWidgetState();
+  State<EnVoteWidget> createState() => _EnVoteWidgetState();
 }
 
-class _ListWidgetState extends State<ListWidget> {
+class _EnVoteWidgetState extends State<EnVoteWidget> {
   bool condition = true;
   @override
   Widget build(BuildContext context) {
