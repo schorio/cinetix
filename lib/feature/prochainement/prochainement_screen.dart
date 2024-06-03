@@ -1,5 +1,7 @@
+import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:cinetix/core/widget/title_page.dart';
+import 'package:cinetix/core/widget/title_tab_bar.dart';
 import 'package:cinetix/feature/prochainement/widget/list_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +12,20 @@ class ProchainementScreen extends StatefulWidget {
   State<ProchainementScreen> createState() => _ProchainementScreenState();
 }
 
-class _ProchainementScreenState extends State<ProchainementScreen> {
+class _ProchainementScreenState extends State<ProchainementScreen>
+    with TickerProviderStateMixin {
+  late final TabController tabController;
+
+  @override
+  void initState() {
+    tabController = TabController(
+      length: 2,
+      vsync: this,
+      animationDuration: const Duration(milliseconds: 500),
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +35,32 @@ class _ProchainementScreenState extends State<ProchainementScreen> {
           bottom: 20,
         ),
         child: Column(
-          children: const [
-            TitlePage(title: "Prochainement"),
-            SizedBox(height: 20),
-            SearchBar(),
-            SizedBox(height: 20),
-            ListWidget(),
+          children: [
+            const TitlePage(title: "Prochainement"),
+            const SizedBox(height: 20),
+            const SearchBar(),
+            const SizedBox(height: 5),
+            TitleTabBar(
+              tabController: tabController,
+              color: MesCouleurs.primaire,
+              titles: const [
+                Tab(text: "Prochainement"),
+                Tab(text: "En vote"),
+              ],
+            ),
+            const SizedBox(height: 25),
+            Expanded(
+              child: TabBarView(
+                controller: tabController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  Expanded(
+                    child: Container(),
+                  ),
+                  const ListWidget(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
