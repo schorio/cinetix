@@ -1,4 +1,5 @@
 import 'package:cinetix/feature/enSalle/en_salle_screen.dart';
+import 'package:cinetix/feature/plus_film/plus_film_screen.dart';
 import 'package:cinetix/feature/prochainement/prochainement_screen.dart';
 import 'package:cinetix/feature/reserverfilm/reserverfilm_screen.dart';
 import 'package:flutter/material.dart';
@@ -61,6 +62,20 @@ class AppRoute {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, __, ___) => const ProchainementScreen(),
+          transitionDuration: const Duration(milliseconds: 550),
+          reverseTransitionDuration: const Duration(milliseconds: 550),
+          transitionsBuilder: (_, animation, __, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        );
+
+      case AppRouteName.plusFilm:
+        return PageRouteBuilder(
+          settings: settings,
+          pageBuilder: (_, __, ___) => const PlusFilmScreen(),
           transitionDuration: const Duration(milliseconds: 550),
           reverseTransitionDuration: const Duration(milliseconds: 550),
           transitionsBuilder: (_, animation, __, child) {
