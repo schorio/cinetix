@@ -6,10 +6,12 @@ class TitleTabBar extends StatelessWidget {
     Key? key,
     required this.tabController,
     required this.color,
+    required this.titles,
   }) : super(key: key);
 
   final TabController tabController;
   final Color color;
+  final List<Tab> titles;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,7 @@ class TitleTabBar extends StatelessWidget {
       isScrollable: true,
       indicatorSize: TabBarIndicatorSize.label,
       indicatorColor: color,
-      tabs: const [
-        Tab(text: "Complet"),
-        Tab(text: "Avant-première"),
-      ],
+      tabs: titles,
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/widget/title_page.dart';
+import 'package:cinetix/core/widget/title_tab_bar.dart';
 import 'package:cinetix/feature/enSalle/widget/card_slider_widget.dart';
-import 'package:cinetix/feature/enSalle/widget/title_tabbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
 
@@ -77,6 +77,10 @@ class _EnSalleState extends State<EnSalle> with TickerProviderStateMixin {
                 TitleTabBar(
                   tabController: tabController,
                   color: couleurDominant,
+                  titles: const [
+                    Tab(text: "Complet"),
+                    Tab(text: "Avant-première"),
+                  ],
                 ),
                 Expanded(
                   child: TabBarView(
