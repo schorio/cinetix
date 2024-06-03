@@ -2,7 +2,8 @@ import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/core/widget/title_tab_bar.dart';
-import 'package:cinetix/feature/prochainement/widget/list_widget.dart';
+import 'package:cinetix/feature/prochainement/widget/en_vote_widget.dart';
+import 'package:cinetix/feature/prochainement/widget/proch_grid_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProchainementScreen extends StatefulWidget {
@@ -53,11 +54,9 @@ class _ProchainementScreenState extends State<ProchainementScreen>
               child: TabBarView(
                 controller: tabController,
                 physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  Expanded(
-                    child: Container(),
-                  ),
-                  const ListWidget(),
+                children: const [
+                  ProchGridWidget(),
+                  EnVoteWidget(),
                 ],
               ),
             ),
