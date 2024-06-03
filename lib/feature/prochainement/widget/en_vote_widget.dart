@@ -19,29 +19,54 @@ class _EnVoteWidgetState extends State<EnVoteWidget> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        itemCount: prochainement.length,
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {
-              Film film = prochainement[index];
+      child: Stack(
+        children: [
+          ListView.separated(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            itemCount: prochainement.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Film film = prochainement[index];
 
-              Navigator.pushNamed(
-                context,
-                AppRouteName.detailsFilm,
-                arguments: film,
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteName.detailsFilm,
+                    arguments: film,
+                  );
+                },
+                child: filmItem(context, index),
               );
             },
-            child: filmItem(context, index),
-          );
-        },
-        separatorBuilder: (context, index) {
-          return Divider(
-            color: MesCouleurs.secondaire,
-            thickness: 1,
-          );
-        },
+            separatorBuilder: (context, index) {
+              return Divider(
+                color: MesCouleurs.secondaire,
+                thickness: 1,
+              );
+            },
+          ),
+          Positioned(
+              bottom: 10,
+              right: 30,
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: 60,
+                  width: 60,
+                  decoration: const BoxDecoration(
+                    color: MesCouleurs.noir,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
+                    ),
+                  ),
+                  child: const Icon(
+                    Icons.add,
+                    color: MesCouleurs.blanc,
+                    size: 30,
+                  ),
+                ),
+              ))
+        ],
       ),
     );
   }
