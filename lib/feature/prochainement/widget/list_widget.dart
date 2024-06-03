@@ -1,7 +1,7 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
-import 'package:cinetix/feature/prochainement/widget/bloc_details_widget.dart';
+import 'package:cinetix/feature/prochainement/widget/vote_details_widget.dart';
 import 'package:cinetix/feature/prochainement/widget/pochette_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -58,7 +58,7 @@ class _ListWidgetState extends State<ListWidget> {
               children: [
                 PochetteWidget(index: index),
                 const SizedBox(width: 10),
-                BlocDetailsWidget(index: index),
+                VoteDetailsWidget(index: index),
               ],
             ),
             Padding(

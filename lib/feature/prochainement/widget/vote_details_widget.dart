@@ -2,8 +2,8 @@ import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:flutter/material.dart';
 
-class BlocDetailsWidget extends StatelessWidget {
-  const BlocDetailsWidget({
+class VoteDetailsWidget extends StatelessWidget {
+  const VoteDetailsWidget({
     Key? key,
     required this.index,
   }) : super(key: key);
