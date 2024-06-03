@@ -36,10 +36,18 @@ class TitleWidget extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, route);
             },
-            child: Text(
-              sufixText,
-              style: TextStyle(
-                color: MesCouleurs.noir.withOpacity(0.4),
+            child: SizedBox(
+              height: 30,
+              width: 80,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 7),
+                child: Text(
+                  textAlign: TextAlign.end,
+                  sufixText,
+                  style: TextStyle(
+                    color: MesCouleurs.noir.withOpacity(0.4),
+                  ),
+                ),
               ),
             ),
           )
