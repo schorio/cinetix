@@ -56,7 +56,11 @@ class _ListWidgetState extends State<ListWidget> {
           children: [
             Row(
               children: [
-                PochetteWidget(index: index),
+                PochetteWidget(
+                  film: prochainement[index],
+                  width: MediaQuery.of(context).size.width * 0.28,
+                  height: MediaQuery.of(context).size.height * 0.17,
+                ),
                 const SizedBox(width: 10),
                 VoteDetailsWidget(index: index),
               ],

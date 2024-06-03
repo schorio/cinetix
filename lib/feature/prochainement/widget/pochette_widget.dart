@@ -3,23 +3,28 @@ import 'package:flutter/material.dart';
 
 class PochetteWidget extends StatelessWidget {
   const PochetteWidget({
-    required this.index,
+    required this.width,
+    required this.height,
+    required this.film,
     Key? key,
   }) : super(key: key);
 
-  final int index;
+  final double width;
+  final double height;
+  final Film film;
 
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: prochainement[index].assetImage,
+      tag: film.assetImage,
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.28,
+        width: width,
+        height: height,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
             image: AssetImage(
-              prochainement[index].assetImage,
+              film.assetImage,
             ),
             fit: BoxFit.cover,
           ),
