@@ -5,6 +5,7 @@ import 'package:cinetix/core/widget/title_tab_bar.dart';
 import 'package:cinetix/feature/prochainement/widget/en_vote_widget.dart';
 import 'package:cinetix/feature/prochainement/widget/proch_grid_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 
 class ProchainementScreen extends StatefulWidget {
   const ProchainementScreen({super.key});
@@ -30,38 +31,46 @@ class _ProchainementScreenState extends State<ProchainementScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top + 25,
-          bottom: 20,
-        ),
-        child: Column(
-          children: [
-            const TitlePage(title: "Prochainement"),
-            const SizedBox(height: 20),
-            const SearchBar(),
-            const SizedBox(height: 5),
-            TitleTabBar(
-              tabController: tabController,
-              color: MesCouleurs.primaire,
-              titles: const [
-                Tab(text: "Prochainement"),
-                Tab(text: "En vote"),
+      body: Stack(
+        children: [
+          const BlurHash(
+            hash: "LaQvwRay_3WB~qt7M{ofD%RjRjay",
+            imageFit: BoxFit.cover,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).padding.top + 25,
+              bottom: 20,
+            ),
+            child: Column(
+              children: [
+                const TitlePage(title: "Prochainement"),
+                const SizedBox(height: 20),
+                const SearchBar(),
+                const SizedBox(height: 5),
+                TitleTabBar(
+                  tabController: tabController,
+                  color: MesCouleurs.primaire,
+                  titles: const [
+                    Tab(text: "Prochainement"),
+                    Tab(text: "En vote"),
+                  ],
+                ),
+                const SizedBox(height: 25),
+                Expanded(
+                  child: TabBarView(
+                    controller: tabController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: const [
+                      ProchGridWidget(),
+                      EnVoteWidget(),
+                    ],
+                  ),
+                ),
               ],
             ),
-            const SizedBox(height: 25),
-            Expanded(
-              child: TabBarView(
-                controller: tabController,
-                physics: const NeverScrollableScrollPhysics(),
-                children: const [
-                  ProchGridWidget(),
-                  EnVoteWidget(),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
