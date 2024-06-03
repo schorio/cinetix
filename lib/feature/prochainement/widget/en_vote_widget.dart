@@ -46,26 +46,32 @@ class _EnVoteWidgetState extends State<EnVoteWidget> {
             },
           ),
           Positioned(
-              bottom: 10,
-              right: 30,
-              child: GestureDetector(
-                onTap: () {},
-                child: Container(
-                  height: 60,
-                  width: 60,
-                  decoration: const BoxDecoration(
-                    color: MesCouleurs.noir,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(50),
-                    ),
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    color: MesCouleurs.blanc,
-                    size: 30,
+            bottom: 10,
+            right: 30,
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  AppRouteName.plusFilm,
+                );
+              },
+              child: Container(
+                height: 60,
+                width: 60,
+                decoration: const BoxDecoration(
+                  color: MesCouleurs.noir,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(50),
                   ),
                 ),
-              ))
+                child: const Icon(
+                  Icons.add,
+                  color: MesCouleurs.blanc,
+                  size: 30,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

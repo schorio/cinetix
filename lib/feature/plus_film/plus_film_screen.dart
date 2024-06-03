@@ -1,3 +1,4 @@
+import 'package:cinetix/core/design/app_color.dart';
 import 'package:flutter/material.dart';
 
 class PlusFilmScreen extends StatelessWidget {
@@ -5,6 +6,8 @@ class PlusFilmScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+      backgroundColor: MesCouleurs.blanc,
+    );
   }
 }
