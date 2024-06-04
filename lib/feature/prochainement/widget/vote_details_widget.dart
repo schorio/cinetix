@@ -24,7 +24,7 @@ class VoteDetailsWidget extends StatelessWidget {
         children: [
           titleFilm(title),
           const SizedBox(height: 3),
-          industryFilm(),
+          industryFilm(film.studio),
           const SizedBox(height: 5),
           evaluationFilm(),
           const SizedBox(height: 5),
@@ -80,18 +80,18 @@ class VoteDetailsWidget extends StatelessWidget {
     );
   }
 
-  Row industryFilm() {
+  Row industryFilm(String studio) {
     return Row(
-      children: const [
-        Icon(
+      children: [
+        const Icon(
           Icons.local_fire_department_outlined,
           color: MesCouleurs.primaire,
           size: 12,
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Text(
-          'Marvel Studio',
-          style: TextStyle(
+          studio,
+          style: const TextStyle(
             fontSize: 10,
             color: MesCouleurs.noir,
           ),
