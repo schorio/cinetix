@@ -48,9 +48,9 @@ class TitleMovieWidget extends StatelessWidget {
                       size: 15,
                     ),
                     const SizedBox(width: 5),
-                    const Text(
-                      'Marvel Studio',
-                      style: TextStyle(
+                    Text(
+                      film.studio,
+                      style: const TextStyle(
                         fontSize: 12,
                         color: MesCouleurs.noir,
                       ),
