@@ -28,24 +28,24 @@ class VoteDetailsWidget extends StatelessWidget {
           const SizedBox(height: 5),
           evaluationFilm(),
           const SizedBox(height: 5),
-          voteFilm(),
+          voteFilm(film.vote),
         ],
       ),
     );
   }
 
-  Row voteFilm() {
+  Row voteFilm(int vote) {
     return Row(
-      children: const [
+      children: [
         Text(
-          "10",
-          style: TextStyle(
+          vote.toString(),
+          style: const TextStyle(
               color: MesCouleurs.primaire,
               fontSize: 15,
               fontFamily: 'MontSerrat_2'),
         ),
-        SizedBox(width: 2),
-        Text(
+        const SizedBox(width: 2),
+        const Text(
           "vote(s)",
           style: TextStyle(
             fontSize: 10,
