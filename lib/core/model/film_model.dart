@@ -3,6 +3,7 @@ import 'package:cinetix/core/model/date_model.dart';
 
 class Film {
   final String title;
+  final String studio;
   final String assetImage;
   final List<String> genre;
   final String duration;
@@ -16,6 +17,7 @@ class Film {
 
   Film({
     required this.title,
+    required this.studio,
     required this.assetImage,
     required this.genre,
     required this.duration,
@@ -32,6 +34,7 @@ class Film {
 List<Film> prochainement = [
   Film(
       title: "Shang-Chi",
+      studio: "Marvel Studio",
       assetImage: "assets/film/shang-chi.jpeg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -51,6 +54,7 @@ List<Film> prochainement = [
       date: dateReservation),
   Film(
       title: "Dune",
+      studio: "Marvel Studio",
       assetImage: "assets/film/dune.jpg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -70,6 +74,7 @@ List<Film> prochainement = [
       date: dateReservation),
   Film(
       title: "Aladin 2",
+      studio: "Marvel Studio",
       assetImage: "assets/film/aladdin_2.jpg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -89,6 +94,7 @@ List<Film> prochainement = [
       date: dateReservation),
   Film(
       title: "Greta",
+      studio: "Marvel Studio",
       assetImage: "assets/film/greta.jpg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -111,6 +117,7 @@ List<Film> prochainement = [
 List<Film> enProjection = [
   Film(
       title: "Minions: The Rise of Gru",
+      studio: "Marvel Studio",
       assetImage: "assets/film/minion.jpeg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -130,6 +137,7 @@ List<Film> enProjection = [
       date: dateReservation),
   Film(
       title: "Thor: Love and Thunder",
+      studio: "Marvel Studio",
       assetImage: "assets/film/thor.jpeg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -149,6 +157,7 @@ List<Film> enProjection = [
       date: dateReservation),
   Film(
       title: "Jurassic World Dominion",
+      studio: "Marvel Studio",
       assetImage: "assets/film/jurassic.jpeg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -168,6 +177,7 @@ List<Film> enProjection = [
       date: dateReservation),
   Film(
       title: "Lives",
+      studio: "Marvel Studio",
       assetImage: "assets/film/lives.jpeg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -190,6 +200,7 @@ List<Film> enProjection = [
 List<Film> avantPremiere = [
   Film(
       title: "Aladdin",
+      studio: "Marvel Studio",
       assetImage: "assets/film/aladdin.jpg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -209,6 +220,7 @@ List<Film> avantPremiere = [
       date: dateReservation),
   Film(
       title: "Detective",
+      studio: "Marvel Studio",
       assetImage: "assets/film/detective.jpeg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -228,6 +240,7 @@ List<Film> avantPremiere = [
       date: dateReservation),
   Film(
       title: "Narcos",
+      studio: "Marvel Studio",
       assetImage: "assets/film/narcos.jpeg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
@@ -247,6 +260,7 @@ List<Film> avantPremiere = [
       date: dateReservation),
   Film(
       title: "SUper Pets",
+      studio: "Marvel Studio",
       assetImage: "assets/film/super-pets.jpeg",
       genre: ["Action", "Drame", "Comedie"],
       actor: [
