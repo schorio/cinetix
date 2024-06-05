@@ -1,6 +1,7 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
+import 'package:cinetix/feature/categorieFilter/widget/pochette_widget.dart';
 import 'package:flutter/material.dart';
 
 class ListeFilmCategorieWidget extends StatefulWidget {
@@ -17,7 +18,6 @@ class ListeFilmCategorieWidget extends StatefulWidget {
 }
 
 class _ListeFilmCategorieWidgetState extends State<ListeFilmCategorieWidget> {
-  bool condition = true;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -55,21 +55,10 @@ class _ListeFilmCategorieWidgetState extends State<ListeFilmCategorieWidget> {
       width: MediaQuery.of(context).size.width,
       child: Row(
         children: [
-          Hero(
-            tag: film.assetImage,
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.28,
-              height: MediaQuery.of(context).size.width * 0.35,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: AssetImage(
-                    film.assetImage,
-                  ),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+          PochetteWidget(
+            film: film,
+            width: MediaQuery.of(context).size.width * 0.28,
+            height: MediaQuery.of(context).size.height * 0.17,
           ),
         ],
       ),
