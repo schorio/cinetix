@@ -5,4 +5,5 @@ class AppRouteName {
   static const String enSalle = "/enSalle";
   static const String prochainement = "prochainement";
   static const String plusFilm = "plusFilm";
+  static const String categorieFilter = "categorieFilter";
 }
