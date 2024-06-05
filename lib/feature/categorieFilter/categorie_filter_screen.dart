@@ -1,4 +1,5 @@
 import 'package:cinetix/core/widget/title_page.dart';
+import 'package:cinetix/feature/categorieFilter/widget/sous_title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 
@@ -20,6 +21,8 @@ class CategorieFilterScreen extends StatelessWidget {
           child: Column(
             children: const [
               TitlePage(title: "Liste des films"),
+              SizedBox(height: 25),
+              SousTitleWidget(),
             ],
           ),
         )
