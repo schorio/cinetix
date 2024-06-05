@@ -35,7 +35,7 @@ class _ListeFilmCategorieWidgetState extends State<ListeFilmCategorieWidget> {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              ToutFilm film = widget.resultat[index];
+              Film film = widget.resultat[index].contenue;
 
               Navigator.pushNamed(
                 context,
