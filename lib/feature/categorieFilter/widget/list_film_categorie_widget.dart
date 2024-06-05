@@ -20,6 +20,13 @@ class ListeFilmCategorieWidget extends StatefulWidget {
 
 class _ListeFilmCategorieWidgetState extends State<ListeFilmCategorieWidget> {
   @override
+  void initState() {
+    widget.resultat
+        .sort(((a, b) => a.contenue.title.compareTo(b.contenue.title)));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
