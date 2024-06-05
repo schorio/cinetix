@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 
 class SousTitleWidget extends StatelessWidget {
   const SousTitleWidget({
+    required this.titleCategorie,
     Key? key,
   }) : super(key: key);
+
+  final String titleCategorie;
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +32,9 @@ class SousTitleWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             color: MesCouleurs.primaire.withOpacity(0.5),
           ),
-          child: const Text(
-            "Action",
-            style: TextStyle(
+          child: Text(
+            titleCategorie,
+            style: const TextStyle(
               color: MesCouleurs.blanc,
               fontFamily: 'MontSerrat_2',
             ),
