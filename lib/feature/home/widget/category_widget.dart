@@ -1,20 +1,10 @@
+import 'package:cinetix/core/model/genre_model.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/design/app_color.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({super.key});
-
-  final category = const [
-    "Horror",
-    "Action",
-    "Comedy",
-    "Romance",
-    "test test",
-    "test test",
-    "test test",
-    "test test",
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +14,11 @@ class CategoryWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: List.generate(
-          category.length,
+          listeGenre.length,
           (index) {
             return InkWell(
               onTap: () {
-                String categorie = category[index];
+                String categorie = listeGenre[index];
                 Navigator.pushNamed(
                   context,
                   AppRouteName.categorieFilter,
@@ -43,7 +33,7 @@ class CategoryWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     color: MesCouleurs.secondaire),
                 child: Text(
-                  category[index],
+                  listeGenre[index],
                   style: const TextStyle(
                     color: MesCouleurs.noir,
                     fontFamily: 'MontSerrat_3',
