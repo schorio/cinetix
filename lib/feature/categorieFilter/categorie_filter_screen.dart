@@ -14,10 +14,14 @@ class CategorieFilterScreen extends StatefulWidget {
 
 class _CategorieFilterScreenState extends State<CategorieFilterScreen> {
   late String categorie;
+  late List<ToutFilm> listeParCategorie;
 
   @override
   void didChangeDependencies() {
     categorie = ModalRoute.of(context)!.settings.arguments as String;
+    listeParCategorie = toutFilm
+        .where((element) => element.contenue.genre.contains(categorie))
+        .toList();
     super.didChangeDependencies();
   }
 
@@ -39,7 +43,9 @@ class _CategorieFilterScreenState extends State<CategorieFilterScreen> {
               const SizedBox(height: 25),
               SousTitleWidget(titleCategorie: categorie),
               const SizedBox(height: 20),
-              ListeFilmCategorieWidget(resultat: toutFilm)
+              ListeFilmCategorieWidget(
+                resultat: listeParCategorie,
+              ),
             ],
           ),
         )
