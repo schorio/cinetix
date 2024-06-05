@@ -39,7 +39,7 @@ class _CategorieFilterScreenState extends State<CategorieFilterScreen> {
               const SizedBox(height: 25),
               SousTitleWidget(titleCategorie: categorie),
               const SizedBox(height: 20),
-              ListeFilmCategorieWidget(resultat: enProjection)
+              ListeFilmCategorieWidget(resultat: toutFilm)
             ],
           ),
         )

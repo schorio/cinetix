@@ -11,12 +11,12 @@ class PochetteWidget extends StatelessWidget {
 
   final double width;
   final double height;
-  final Film film;
+  final ToutFilm film;
 
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: film.assetImage,
+      tag: film.contenue.assetImage,
       child: Container(
         width: width,
         height: height,
@@ -24,7 +24,7 @@ class PochetteWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
             image: AssetImage(
-              film.assetImage,
+              film.contenue.assetImage,
             ),
             fit: BoxFit.cover,
           ),

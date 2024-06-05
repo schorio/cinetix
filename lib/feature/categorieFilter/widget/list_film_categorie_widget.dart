@@ -11,7 +11,7 @@ class ListeFilmCategorieWidget extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  final List<Film> resultat;
+  final List<ToutFilm> resultat;
 
   @override
   State<ListeFilmCategorieWidget> createState() =>
@@ -28,7 +28,7 @@ class _ListeFilmCategorieWidgetState extends State<ListeFilmCategorieWidget> {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              Film film = widget.resultat[index];
+              ToutFilm film = widget.resultat[index];
 
               Navigator.pushNamed(
                 context,
@@ -49,7 +49,7 @@ class _ListeFilmCategorieWidgetState extends State<ListeFilmCategorieWidget> {
     );
   }
 
-  Container filmItem(BuildContext context, Film film) {
+  Container filmItem(BuildContext context, ToutFilm film) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 5),
       height: MediaQuery.of(context).size.height * 0.17,
