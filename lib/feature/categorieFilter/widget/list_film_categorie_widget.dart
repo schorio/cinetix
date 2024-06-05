@@ -1,6 +1,7 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
+import 'package:cinetix/feature/categorieFilter/widget/details_widget.dart';
 import 'package:cinetix/feature/categorieFilter/widget/pochette_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -60,6 +61,8 @@ class _ListeFilmCategorieWidgetState extends State<ListeFilmCategorieWidget> {
             width: MediaQuery.of(context).size.width * 0.28,
             height: MediaQuery.of(context).size.height * 0.17,
           ),
+          const SizedBox(width: 5),
+          DetailsWidget(film: film),
         ],
       ),
     );
