@@ -33,6 +33,22 @@ class Film {
   });
 }
 
+class ToutFilm {
+  final String classe;
+  final Film contenue;
+
+  ToutFilm(
+    this.classe,
+    this.contenue,
+  );
+}
+
+List<ToutFilm> toutFilm = [
+  ...enProjection.map((e) => ToutFilm('En projection', e)),
+  ...prochainement.map((e) => ToutFilm('Prochainement', e)),
+  ...avantPremiere.map((e) => ToutFilm('Avant premiere', e))
+];
+
 List<Film> prochainement = [
   Film(
     title: "Shang-Chi",
