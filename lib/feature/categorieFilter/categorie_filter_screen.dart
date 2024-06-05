@@ -1,4 +1,6 @@
+import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/widget/title_page.dart';
+import 'package:cinetix/feature/categorieFilter/widget/list_film_categorie_widget.dart';
 import 'package:cinetix/feature/categorieFilter/widget/sous_title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
@@ -36,6 +38,8 @@ class _CategorieFilterScreenState extends State<CategorieFilterScreen> {
               const TitlePage(title: "Liste des films"),
               const SizedBox(height: 25),
               SousTitleWidget(titleCategorie: categorie),
+              const SizedBox(height: 20),
+              ListeFilmCategorieWidget(resultat: enProjection)
             ],
           ),
         )
