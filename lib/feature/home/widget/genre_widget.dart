@@ -3,8 +3,8 @@ import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/design/app_color.dart';
 
-class CategoryWidget extends StatelessWidget {
-  const CategoryWidget({super.key});
+class GenreWidget extends StatelessWidget {
+  const GenreWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

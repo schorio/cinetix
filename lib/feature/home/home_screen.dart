@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:cinetix/feature/home/widget/banner_widget.dart';
 import 'package:cinetix/feature/home/widget/header_widget.dart';
 import 'package:cinetix/feature/home/widget/title_widget.dart';
-import 'package:cinetix/feature/home/widget/category_widget.dart';
+import 'package:cinetix/feature/home/widget/genre_widget.dart';
 import 'package:cinetix/feature/home/widget/sliderFilms_widget.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/design/app_color.dart';
@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                       const Padding(
                         padding: EdgeInsets.only(top: 12),
-                        child: CategoryWidget(),
+                        child: GenreWidget(),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
