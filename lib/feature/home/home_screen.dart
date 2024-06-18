@@ -1,5 +1,6 @@
 import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/core/widget/search_bar.dart';
+import 'package:cinetix/feature/sideBar/sidebar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/feature/home/widget/banner_widget.dart';
 import 'package:cinetix/feature/home/widget/header_widget.dart';
@@ -23,12 +24,37 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late final TabController tabController;
   PaletteGenerator? paletteGenerator;
   final String dominant = "assets/banner/1.jpg";
+  GlobalKey globalKey = GlobalKey();
+  bool isMenuOpen = false;
+
+  late AnimationController _controllerSideBar;
+  late Animation<Offset> _slideAnimationSideBar;
 
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
     generateColors(dominant);
+
+    _controllerSideBar = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    );
+
+    _slideAnimationSideBar = Tween<Offset>(
+      begin: const Offset(-1, 0),
+      end: const Offset(-0.22, 0),
+    ).animate(CurvedAnimation(
+      parent: _controllerSideBar,
+      curve: Curves.elasticOut,
+    ));
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controllerSideBar.dispose();
+    super.dispose();
   }
 
   void generateColors(String image) async {
@@ -59,106 +85,125 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               imageFit: BoxFit.cover,
             ),
             SingleChildScrollView(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).padding.top,
-                  bottom: MediaQuery.of(context).padding.bottom,
-                ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Header(color: couleurDominant),
-                      ),
-                      SearchBar(
-                        color: couleurDominant,
-                        onChanged: (none) {},
-                      ),
-                      const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: TitleWidget(
-                          title: "Genres",
-                          voirPlus: false,
-                          color: couleurDominant,
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 12),
-                        child: GenreWidget(),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: BannerWidget(
-                          generateColors: generateColors,
-                          color: couleurDominant,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: TitleWidget(
-                          title: "Films en salle",
-                          route: AppRouteName.enSalle,
-                          color: couleurDominant,
-                        ),
-                      ),
-                      TabBar(
-                        overlayColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        labelPadding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * 0.05,
-                            right: MediaQuery.of(context).size.width * 0.05),
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).padding.top,
+                bottom: MediaQuery.of(context).padding.bottom,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          if (isMenuOpen) {
+                            _controllerSideBar.reverse();
+                          } else {
+                            _controllerSideBar.forward();
+                          }
+                          isMenuOpen = !isMenuOpen;
+                        });
+                      },
+                      child: Header(color: couleurDominant),
+                    ),
+                  ),
+                  SearchBar(
+                    color: couleurDominant,
+                    onChanged: (none) {},
+                  ),
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TitleWidget(
+                      title: "Genres",
+                      voirPlus: false,
+                      color: couleurDominant,
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 12),
+                    child: GenreWidget(),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: BannerWidget(
+                      generateColors: generateColors,
+                      color: couleurDominant,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TitleWidget(
+                      title: "Films en salle",
+                      route: AppRouteName.enSalle,
+                      color: couleurDominant,
+                    ),
+                  ),
+                  TabBar(
+                    overlayColor: MaterialStateProperty.all(Colors.transparent),
+                    labelPadding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.05,
+                        right: MediaQuery.of(context).size.width * 0.05),
+                    controller: tabController,
+                    labelColor: MesCouleurs.noir,
+                    labelStyle: const TextStyle(fontFamily: 'Montserrat_2'),
+                    unselectedLabelStyle:
+                        const TextStyle(fontFamily: 'Montserrat_3'),
+                    unselectedLabelColor: MesCouleurs.noir,
+                    isScrollable: true,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicatorColor: couleurDominant,
+                    tabs: const [
+                      Tab(text: "Complet"),
+                      Tab(text: "Avant-première"),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.01),
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    child: TabBarView(
+                        physics: const NeverScrollableScrollPhysics(),
                         controller: tabController,
-                        labelColor: MesCouleurs.noir,
-                        labelStyle: const TextStyle(fontFamily: 'Montserrat_2'),
-                        unselectedLabelStyle:
-                            const TextStyle(fontFamily: 'Montserrat_3'),
-                        unselectedLabelColor: MesCouleurs.noir,
-                        isScrollable: true,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        indicatorColor: couleurDominant,
-                        tabs: const [
-                          Tab(text: "Complet"),
-                          Tab(text: "Avant-première"),
-                        ],
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * 0.01),
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        child: TabBarView(
-                            physics: const NeverScrollableScrollPhysics(),
-                            controller: tabController,
-                            children: [
-                              SliderFilmsWidget(
-                                  listFilms: enProjection,
-                                  sHeight: 300,
-                                  sViewPortFraction: 0.56),
-                              SliderFilmsWidget(
-                                  listFilms: avantPremiere,
-                                  sHeight: 300,
-                                  sViewPortFraction: 0.56),
-                            ]),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 20, right: 20, top: 10),
-                        child: TitleWidget(
-                          title: "Prochainement",
-                          color: couleurDominant,
-                          route: AppRouteName.prochainement,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: SliderFilmsWidget(
-                            listFilms: prochainement,
-                            sHeight: 400,
-                            sViewPortFraction: 0.7),
-                      ),
-                    ]))
+                        children: [
+                          SliderFilmsWidget(
+                              listFilms: enProjection,
+                              sHeight: 300,
+                              sViewPortFraction: 0.56),
+                          SliderFilmsWidget(
+                              listFilms: avantPremiere,
+                              sHeight: 300,
+                              sViewPortFraction: 0.56),
+                        ]),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, top: 10),
+                    child: TitleWidget(
+                      title: "Prochainement",
+                      color: couleurDominant,
+                      route: AppRouteName.prochainement,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: SliderFilmsWidget(
+                        listFilms: prochainement,
+                        sHeight: 400,
+                        sViewPortFraction: 0.7),
+                  ),
+                ],
+              ),
+            ),
+            SideBarScreen(
+              controllerSideBar: _controllerSideBar,
+              slideAnimationSideBar: _slideAnimationSideBar,
+              globalKey: globalKey,
+              isMenuOpen: isMenuOpen,
+            ),
           ],
         ));
   }
