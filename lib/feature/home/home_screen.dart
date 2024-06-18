@@ -67,6 +67,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     setState(() {});
   }
 
+  void revMenuOpen(bool rev) {
+    isMenuOpen = !rev;
+  }
+
   @override
   Widget build(BuildContext context) {
     Color couleurDominant = paletteGenerator != null
@@ -95,18 +99,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(20),
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          if (isMenuOpen) {
-                            _controllerSideBar.reverse();
-                          } else {
-                            _controllerSideBar.forward();
-                          }
-                          isMenuOpen = !isMenuOpen;
-                        });
-                      },
-                      child: Header(color: couleurDominant),
+                    child: Header(
+                      color: couleurDominant,
+                      controllerSideBar: _controllerSideBar,
+                      isMenuOpen: isMenuOpen,
+                      revMenuOpen: revMenuOpen,
                     ),
                   ),
                   SearchBar(
@@ -203,6 +200,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               slideAnimationSideBar: _slideAnimationSideBar,
               globalKey: globalKey,
               isMenuOpen: isMenuOpen,
+              revMenuOpen: revMenuOpen,
             ),
           ],
         ));

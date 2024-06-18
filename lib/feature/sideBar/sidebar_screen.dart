@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
 class SideBarScreen extends StatefulWidget {
-  SideBarScreen({
+  const SideBarScreen({
     super.key,
     required this.controllerSideBar,
     required this.slideAnimationSideBar,
     required this.globalKey,
     required this.isMenuOpen,
+    required this.revMenuOpen,
   });
 
-  AnimationController controllerSideBar;
-  Animation<Offset> slideAnimationSideBar;
-  GlobalKey globalKey;
-  bool isMenuOpen;
+  final AnimationController controllerSideBar;
+  final Animation<Offset> slideAnimationSideBar;
+  final GlobalKey globalKey;
+  final bool isMenuOpen;
+  final Function(bool) revMenuOpen;
 
   @override
   State<SideBarScreen> createState() => _SideBarScreenState();
@@ -111,8 +113,8 @@ class _SideBarScreenState extends State<SideBarScreen> {
             ),
             AnimatedPositioned(
               duration: const Duration(milliseconds: 400),
-              right: (widget.isMenuOpen) ? 10 : sidebarSize,
-              bottom: 30,
+              right: (widget.isMenuOpen) ? 20 : sidebarSize,
+              bottom: 20,
               child: IconButton(
                 enableFeedback: true,
                 icon: const Icon(
@@ -122,8 +124,8 @@ class _SideBarScreenState extends State<SideBarScreen> {
                 ),
                 onPressed: () {
                   setState(() {
-                    widget.isMenuOpen = false;
                     widget.controllerSideBar.reverse();
+                    widget.revMenuOpen(widget.isMenuOpen);
                   });
                 },
               ),
