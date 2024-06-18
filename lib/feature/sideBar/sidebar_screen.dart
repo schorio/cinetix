@@ -1,5 +1,5 @@
 import 'package:cinetix/feature/sideBar/widget/avatar_widget.dart';
-import 'package:cinetix/feature/sideBar/widget/mybutton_widget.dart';
+import 'package:cinetix/feature/sideBar/widget/zone_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class SideBarScreen extends StatefulWidget {
@@ -39,7 +39,7 @@ class _SideBarScreenState extends State<SideBarScreen> {
               height: mediaQuery.height,
               width: sidebarSize,
               child: Column(
-                children: <Widget>[
+                children: [
                   AvatarWidget(
                     mediaQuery: mediaQuery,
                     sidebarSize: sidebarSize,
@@ -47,42 +47,9 @@ class _SideBarScreenState extends State<SideBarScreen> {
                   const Divider(
                     thickness: 1,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 95),
-                    child: SizedBox(
-                      key: widget.globalKey,
-                      width: double.infinity,
-                      height: menuContainerHeight,
-                      child: Column(
-                        children: <Widget>[
-                          MyButton(
-                            text: "Profile",
-                            iconData: Icons.person,
-                            height: (menuContainerHeight) / 5,
-                          ),
-                          MyButton(
-                            text: "Payments",
-                            iconData: Icons.payment,
-                            height: (menuContainerHeight) / 5,
-                          ),
-                          MyButton(
-                            text: "Notifications",
-                            iconData: Icons.notifications,
-                            height: (menuContainerHeight) / 5,
-                          ),
-                          MyButton(
-                            text: "Settings",
-                            iconData: Icons.settings,
-                            height: (menuContainerHeight) / 5,
-                          ),
-                          MyButton(
-                            text: "My Files",
-                            iconData: Icons.attach_file,
-                            height: (menuContainerHeight) / 5,
-                          ),
-                        ],
-                      ),
-                    ),
+                  ZoneButtonWidget(
+                    globalKey: widget.globalKey,
+                    menuContainerHeight: menuContainerHeight,
                   ),
                 ],
               ),
