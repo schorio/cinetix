@@ -1,3 +1,4 @@
+import 'package:cinetix/feature/sideBar/widget/avatar_widget.dart';
 import 'package:cinetix/feature/sideBar/widget/mybutton_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -39,35 +40,9 @@ class _SideBarScreenState extends State<SideBarScreen> {
               width: sidebarSize,
               child: Column(
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 80,
-                      left: 95,
-                      bottom: 10,
-                    ),
-                    child: SizedBox(
-                      height: mediaQuery.height * 0.25,
-                      child: Center(
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              radius: sidebarSize / 5,
-                              backgroundImage: const AssetImage(
-                                "assets/profile.jpg",
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            const Text(
-                              "RetroPortal Studio",
-                              style: TextStyle(
-                                color: Colors.black45,
-                                fontSize: 15,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  AvatarWidget(
+                    mediaQuery: mediaQuery,
+                    sidebarSize: sidebarSize,
                   ),
                   const Divider(
                     thickness: 1,
