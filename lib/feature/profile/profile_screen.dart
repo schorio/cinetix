@@ -1,4 +1,5 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/feature/profile/widget/info_profile_widget.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,12 @@ class ProfileScreen extends StatelessWidget {
                           width: 150,
                           height: 45,
                           child: ElevatedButton(
-                            onPressed: () => {},
+                            onPressed: () => {
+                              Navigator.pushNamed(
+                                context,
+                                AppRouteName.editProfile,
+                              )
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: tPrimaryColor,
                               side: BorderSide.none,
