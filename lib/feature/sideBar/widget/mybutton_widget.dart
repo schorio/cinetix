@@ -1,4 +1,3 @@
-import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
@@ -6,6 +5,7 @@ class MyButton extends StatelessWidget {
   final IconData iconData;
   final double height;
   final String route;
+  final Color iconColor;
 
   const MyButton({
     super.key,
@@ -13,6 +13,7 @@ class MyButton extends StatelessWidget {
     required this.iconData,
     required this.height,
     required this.route,
+    required this.iconColor,
   });
 
   @override
@@ -25,7 +26,8 @@ class MyButton extends StatelessWidget {
         children: <Widget>[
           Icon(
             iconData,
-            color: Colors.black45,
+            color: iconColor,
+            size: 27,
           ),
           const SizedBox(
             width: 15,
@@ -33,8 +35,8 @@ class MyButton extends StatelessWidget {
           Text(
             text,
             style: const TextStyle(
-              color: Colors.black45,
-              fontSize: 18,
+              color: Colors.black87,
+              fontSize: 17,
             ),
           ),
         ],

@@ -53,6 +53,7 @@ class _SideBarScreenState extends State<SideBarScreen> {
                   ZoneButtonWidget(
                     globalKey: widget.globalKey,
                     menuContainerHeight: menuContainerHeight,
+                    color: widget.themeColor,
                   ),
                 ],
               ),

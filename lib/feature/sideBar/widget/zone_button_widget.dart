@@ -7,10 +7,12 @@ class ZoneButtonWidget extends StatelessWidget {
     super.key,
     required this.globalKey,
     required this.menuContainerHeight,
+    required this.color,
   });
 
   final GlobalKey globalKey;
   final double menuContainerHeight;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -25,24 +27,28 @@ class ZoneButtonWidget extends StatelessWidget {
             MyButton(
               text: "Profile",
               iconData: Icons.person,
+              iconColor: color,
               height: (menuContainerHeight) / 5,
               route: AppRouteName.profile,
             ),
             MyButton(
               text: "Tickets",
               iconData: Icons.local_movies_sharp,
+              iconColor: color,
               height: (menuContainerHeight) / 5,
               route: AppRouteName.profile,
             ),
             MyButton(
               text: "Archives",
               iconData: Icons.assignment_rounded,
+              iconColor: color,
               height: (menuContainerHeight) / 5,
               route: AppRouteName.profile,
             ),
             MyButton(
               text: "Notifications",
               iconData: Icons.add_alert_rounded,
+              iconColor: color,
               height: (menuContainerHeight) / 5,
               route: AppRouteName.profile,
             ),
@@ -50,6 +56,7 @@ class ZoneButtonWidget extends StatelessWidget {
               text: "Deconnexion",
               iconData: Icons.logout_rounded,
               // iconData: Icons.power_off_rounded,
+              iconColor: color,
               height: (menuContainerHeight) / 5,
               route: AppRouteName.profile,
             ),
