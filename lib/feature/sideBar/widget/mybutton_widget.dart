@@ -1,15 +1,18 @@
+import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   final String text;
   final IconData iconData;
   final double height;
+  final String route;
 
   const MyButton({
     super.key,
     required this.text,
     required this.iconData,
     required this.height,
+    required this.route,
   });
 
   @override
@@ -36,7 +39,9 @@ class MyButton extends StatelessWidget {
           ),
         ],
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, route);
+      },
     );
   }
 }
