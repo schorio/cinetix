@@ -34,10 +34,10 @@ class AvatarWidget extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               const Text(
-                "RetroPortal Studio",
+                "@schorio",
                 style: TextStyle(
-                  color: Colors.black45,
-                  fontSize: 15,
+                  fontFamily: "Montserrat_2",
+                  fontSize: 22,
                 ),
               ),
             ],
