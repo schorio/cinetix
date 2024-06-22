@@ -1,4 +1,3 @@
-import 'package:cinetix/core/design/app_color.dart';
 import 'package:flutter/material.dart';
 
 class InfoProfileWidget extends StatelessWidget {
@@ -6,10 +5,13 @@ class InfoProfileWidget extends StatelessWidget {
     Key? key,
     required this.title,
     required this.icon,
+    required this.iconColor,
   }) : super(key: key);
 
   final String title;
   final IconData icon;
+  final Color iconColor;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -18,11 +20,11 @@ class InfoProfileWidget extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          color: MesCouleurs.primaire.withOpacity(0.1),
+          color: iconColor.withOpacity(0.1),
         ),
         child: Icon(
           icon,
-          color: MesCouleurs.primaire,
+          color: iconColor,
         ),
       ),
       title: Text(

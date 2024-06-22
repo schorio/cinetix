@@ -124,25 +124,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const SizedBox(height: 10),
 
                       /// -- MENU
-                      const InfoProfileWidget(
+                      InfoProfileWidget(
                         title: "TOVONIAINA Schorio Ignace",
                         icon: Icons.supervised_user_circle,
+                        iconColor: themeColor,
                       ),
-                      const InfoProfileWidget(
+                      InfoProfileWidget(
                         title: "457 bis Ankatso",
                         icon: Icons.home,
+                        iconColor: themeColor,
                       ),
-                      const InfoProfileWidget(
+                      InfoProfileWidget(
                         title: "+261 32 65 123 75",
                         icon: Icons.call,
+                        iconColor: themeColor,
                       ),
-                      const InfoProfileWidget(
+                      InfoProfileWidget(
                         title: "schorioignace@gmail.com",
                         icon: Icons.alternate_email,
+                        iconColor: themeColor,
                       ),
-                      const InfoProfileWidget(
+                      InfoProfileWidget(
                         title: "@schorio",
                         icon: Icons.verified_user,
+                        iconColor: themeColor,
                       ),
                     ],
                   ),
