@@ -103,6 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Navigator.pushNamed(
                               context,
                               AppRouteName.editProfile,
+                              arguments: themeColor,
                             )
                           },
                           style: ElevatedButton.styleFrom(

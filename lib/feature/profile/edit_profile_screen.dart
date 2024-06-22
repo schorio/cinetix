@@ -3,8 +3,21 @@ import 'package:cinetix/core/widget/title_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 
-class EditProfileScreen extends StatelessWidget {
+class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({Key? key}) : super(key: key);
+
+  @override
+  State<EditProfileScreen> createState() => _EditProfileScreenState();
+}
+
+class _EditProfileScreenState extends State<EditProfileScreen> {
+  late Color themeColor;
+
+  @override
+  void didChangeDependencies() {
+    themeColor = ModalRoute.of(context)!.settings.arguments as Color;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +34,10 @@ class EditProfileScreen extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const TitlePage(title: "Modifier le profile"),
+                TitlePage(
+                  title: "Modifier le profile",
+                  color: themeColor,
+                ),
                 const SizedBox(height: 15),
                 Padding(
                   padding: const EdgeInsets.all(20),
@@ -50,7 +66,7 @@ class EditProfileScreen extends StatelessWidget {
                               height: 35,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
-                                color: MesCouleurs.primaire,
+                                color: themeColor,
                               ),
                               child: const Icon(
                                 Icons.camera_alt,
@@ -106,7 +122,7 @@ class EditProfileScreen extends StatelessWidget {
                                 child: ElevatedButton(
                                   onPressed: () => {},
                                   style: ElevatedButton.styleFrom(
-                                      backgroundColor: MesCouleurs.primaire,
+                                      backgroundColor: themeColor,
                                       side: BorderSide.none,
                                       shape: const StadiumBorder()),
                                   child: const Text(
