@@ -2,6 +2,7 @@ import 'package:cinetix/feature/categorieFilter/categorie_filter_screen.dart';
 import 'package:cinetix/feature/enSalle/en_salle_screen.dart';
 import 'package:cinetix/feature/plus_film/plus_film_screen.dart';
 import 'package:cinetix/feature/prochainement/prochainement_screen.dart';
+import 'package:cinetix/feature/profile/profile_screen.dart';
 import 'package:cinetix/feature/reserverfilm/reserverfilm_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
@@ -91,6 +92,20 @@ class AppRoute {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, __, ___) => const CategorieFilterScreen(),
+          transitionDuration: const Duration(milliseconds: 550),
+          reverseTransitionDuration: const Duration(milliseconds: 550),
+          transitionsBuilder: (_, animation, __, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        );
+
+      case AppRouteName.profile:
+        return PageRouteBuilder(
+          settings: settings,
+          pageBuilder: (_, __, ___) => const ProfileScreen(),
           transitionDuration: const Duration(milliseconds: 550),
           reverseTransitionDuration: const Duration(milliseconds: 550),
           transitionsBuilder: (_, animation, __, child) {

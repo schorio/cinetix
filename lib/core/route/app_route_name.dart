@@ -6,4 +6,5 @@ class AppRouteName {
   static const String prochainement = "prochainement";
   static const String plusFilm = "plusFilm";
   static const String categorieFilter = "categorieFilter";
+  static const String profile = "profile";
 }
