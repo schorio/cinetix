@@ -42,7 +42,12 @@ class MyButton extends StatelessWidget {
         ],
       ),
       onPressed: () {
-        Navigator.pushNamed(context, route);
+        Color themeColor = iconColor;
+        Navigator.pushNamed(
+          context,
+          route,
+          arguments: themeColor,
+        );
       },
     );
   }

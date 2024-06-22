@@ -5,12 +5,24 @@ import 'package:cinetix/feature/profile/widget/info_profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  late Color themeColor;
+
+  @override
+  void didChangeDependencies() {
+    themeColor = ModalRoute.of(context)!.settings.arguments as Color;
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Color tPrimaryColor = MesCouleurs.primaire;
     return Scaffold(
       body: Stack(
         children: [
@@ -24,7 +36,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const TitlePage(title: "Profile"),
+                TitlePage(title: "Profile", color: themeColor),
                 const SizedBox(height: 15),
                 Padding(
                   padding: const EdgeInsets.all(20),
@@ -54,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
                               height: 35,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
-                                color: tPrimaryColor,
+                                color: themeColor,
                               ),
                               child: const Icon(
                                 Icons.edit_calendar_outlined,
@@ -94,7 +106,7 @@ class ProfileScreen extends StatelessWidget {
                             )
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: tPrimaryColor,
+                            backgroundColor: themeColor,
                             side: BorderSide.none,
                             shape: const StadiumBorder(),
                           ),
