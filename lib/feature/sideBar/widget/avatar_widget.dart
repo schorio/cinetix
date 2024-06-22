@@ -23,10 +23,13 @@ class AvatarWidget extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              CircleAvatar(
-                radius: sidebarSize / 5,
-                backgroundImage: const AssetImage(
-                  "assets/profile.jpg",
+              Hero(
+                tag: "assets/profile.jpg",
+                child: CircleAvatar(
+                  radius: sidebarSize / 5,
+                  backgroundImage: const AssetImage(
+                    "assets/profile.jpg",
+                  ),
                 ),
               ),
               const SizedBox(height: 20),

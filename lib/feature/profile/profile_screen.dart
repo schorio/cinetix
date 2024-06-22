@@ -37,10 +37,13 @@ class ProfileScreen extends StatelessWidget {
                             SizedBox(
                               width: 120,
                               height: 120,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(100),
-                                child: const Image(
-                                  image: AssetImage("assets/profile.jpg"),
+                              child: Hero(
+                                tag: "assets/profile.jpg",
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(100),
+                                  child: const Image(
+                                    image: AssetImage("assets/profile.jpg"),
+                                  ),
                                 ),
                               ),
                             ),
