@@ -201,6 +201,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               globalKey: globalKey,
               isMenuOpen: isMenuOpen,
               revMenuOpen: revMenuOpen,
+              themeColor: couleurDominant,
             ),
           ],
         ));

@@ -10,6 +10,7 @@ class SideBarScreen extends StatefulWidget {
     required this.globalKey,
     required this.isMenuOpen,
     required this.revMenuOpen,
+    required this.themeColor,
   });
 
   final AnimationController controllerSideBar;
@@ -17,6 +18,7 @@ class SideBarScreen extends StatefulWidget {
   final GlobalKey globalKey;
   final bool isMenuOpen;
   final Function(bool) revMenuOpen;
+  final Color themeColor;
 
   @override
   State<SideBarScreen> createState() => _SideBarScreenState();
@@ -60,9 +62,9 @@ class _SideBarScreenState extends State<SideBarScreen> {
               bottom: 20,
               child: IconButton(
                 enableFeedback: true,
-                icon: const Icon(
+                icon: Icon(
                   Icons.keyboard_backspace,
-                  color: Colors.black45,
+                  color: widget.themeColor,
                   size: 30,
                 ),
                 onPressed: () {
