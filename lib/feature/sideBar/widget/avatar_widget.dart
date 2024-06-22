@@ -5,16 +5,18 @@ class AvatarWidget extends StatelessWidget {
     Key? key,
     required this.mediaQuery,
     required this.sidebarSize,
+    required this.color,
   }) : super(key: key);
 
   final Size mediaQuery;
   final double sidebarSize;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 80,
+        top: 75,
         left: 95,
         bottom: 10,
       ),
@@ -33,11 +35,12 @@ class AvatarWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const Text(
+              Text(
                 "@schorio",
                 style: TextStyle(
-                  fontFamily: "Montserrat_2",
-                  fontSize: 22,
+                  fontFamily: "Montserrat_1",
+                  fontSize: 25,
+                  color: color,
                 ),
               ),
             ],

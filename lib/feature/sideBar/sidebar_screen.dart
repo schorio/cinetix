@@ -45,6 +45,7 @@ class _SideBarScreenState extends State<SideBarScreen> {
                   AvatarWidget(
                     mediaQuery: mediaQuery,
                     sidebarSize: sidebarSize,
+                    color: widget.themeColor,
                   ),
                   const Divider(
                     thickness: 1,
