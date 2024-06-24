@@ -8,4 +8,5 @@ class AppRouteName {
   static const String categorieFilter = "categorieFilter";
   static const String profile = "profile";
   static const String editProfile = "editProfile";
+  static const String listTicket = "listTicket";
 }

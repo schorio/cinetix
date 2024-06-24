@@ -5,6 +5,7 @@ import 'package:cinetix/feature/prochainement/prochainement_screen.dart';
 import 'package:cinetix/feature/profile/edit_profile_screen.dart';
 import 'package:cinetix/feature/profile/profile_screen.dart';
 import 'package:cinetix/feature/reserverfilm/reserverfilm_screen.dart';
+import 'package:cinetix/feature/ticket/ticket_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/feature/home/home_screen.dart';
@@ -121,6 +122,20 @@ class AppRoute {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, __, ___) => const EditProfileScreen(),
+          transitionDuration: const Duration(milliseconds: 550),
+          reverseTransitionDuration: const Duration(milliseconds: 550),
+          transitionsBuilder: (_, animation, __, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        );
+
+      case AppRouteName.listTicket:
+        return PageRouteBuilder(
+          settings: settings,
+          pageBuilder: (_, __, ___) => const TicketScreen(),
           transitionDuration: const Duration(milliseconds: 550),
           reverseTransitionDuration: const Duration(milliseconds: 550),
           transitionsBuilder: (_, animation, __, child) {
