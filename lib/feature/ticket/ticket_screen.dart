@@ -1,4 +1,5 @@
 import 'package:cinetix/core/widget/title_page.dart';
+import 'package:cinetix/feature/ticket/widget/list_ticket_widget.dart';
 import 'package:flutter/material.dart';
 
 class TicketScreen extends StatefulWidget {
@@ -23,7 +24,6 @@ class _TicketScreenState extends State<TicketScreen> {
       body: Padding(
         padding: EdgeInsets.only(
           top: MediaQuery.of(context).padding.top + 25,
-          bottom: 20,
         ),
         child: Column(
           children: [
@@ -31,6 +31,8 @@ class _TicketScreenState extends State<TicketScreen> {
               title: "Vos tickets",
               color: themeColor,
             ),
+            const SizedBox(height: 25),
+            const ListTicketWidget(),
           ],
         ),
       ),
