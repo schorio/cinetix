@@ -9,6 +9,14 @@ class TicketScreen extends StatefulWidget {
 }
 
 class _TicketScreenState extends State<TicketScreen> {
+  late Color themeColor;
+
+  @override
+  void didChangeDependencies() {
+    themeColor = ModalRoute.of(context)!.settings.arguments as Color;
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +26,11 @@ class _TicketScreenState extends State<TicketScreen> {
           bottom: 20,
         ),
         child: Column(
-          children: const [
-            TitlePage(title: "Vos tickets"),
+          children: [
+            TitlePage(
+              title: "Vos tickets",
+              color: themeColor,
+            ),
           ],
         ),
       ),
