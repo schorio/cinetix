@@ -1,6 +1,7 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/ticket_model.dart';
 import 'package:cinetix/feature/ticket/widget/pochette_widget.dart';
+import 'package:cinetix/feature/ticket/widget/ticket_details_widget.dart';
 import 'package:flutter/material.dart';
 
 class ListTicketWidget extends StatefulWidget {
@@ -48,6 +49,7 @@ class _ListTicketWidgetState extends State<ListTicketWidget> {
         children: [
           PochetteWidget(ticketItem: ticket),
           const SizedBox(width: 10),
+          TicketDetailsWidget(ticketItem: ticket),
         ],
       ),
     );
