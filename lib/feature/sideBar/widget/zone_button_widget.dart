@@ -36,7 +36,7 @@ class ZoneButtonWidget extends StatelessWidget {
               iconData: Icons.local_movies_sharp,
               iconColor: color,
               height: (menuContainerHeight) / 5,
-              route: AppRouteName.profile,
+              route: AppRouteName.listTicket,
             ),
             MyButton(
               text: "Archives",
