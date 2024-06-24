@@ -1,5 +1,6 @@
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/ticket_model.dart';
+import 'package:cinetix/feature/ticket/widget/pochette_widget.dart';
 import 'package:flutter/material.dart';
 
 class ListTicketWidget extends StatefulWidget {
@@ -45,19 +46,7 @@ class _ListTicketWidgetState extends State<ListTicketWidget> {
       width: MediaQuery.of(context).size.width,
       child: Row(
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width * 0.28,
-            height: MediaQuery.of(context).size.height * 0.17,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              image: DecorationImage(
-                image: AssetImage(
-                  ticket.film.assetImage,
-                ),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          PochetteWidget(ticketItem: ticket),
           const SizedBox(width: 10),
         ],
       ),
