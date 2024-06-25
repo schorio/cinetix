@@ -43,7 +43,7 @@ class ZoneButtonWidget extends StatelessWidget {
               iconData: Icons.assignment_rounded,
               iconColor: color,
               height: (menuContainerHeight) / 5,
-              route: AppRouteName.profile,
+              route: AppRouteName.archiveTicket,
             ),
             MyButton(
               text: "Notifications",
