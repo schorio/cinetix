@@ -32,7 +32,7 @@ class _TicketScreenState extends State<TicketScreen> {
               color: themeColor,
             ),
             const SizedBox(height: 25),
-            const ListTicketWidget(),
+            ListTicketWidget(color: themeColor),
           ],
         ),
       ),

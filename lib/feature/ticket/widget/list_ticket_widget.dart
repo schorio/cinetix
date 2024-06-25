@@ -6,8 +6,11 @@ import 'package:flutter/material.dart';
 
 class ListTicketWidget extends StatefulWidget {
   const ListTicketWidget({
+    required this.color,
     Key? key,
   }) : super(key: key);
+
+  final Color color;
 
   @override
   State<ListTicketWidget> createState() => _ListTicketWidgetState();
@@ -49,7 +52,10 @@ class _ListTicketWidgetState extends State<ListTicketWidget> {
         children: [
           PochetteWidget(ticketItem: ticket),
           const SizedBox(width: 10),
-          TicketDetailsWidget(ticketItem: ticket),
+          TicketDetailsWidget(
+            ticketItem: ticket,
+            color: widget.color,
+          ),
         ],
       ),
     );
