@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 class ListTicketWidget extends StatefulWidget {
   const ListTicketWidget({
     required this.color,
+    required this.resultat,
     Key? key,
   }) : super(key: key);
 
   final Color color;
+  final List<Ticket> resultat;
 
   @override
   State<ListTicketWidget> createState() => _ListTicketWidgetState();
@@ -26,12 +28,10 @@ class _ListTicketWidgetState extends State<ListTicketWidget> {
           right: 25,
           bottom: 18,
         ),
-        itemCount: lesTickets.length,
+        itemCount: widget.resultat.length,
         itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {},
-            child: ticketItem(context, lesTickets[index]),
-          );
+          Ticket ticket = widget.resultat[index];
+          return ticketItem(context, ticket);
         },
         separatorBuilder: (context, index) {
           return Divider(

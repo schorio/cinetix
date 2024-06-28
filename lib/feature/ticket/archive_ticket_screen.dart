@@ -1,3 +1,5 @@
+import 'package:cinetix/core/model/ticket_model.dart';
+import 'package:cinetix/core/widget/search_bar.dart';
 import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/feature/ticket/widget/list_ticket_widget.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,29 @@ class ArchiveTicketScreen extends StatefulWidget {
 
 class _ArchiveTicketScreenState extends State<ArchiveTicketScreen> {
   late Color themeColor;
+  List<Ticket> filmTrouver = [];
+
+  @override
+  void initState() {
+    filmTrouver = lesTickets;
+    super.initState();
+  }
+
+  void searchFilter(String entrer) {
+    List<Ticket> resultat = [];
+    if (entrer.isEmpty) {
+      resultat = lesTickets;
+    } else {
+      resultat = lesTickets
+          .where(
+            (element) => element.film.title.toLowerCase().contains(
+                  entrer.toLowerCase(),
+                ),
+          )
+          .toList();
+    }
+    filmTrouver = resultat;
+  }
 
   @override
   void didChangeDependencies() {
@@ -32,7 +57,15 @@ class _ArchiveTicketScreenState extends State<ArchiveTicketScreen> {
               color: themeColor,
             ),
             const SizedBox(height: 25),
-            ListTicketWidget(color: themeColor),
+            SearchBar(
+              onChanged: searchFilter,
+              color: themeColor,
+            ),
+            const SizedBox(height: 25),
+            ListTicketWidget(
+              color: themeColor,
+              resultat: filmTrouver,
+            ),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:cinetix/core/model/ticket_model.dart';
 import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/feature/ticket/widget/list_ticket_widget.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,10 @@ class _TicketScreenState extends State<TicketScreen> {
               color: themeColor,
             ),
             const SizedBox(height: 25),
-            ListTicketWidget(color: themeColor),
+            ListTicketWidget(
+              color: themeColor,
+              resultat: lesTickets,
+            ),
           ],
         ),
       ),
