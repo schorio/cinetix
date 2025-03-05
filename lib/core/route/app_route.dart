@@ -1,5 +1,7 @@
 import 'package:cinetix/feature/categorieFilter/categorie_filter_screen.dart';
 import 'package:cinetix/feature/enSalle/en_salle_screen.dart';
+import 'package:cinetix/feature/form_reserver/form_reserver.dart';
+import 'package:cinetix/feature/login/login_screen.dart';
 import 'package:cinetix/feature/plus_film/plus_film_screen.dart';
 import 'package:cinetix/feature/prochainement/prochainement_screen.dart';
 import 'package:cinetix/feature/profile/edit_profile_screen.dart';
@@ -7,6 +9,7 @@ import 'package:cinetix/feature/profile/profile_screen.dart';
 import 'package:cinetix/feature/reserverfilm/reserverfilm_screen.dart';
 import 'package:cinetix/feature/ticket/archive_ticket_screen.dart';
 import 'package:cinetix/feature/ticket/ticket_screen.dart';
+import 'package:cinetix/feature/ticket/ticket_view.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/feature/home/home_screen.dart';
@@ -15,10 +18,24 @@ import 'package:cinetix/feature/detailsfilm/detailsfilm_screen.dart';
 class AppRoute {
   static Route<dynamic>? generate(RouteSettings settings) {
     switch (settings.name) {
-      case AppRouteName.home:
+      case AppRouteName.login:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => const LoginPage(),
           settings: settings,
+        );
+
+      case AppRouteName.home:
+        return PageRouteBuilder(
+          settings: settings,
+          pageBuilder: (_, __, ___) => const HomeScreen(),
+          transitionDuration: const Duration(milliseconds: 550),
+          reverseTransitionDuration: const Duration(milliseconds: 550),
+          transitionsBuilder: (_, animation, __, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
         );
 
       case AppRouteName.detailsFilm:
@@ -39,6 +56,20 @@ class AppRoute {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, __, ___) => const ReserverFilm(),
+          transitionDuration: const Duration(milliseconds: 550),
+          reverseTransitionDuration: const Duration(milliseconds: 550),
+          transitionsBuilder: (_, animation, __, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        );
+
+      case AppRouteName.formVerification:
+        return PageRouteBuilder(
+          settings: settings,
+          pageBuilder: (_, __, ___) => const FormVerification(),
           transitionDuration: const Duration(milliseconds: 550),
           reverseTransitionDuration: const Duration(milliseconds: 550),
           transitionsBuilder: (_, animation, __, child) {
@@ -151,6 +182,20 @@ class AppRoute {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, __, ___) => const ArchiveTicketScreen(),
+          transitionDuration: const Duration(milliseconds: 550),
+          reverseTransitionDuration: const Duration(milliseconds: 550),
+          transitionsBuilder: (_, animation, __, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        );
+
+      case AppRouteName.ticketView:
+        return PageRouteBuilder(
+          settings: settings,
+          pageBuilder: (_, __, ___) => const TicketView(),
           transitionDuration: const Duration(milliseconds: 550),
           reverseTransitionDuration: const Duration(milliseconds: 550),
           transitionsBuilder: (_, animation, __, child) {

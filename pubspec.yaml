@@ -42,6 +42,8 @@ dependencies:
   flutter_blurhash: ^0.6.0
   animate_do: ^3.0.2
   palette_generator: ^0.3.3+2
+  iconsax: any
+  ticket_widget: any
 
 dev_dependencies:
   flutter_test:

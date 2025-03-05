@@ -57,14 +57,14 @@ class _ArchiveTicketScreenState extends State<ArchiveTicketScreen> {
               color: themeColor,
             ),
             const SizedBox(height: 25),
-            SearchBar(
+            MySearchBar(
               onChanged: searchFilter,
               color: themeColor,
             ),
             const SizedBox(height: 25),
             ListTicketWidget(
               color: themeColor,
-              resultat: filmTrouver,
+              resultat: lesTicketss,
             ),
           ],
         ),

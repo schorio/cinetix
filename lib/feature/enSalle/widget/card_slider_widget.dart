@@ -1,5 +1,4 @@
 import 'dart:ui' as ui;
-import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/feature/detailsfilm/widget/evaluation_widget.dart';

@@ -1,4 +1,5 @@
 import 'package:cinetix/core/design/app_color.dart';
+import 'package:cinetix/core/route/app_route_name.dart';
 import 'package:cinetix/core/widget/title_page.dart';
 import 'package:cinetix/feature/reserverfilm/widget/date_widget.dart';
 import 'package:cinetix/feature/reserverfilm/widget/place_widget.dart';
@@ -69,7 +70,13 @@ class _ReserverFilmState extends State<ReserverFilm> {
             bottom: 10,
             left: 117,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  AppRouteName.formVerification,
+                  arguments: couleurDominant,
+                );
+              },
               child: Container(
                 height: 45,
                 width: 155,

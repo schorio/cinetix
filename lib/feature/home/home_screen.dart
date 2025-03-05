@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       revMenuOpen: revMenuOpen,
                     ),
                   ),
-                  SearchBar(
+                  MySearchBar(
                     color: couleurDominant,
                     onChanged: (none) {},
                   ),

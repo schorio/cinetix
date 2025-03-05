@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: "CinéTix",
       themeMode: ThemeMode.light,
       theme: ThemeData(fontFamily: 'Montserrat_3'),
-      initialRoute: AppRouteName.home,
+      initialRoute: AppRouteName.login,
       onGenerateRoute: AppRoute.generate,
     );
   }

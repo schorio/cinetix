@@ -14,38 +14,10 @@ class Ticket {
 
 List<Ticket> lesTickets = [
   Ticket(
-    film: prochainement[0],
-    places: ["A5", "B8", "A2"],
-    valider: true,
-  ),
-  Ticket(
-    film: prochainement[3],
-    places: ["A5", "A5"],
+    film: enProjection[0],
+    places: ["A33", "A33"],
     valider: false,
-  ),
-  Ticket(
-    film: prochainement[1],
-    places: ["A3", "B2"],
-    valider: true,
-  ),
-  Ticket(
-    film: prochainement[0],
-    places: ["B7", "A8"],
-    valider: true,
-  ),
-  Ticket(
-    film: prochainement[2],
-    places: ["A5", "B8", "A2"],
-    valider: false,
-  ),
-  Ticket(
-    film: prochainement[1],
-    places: ["A5", "B6", "A1"],
-    valider: false,
-  ),
-  Ticket(
-    film: prochainement[3],
-    places: ["A5", "A9"],
-    valider: true,
   ),
 ];
+
+List<Ticket> lesTicketss = [];

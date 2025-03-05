@@ -159,7 +159,7 @@ List<Film> enProjection = [
     synopsis:
         "A fanboy of a supervillain supergroup known as the Vicious 6, Gru hatches a plan to become evil enough to join them, with the backup of his followers, the Minions.",
     isPlaying: true,
-    trailer: "assets/trailer/trailer.mp4",
+    trailer: "assets/trailer/minions.mp4",
     commentaires: coms,
     date: dateReservation,
   ),

@@ -1,4 +1,3 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:cinetix/core/design/app_color.dart';
 import 'package:cinetix/core/model/film_model.dart';
 import 'package:flutter/material.dart';

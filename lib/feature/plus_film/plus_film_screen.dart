@@ -56,7 +56,7 @@ class _PlusFilmScreenState extends State<PlusFilmScreen> {
               children: [
                 const TitlePage(title: "Plus de film"),
                 const SizedBox(height: 20),
-                SearchBar(onChanged: searchFilter),
+                MySearchBar(onChanged: searchFilter),
                 ListFilmWidget(resultat: filmTrouver),
               ],
             ),

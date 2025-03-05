@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cinetix/core/design/app_color.dart';
 
-class SearchBar extends StatefulWidget {
-  const SearchBar({
+class MySearchBar extends StatefulWidget {
+  const MySearchBar({
     Key? key,
     required this.onChanged,
     this.color = MesCouleurs.primaire,
@@ -12,10 +12,10 @@ class SearchBar extends StatefulWidget {
   final Function(String) onChanged;
 
   @override
-  State<SearchBar> createState() => _SearchBarState();
+  State<MySearchBar> createState() => _MySearchBarState();
 }
 
-class _SearchBarState extends State<SearchBar> {
+class _MySearchBarState extends State<MySearchBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(

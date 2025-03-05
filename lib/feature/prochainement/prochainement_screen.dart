@@ -79,7 +79,7 @@ class _ProchainementScreenState extends State<ProchainementScreen>
               children: [
                 const TitlePage(title: "Prochainement"),
                 const SizedBox(height: 20),
-                SearchBar(onChanged: searchFilter),
+                MySearchBar(onChanged: searchFilter),
                 const SizedBox(height: 5),
                 TitleTabBar(
                   tabController: tabController,
